@@ -1,0 +1,52 @@
+* {
+  font-family: "Montserrat";
+}
+
+.ProductPageMain .ProductPageHead .PageHeadContent {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  display: flex;
+  place-items: center;
+}
+.ProductPageMain .ProductPageHead .PageHeadContent h1 {
+  font-size: 3.5rem;
+  font-weight: 700;
+  width: 60rem;
+}
+.ProductPageMain .ProductPageHead .PageHeadContent p {
+  width: 35rem;
+}
+.ProductPageMain .ProductPageHead .PageHeadCards .PageCards #Subcard2 {
+  transform: rotate(-5deg);
+  position: relative;
+  left: 0.85rem !important;
+}
+.ProductPageMain .ProductPageHead .PageHeadCards .PageCards #Subcard4 {
+  transform: rotate(-5deg);
+  position: relative;
+  left: -0.65rem !important;
+}
+.ProductPageMain .ProductPageHead .PageHeadCards .PageCards #Subcard3 {
+  transform: rotate(7deg);
+  position: relative;
+  left: 0.8rem !important;
+}
+.ProductPageMain .ProductPageHead .PageHeadCards .PageCards .CardBackShadow {
+  position: absolute;
+  top: 0rem;
+  left: 0rem;
+  z-index: -1;
+  border-radius: 1.2em;
+  width: 15rem;
+  height: 15rem;
+  background-color: #F4F4F4;
+}
+.ProductPageMain .ProductPageHead .PageHeadCards #PageCard2 {
+  position: relative;
+  top: 10rem;
+}
+.ProductPageMain .ProductPageHead .PageHeadCards #PageCard4 {
+  position: relative;
+  top: 10rem;
+}/*# sourceMappingURL=wedo.css.map */

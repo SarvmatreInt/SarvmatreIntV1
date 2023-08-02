@@ -1,0 +1,86 @@
+// // @import "../../globalcss/global.scss";
+
+// * {
+//     // background-color: aqua;
+//     font-family: "Montserrat";
+// }
+
+// .ProductPageMain{
+//     .ProductPageHead{
+//         .PageHeadContent{
+//             display: flex;
+//             flex-direction: column;
+//             text-align: center;
+//             display: flex;
+//             // place-content: center;
+//             place-items: center ;
+//             h1{
+//                 // color: $secondarycolor;
+//                 font-size: 3.5rem;
+//                 font-weight: 700;
+//                 width: 60rem;
+//             }
+//             p{
+//                 width: 35rem;
+//             }
+//         }
+//         .PageHeadCards{
+//             // position: relative;
+//             // margin: 5rem auto;
+//             // display: grid;
+//             // gap: 0rem;
+//             // grid-template-columns: 20rem 20rem 20rem 20rem;
+//             // margin-left: 2rem;
+//             // place-content: center;
+//             .PageCards-Line{
+//                 // position: absolute;
+//                 svg{
+//                     // position: relative;
+//                     // top: 2rem;
+//                     // left: -0.5rem;
+//                     // opacity: 25%;
+//                     // transform: rotate(2.5deg);
+//                     // position: absolute;
+//                     // width: 100rem;
+//                 }
+//             }
+//             .PageCards{
+//                 .PageSubCard1{
+
+//             }
+//             #Subcard2 {
+//                 transform: rotate(-5deg);
+//                 position: relative;
+//                 left: 0.85rem !important;
+//             }
+//             #Subcard4 {
+//                 transform: rotate(-5deg);
+//                 position: relative;
+//                 left: -0.65rem !important;
+//             }
+//             #Subcard3{
+//                 transform: rotate(7deg);
+//                 position: relative;
+//                 left: 0.8rem !important;
+//             }
+//             .CardBackShadow{
+//                 position: absolute;
+//                 top: 0rem;
+//                 left: 0rem;
+//                 z-index: -1;
+//                 border-radius: 1.2em;
+//                 width: 15rem;
+//                 height: 15rem;
+//                 background-color: #F4F4F4;
+//             }
+//         }
+//         #PageCard2{
+//             position: relative;
+//             top: 10rem;
+//         }
+//         #PageCard4{
+//             position: relative;
+//             top: 10rem;
+//         }
+//         }
+//     }}
