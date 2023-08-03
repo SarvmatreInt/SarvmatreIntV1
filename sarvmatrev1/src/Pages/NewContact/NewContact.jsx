@@ -6,11 +6,11 @@ import NewContactHeader from "./Components/NewContactHeader/NewContactHeader";
 const NewContact = () => {
   return (
     <div>
-      <div>
+      <div className="flex flex-col lg:flex-row ">
         <NewContactHeader />
         <NewContactForm />
       </div>
-      <div className="md:h-[1050px]" />
+      <div className="" />
       <ContactTeam />
       <FAQ />
     </div>

@@ -1,63 +1,90 @@
+import logo from "./logo.png";
+import logo2 from "./logo2.png";
+import menu from "./menu.png";
+import menu2 from "./menu2.png";
 import "./Navbar.css";
-import { Link } from 'react-router-dom';
-import Logo from "./Image/Asset 1.png"
+import { useState } from "react";
+import { NavLink, useLocation } from "react-router-dom";
 
-
-export const Navbar = () =>{
-      
-var  openNav = ()=>{
-    var lastScrollTop = 0;
-    var  navbar = document.getElementById("navbar");
-    window.addEventListener("scroll", function(){
-        var scrollTop = window.pageYOffset || document.createElement.scrollTop;
-    if(scrollTop > lastScrollTop){
-        navbar.style.top="80px";
-    }else{
-        navbar.style.top="0";  
-    }lastScrollTop=scrollTop    
-})
-}
-
-return(
-        <>
-    <nav className="navbar navbar-expand-sm navbar-light" onScroll={openNav}>
-        <div className="container" data-aos="fade-down">
-            <Link className="navbar-brand" to="/"> <img src={Logo} alt="" /></Link>
-
-            <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false"
-                aria-label="Toggle navigation">
-                <span className="navbar-toggler-icon"></span>
-                <span className="navbar-toggler-icon"></span>
-                <span className="navbar-toggler-icon"></span>
-            </button>
-
-            <div className="collape navbar-collapse" id="navbarNav">
-                <ul className="navbar-nav mx-auto ">
-                    <li className="nav-item">
-                        <Link to="/" className="nav-link"><span data-hover="Home" className="">Home</span></Link>
-                    </li><li className="nav-item">
-                        <Link to="../../AboutMe/AboutMe" className="nav-link"><span data-hover="About">About</span></Link>
-                    </li>
-                    <li className="nav-item">
-                        <Link to="/project" className="nav-link"><span data-hover="Projects">Projects</span></Link>
-                    </li>
-                    <li className="nav-item">
-                        <Link to="/resume" className="nav-link"><span data-hover="Resume">Resume</span></Link>
-                    </li>
-
-                </ul>
-
-                <ul className="navbar-nav ml-lg-5">
-                      <Link to="/contact" className="nav-link"><span data-hover="Contact">Contact</span></Link>
-                </ul>
-            </div>
+const Navbar = () => {
+  const location = useLocation();
+  const [toggle, setToggle] = useState(false);
+  const toggleHandler = () => {
+    setToggle(!toggle);
+  };
+  return (
+    <div className="flex-col   bg-[#F7FCFC]  fixed w-[100%] z-10 ">
+      <div className="flex container justify-between items-center z-10">
+        <div className="logo py-3 z-10">
+          <img
+            src={logo}
+            alt="logo"
+            className={`h-10 md:h-14`}
+          />
         </div>
-    </nav>
-    
-        </>
-        
-    )
+        <div className="pt-5 z-10" onClick={toggleHandler}>
+          <img
+            src={
+              location.pathname === "/" || location.pathname === "/newContact"
+                ? menu
+                : menu2
+            }
+            alt="menuIcon"
+            className="md:hidden z-10"
+          />
+        </div>
+        <div
+          className={`hidden md:flex md:flex-row z-10 font-bold text-black `}
+        >
+          <div className="navItem mx-3">
+            <NavLink exact="true" to="/">
+              HOME
+            </NavLink>
+          </div>
+          <div className="navItem mx-3">
+            <NavLink to="/about">ABOUT</NavLink>
+          </div>
+          <div className="navItem mx-3">
+            <NavLink to="/career">CAREER</NavLink>
+          </div>
+          <div className="navItem mx-3">
+            <NavLink to="/invester">INVESTER</NavLink>
+          </div>
+          <div className="navItem ml-3">
+            <NavLink to="/contact">CONTACT US</NavLink>
+          </div>
+        </div>
+      </div>
+      {toggle && (
+        <div
+          className={`md:hidden flex flex-col items-center relative z-10 ${
+            location.pathname === "/" || location.pathname === "/newContact"
+              ? "text-white"
+              : "text-black"
+          }`}
+        >
+          <div className="navItem" onClick={toggleHandler}>
+            <NavLink exact="true" to="/">
+              HOME
+            </NavLink>
+          </div>
+          <div className="navItem" onClick={toggleHandler}>
+            <NavLink to="/about">ABOUT</NavLink>
+          </div>
+          <div className="navItem" onClick={toggleHandler}>
+            <NavLink to="/career">CAREER</NavLink>
+          </div>
+          <div className="navItem" onClick={toggleHandler}>
+            <NavLink to="/bloghome">BLOG</NavLink>
+          </div>
+          <div className="navItem" onClick={toggleHandler}>
+            <NavLink to="/contact">CONTACT US</NavLink>
+          </div>
+        </div>
+      )}
+        <hr />
+    </div>
+  );
+};
 
-}
-
-export default Navbar
+export default Navbar;

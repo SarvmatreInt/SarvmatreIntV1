@@ -48,9 +48,9 @@ const NewContactForm = () => {
 
   return (
     <>
-      <div className=" w-[100vw] md:w-[60vw] absolute md:right-0 md:top-0 md:h-[1150px] pt-[50px] md:pt-[120px]">
-        <div className="w-[95%] md:w-[80%] md:ml-[50px] mx-auto md:mr-auto max-w-[774px]">
-          <h1 className="text-[40px] md:text-[50px]">Contact us</h1>
+      <div className="flex-1 p-4">
+        <div className="w-[95%] md:w-[80%] md:ml-[50px]">
+          <h1 className="text-[40px] font-bold md:text-[50px]">Contact us</h1>
           <form className="mt-8" onSubmit={handleSubmit}>
             <Input
               name="fullName"
@@ -260,7 +260,6 @@ const NewContactForm = () => {
           </form>
         </div>
       </div>
-      <div className="h-[1300px] md:h-[0px]" />
     </>
   );
 };
