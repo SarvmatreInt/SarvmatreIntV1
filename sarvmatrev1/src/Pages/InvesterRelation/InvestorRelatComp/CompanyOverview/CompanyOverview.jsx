@@ -18,30 +18,32 @@ const CompanyOverview = () => {
   return (
     <div>
     <div className='container'>
-         <div className='py-10'>
-            <h1 className='text-4xl text-center font-bold'>Company Overview</h1>
+         <div className='pt-32 pb-24'>
+            <h1 className='text-6xl text-center font-bold'>Company Overview</h1>
          </div>
          <div>
-         <hr />
+         <hr className='pb-3'/>
             <div className='flex flex-row justify-center gap-5 '>
+
                 <div>
-                    <button className='button-27' onClick={()=>serOverview(1)}>values</button>
+                    <button className='button-17' onClick={()=>serOverview(1)}>Our History</button>
                 </div>
                 <div>
-                    <button className='button-27' onClick={()=>serOverview(2)}>values</button>
+                    <button className='button-17' onClick={()=>serOverview(2)}>Recognitions</button>
                 </div>
                 <div>
-                    <button className='button-27' onClick={()=>serOverview(3)}>values</button>
+                    <button className='button-17' onClick={()=>serOverview(3)}>Our Values</button>
                 </div>
                 <div>
-                    <button className='button-27' onClick={()=>serOverview(4)}>values</button>
+                    <button className='button-17' onClick={()=>serOverview(4)}>Our History</button>
                 </div>
                 <div>
-                    <button className='button-27' onClick={()=>serOverview(5)}>values</button>
+                    <button className='button-17' onClick={()=>serOverview(5)}>What we Offer</button>
                 </div>
             </div>
-            <hr />
          </div>
+         <hr className='mt-3'
+         />
     </div>
       {
         ShowOverview(currentOve)

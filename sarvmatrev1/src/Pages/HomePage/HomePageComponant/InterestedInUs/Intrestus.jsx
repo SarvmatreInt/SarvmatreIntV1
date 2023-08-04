@@ -3,18 +3,18 @@ const Intrestus = () => {
   return (
     <div className="p-36">
       <div className="container">
-        <div className="flex flex-col-reverse lg:flex-row  justify-center border-2 border-black rounded-xl py-2">
-          <div className="flex-1 px-5 flex flex-col justify-center">
+        <div className="flex bg-newsletter flex-col-reverse lg:flex-row  justify-center rounded-xl py-2">
+          <div className="flex-1 px-5 flex flex-col justify-center ">
             <div>
-              <h1 className="text-4xl py-2 font-bold">Explore our services range</h1>
+              <h1 className="text-4xl py-2 font-bold ">Explore our services range</h1>
             </div>
-            <p className="text-xl pb-4">
+            <p className="text-xl pb-4 ">
               Lorem ipsum, dolor sit amet consectetur adipisicing elit.
               Molestiae ab perspiciatis quo vel alias nesciunt, quae recusandae
               numquam dolores nihil?
             </p>
             <div>
-              <button className="button-27">View All Services</button>
+              <button className="button-17">View All Services</button>
             </div>
           </div>
           <div className="flex-1 flex justify-center">

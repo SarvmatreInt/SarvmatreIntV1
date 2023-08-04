@@ -19,7 +19,7 @@ const SchedMeet = () => {
                     <h1>!</h1>
                 </div>
                 <div>
-                    <button className="button-27">Submit</button>
+                    <button className="button-17">Submit</button>
                 </div>
             </form>
             </div>

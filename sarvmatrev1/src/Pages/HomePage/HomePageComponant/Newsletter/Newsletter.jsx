@@ -1,32 +1,31 @@
 import wire from "./Mask Group.png"
 const Newsletter = () => {
   return (
-    <div className="py-36">
-      <div className="container">
-        <div className="border border-black py-20 sm:px-20 rounded-xl bg-newsletter relative">
+    <div className=" bg-[#29bab1]">
+      <div className="">
+        <div className="py-20 sm:px-20 rounded-xl bg-[#29BAB1] relative">
         <img src={wire} className="absolute right-0 top-0" alt="" />
           <div className="flex justify-center  ">
-            <h1 className="text-center text-2xl w-full lg:text-5xl font-bold lg:w-3/4 ">
+            <h1 className="text-center text-white text-2xl w-full lg:text-5xl font-bold lg:w-3/4 ">
               Subscribe to get information, latest news and other interesting
-              offers about Sarvmatre
+              updates about Sarvmatre
             </h1>
           </div>
-
-          <div className=" py-10 ">
+          <div className="pt-5 ">
             <div className="w-full">
               <form
                 action=""
-                className="  w-full flex justify-center gap-3" 
+                className="  w-full flex justify-center " 
               >
-              <div>
+              <div className="w-[30%]">
                 <input
                   type="email"
-                  className="border border-black p-3 text-xl rounded-xl"
+                  className="w-[100%] border border-black p-[15px] text-xl rounded-l-xl"
                   placeholder="Your mail"
                 />
               </div>
                 <div className="">
-                  <button className="button-27">Submit</button>
+                  <button className="button-27 rounded-r-xl rounded-l-sm">Subscribe</button>
                 </div>
               </form>
             </div>

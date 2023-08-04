@@ -72,10 +72,10 @@ const InvesterSumm = () => {
     },
   ];
   return (
-    <div>
+    <div className="bg-[#beeae7] py-32">
       <div className="container">
         <div >
-          <h1 className="text-5xl text-center font-bold py-10">Latest Updates</h1>
+          <h1 className="text-6xl text-center font-bold py-10">Latest Updates</h1>
         </div>
         <div className="flex pt-24">
           <div className="flex-1 ">
@@ -109,9 +109,13 @@ const InvesterSumm = () => {
             </div>
           </div>
           <div className="flex-1">
+          <div className="flex justify-center items-center w-[100%]">
+              <div className="">
             {
               PreviewComp(preview)
             }
+              </div>
+          </div>
           </div>
         </div>
       </div>

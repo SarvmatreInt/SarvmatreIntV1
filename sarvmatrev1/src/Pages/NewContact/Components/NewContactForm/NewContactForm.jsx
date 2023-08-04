@@ -48,7 +48,7 @@ const NewContactForm = () => {
 
   return (
     <>
-      <div className="flex-1 p-4">
+      <div className="flex-1 p-4 bg-[#beeae771]">
         <div className="w-[95%] md:w-[80%] md:ml-[50px]">
           <h1 className="text-[40px] font-bold md:text-[50px]">Contact us</h1>
           <form className="mt-8" onSubmit={handleSubmit}>
