@@ -48,7 +48,7 @@ const partnersrow3 = [
 
 const BecomeOurPartner = () => {
   return (
-    <div className="py-36">
+    <div className="xl:py-36">
       <div className="container">
         <div>
           <div className="flex  gap-5 flex-col  ">
