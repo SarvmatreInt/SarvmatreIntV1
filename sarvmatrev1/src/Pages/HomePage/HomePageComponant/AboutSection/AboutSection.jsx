@@ -16,11 +16,11 @@ const AboutSection = () => {
           {/* <img className='bob1' src={bob} alt="" /> */}
           <div className="aboutHome flex flex-col lg:flex-row mt-36 mb-36 sm:gap-5 gap-11 ">
             <div className="aboutimg flex justify-center flex-1">
-              <img src={Me} alt="" className="w-[60%] object-contain" />
+              <img src={Me} alt="" data-aos="fade-right" className="w-[60%] object-contain" />
             </div>
             <div
               className="about-homecontent flex flex-col flex-1 justify-center"
-              data-aos="fade-lef"
+              data-aos="fade-left"
             >
               <h3 className="text-3xl font-bold max-w-fit mb-3 py-2 px-6 bg-[#2ea990] text-white rounded-md ">
                 About us
