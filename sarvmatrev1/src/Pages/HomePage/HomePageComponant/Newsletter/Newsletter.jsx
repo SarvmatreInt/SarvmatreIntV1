@@ -1,8 +1,8 @@
 import wire from "./Mask Group.png"
 const Newsletter = () => {
   return (
-    <div className=" bg-[#29bab1]">
-      <div className="">
+    <div className="bg-[#29bab1]">
+      <div className="mx-2">
         <div className="py-20 sm:px-20 rounded-xl bg-[#29BAB1] relative">
         <img src={wire} className="absolute right-0 top-0" alt="" />
           <div className="flex justify-center  ">
@@ -12,21 +12,13 @@ const Newsletter = () => {
             </h1>
           </div>
           <div className="pt-5 ">
-            <div className="w-full">
+            <div className="w-full mx-2">
               <form
                 action=""
-                className="  w-full flex justify-center " 
+                className="w-[90%] max-w-[800px] mx-auto flex flex-col md:flex-row gap-3" 
               >
-              <div className="w-[30%]">
-                <input
-                  type="email"
-                  className="w-[100%] border border-black p-[15px] text-xl rounded-l-xl"
-                  placeholder="Your mail"
-                />
-              </div>
-                <div className="">
-                  <button className="button-27 rounded-r-xl rounded-l-sm">Subscribe</button>
-                </div>
+                <input type="email" placeholder="xyz@mail.com" className="p-2 pl-3 rounded-xl w-full"/>
+                <button type="submit" className="bg-black max-w-fit px-3 py-2 text-white rounded-xl">Submit</button>
               </form>
             </div>
           </div>

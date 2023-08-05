@@ -1,9 +1,9 @@
 import businessdisc from "./Business Discussion.png";
 const Intrestus = () => {
   return (
-    <div className="p-36">
+    <div className="py-36">
       <div className="container">
-        <div className="flex bg-newsletter flex-col-reverse lg:flex-row  justify-center rounded-xl py-2">
+        <div className="flex bg-newsletter flex-col-reverse lg:flex-row  justify-center rounded-xl py-8">
           <div className="flex-1 px-5 flex flex-col justify-center ">
             <div>
               <h1 className="text-4xl py-2 font-bold ">Explore our services range</h1>

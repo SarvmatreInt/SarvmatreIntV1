@@ -121,7 +121,7 @@ const Footer = () => {
 	return (
 		<div className=" bg-gradient-to-r bg-primary1  absolute w-full left-0">
 			<div className="max-w-7xl my-0 mx-auto px-[1rem] pt-[3.47rem] pb-[1rem] lg:flex gap-5 relative">
-				<img src={footerdesign} alt="" className="absolute -right-[20%] max-w-[200px]  z-[1] top-[-65px]"/>
+				{/* <img src={footerdesign} alt="" className="absolute right-[5%] max-w-[200px]  z-[-1] top-0"/> */}
 				<div className="flex flex-col gap-2 max-w-xs">
 					<img src={logo} alt="" className="max-w-[150px]"/>
 					<p className="text-sm text-white">
