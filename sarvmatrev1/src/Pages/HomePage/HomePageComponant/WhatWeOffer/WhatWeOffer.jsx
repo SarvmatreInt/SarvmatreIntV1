@@ -34,7 +34,7 @@ const WhatWeOffer = () => {
   return (
     <div className="bg-[#BEEAE7]">
       <div className="container pt-[100px]">
-        <h1 className="font-bold  text-left text-5xl sm:text-6xl pb-16 text-[#000000]">
+        <h1 className="font-bold  text-center text-5xl sm:text-6xl pb-16 text-[#000000]">
           What We Offer
         </h1>
         <div className="flex sm:flex-row flex-col w-full">
