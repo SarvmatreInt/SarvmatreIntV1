@@ -40,7 +40,7 @@ const AboutMisVis = () => {
                     <div className="flex py-3 justify-center items-center">
                       <img className="w-full" src={logo} alt="" />
                     </div>
-                    <div className="border-2  border-black rounded-xl p-4">
+                    <div className="border-2 border-black rounded-xl p-4 w-[100%]">
                       <h1 className="text-5xl font-bold pb-4">{item.title}</h1>
                       <p className="text-xl">{item.content}</p>
                     </div>

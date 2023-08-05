@@ -3,10 +3,10 @@
 @tailwind utilities;
 
 
-a:hover{
+a:hover {
   text-decoration: none;
-  color:#EAF0CE ;
-} 
+  color: #EAF0CE;
+}
 
 /* :root {
   font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
@@ -71,12 +71,24 @@ button:focus-visible {
     background-color: #f9f9f9;
   }
 } */
-html{
+html {
   height: 100%;
   margin: 0;
   padding: 0;
 }
+
 body {
   margin: 0;
   padding: 0;
+}
+
+.flag-dropdown {
+  border-radius: 0 !important;
+}
+
+.form-control:focus,
+.form-control:active {
+  outline-style: none;
+  box-shadow: none;
+  border-bottom: 2px solid rgb(55, 61, 81) !important;
 }

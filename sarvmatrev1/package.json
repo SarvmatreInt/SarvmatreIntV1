@@ -12,6 +12,8 @@
   "dependencies": {
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
+    "react-phone-input-2": "^2.15.1",
+    "react-router-dom": "^6.14.2",
     "rellax": "^1.12.1",
     "rolly.js": "^0.4.0"
   },

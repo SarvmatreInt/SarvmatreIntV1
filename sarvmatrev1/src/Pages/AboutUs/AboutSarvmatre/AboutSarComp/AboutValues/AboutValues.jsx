@@ -64,9 +64,9 @@ const AboutValues = () => {
               {valueData.map((data, index) => (
                 <div
                   key={index}
-                  className="w-[400px] text-center border-2 border-black p-3 rounded-xl"
+                  className="w-[400px] text-center border-2 border-black p-1 rounded-xl shadow-xl"
                 >
-                  <div className="border-2 border-black  p-4 rounded-xl relative">
+                  <div className="p-4 rounded-xl relative">
                     <div className="flex justify-center absolute -top-[24%] left-[40%]">
                       <div className="border-2 border-red-900 rounded-[50%]">
                         <img
@@ -77,12 +77,12 @@ const AboutValues = () => {
                       </div>
                     </div>
                     <div>
-                      <h1 className="text-3xl font-medium py-3">
+                      <h1 className="text-3xl font-medium py-2">
                         {data.title}
                       </h1>
                     </div>
                     <div>
-                      <p>{data.description}</p>
+                      <p className="h-[80px]">{data.description}</p>
                     </div>
                   </div>
                 </div>

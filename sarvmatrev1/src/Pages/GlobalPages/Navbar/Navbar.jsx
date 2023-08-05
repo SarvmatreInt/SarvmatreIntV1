@@ -7,31 +7,18 @@ import { useState } from "react";
 import { NavLink, useLocation } from "react-router-dom";
 
 const Navbar = () => {
-  const location = useLocation();
   const [toggle, setToggle] = useState(false);
   const toggleHandler = () => {
     setToggle(!toggle);
   };
   return (
-    <div className="flex-col   bg-[#F7FCFC]  fixed w-[100%] z-10 ">
+    <div className="flex-col bg-[#F7FCFC] z-10 fixed top-0 w-[100%]">
       <div className="flex container justify-between items-center z-10">
         <div className="logo py-3 z-10">
-          <img
-            src={logo}
-            alt="logo"
-            className={`h-10 md:h-14`}
-          />
+          <img src={logo} alt="logo" className={`h-10 md:h-14`} />
         </div>
-        <div className="pt-5 z-10" onClick={toggleHandler}>
-          <img
-            src={
-              location.pathname === "/" || location.pathname === "/newContact"
-                ? menu
-                : menu2
-            }
-            alt="menuIcon"
-            className="md:hidden z-10"
-          />
+        <div className="z-10" onClick={toggleHandler}>
+          <img src={menu2} alt="menuIcon" className="md:hidden z-10" />
         </div>
         <div
           className={`hidden md:flex md:flex-row z-10 font-bold text-black `}
@@ -57,11 +44,7 @@ const Navbar = () => {
       </div>
       {toggle && (
         <div
-          className={`md:hidden flex flex-col items-center relative z-10 ${
-            location.pathname === "/" || location.pathname === "/newContact"
-              ? "text-white"
-              : "text-black"
-          }`}
+          className={`md:hidden flex flex-col items-center relative z-10 ${"text-black"}`}
         >
           <div className="navItem" onClick={toggleHandler}>
             <NavLink exact="true" to="/">
@@ -82,7 +65,7 @@ const Navbar = () => {
           </div>
         </div>
       )}
-        <hr />
+      <hr />
     </div>
   );
 };
