@@ -50,7 +50,7 @@ const ProblemWesolve = () => {
       <div className="container">
         <div >
   
-          <h1 className="text-4xl xsm:text-5xl sm:text-6xl pb-32 font-bold text-left text-[#902027]">
+          <h1 className="text-4xl xsm:text-5xl md:text-6xl pb-32 font-bold text-center text-[#902027]">
             PROBLEMS WE SOLVE
           </h1>
    
@@ -62,7 +62,7 @@ const ProblemWesolve = () => {
             {ProblemWeSolvecol1.map((data, index) => (
               <div key={index} className="">
                 <div className="rounded-xl relative gap-3 flex flex-col p-4 bg-[#fff]">
-                  <div className="flex-1">
+                  <div className="flex-1 w-full flex justify-center">
                     <img src={data.icon}  alt="" />
                   </div>
                   <div className="flex-1">
@@ -76,7 +76,7 @@ const ProblemWesolve = () => {
             {ProblemWeSolvecol2.map((data, index) => (
               <div key={index} className="">
                 <div className={` rounded-xl gap-3 flex flex-col p-4 ${data.className}`}>
-                  <div className="flex-1">
+                  <div className="flex-1 w-full flex justify-center">
                     <img src={data.icon} alt="" />
                   </div>
                   <div className="flex-1">
@@ -90,7 +90,7 @@ const ProblemWesolve = () => {
             {ProblemWeSolvecol3.map((data, index) => (
               <div key={index} className="">
                 <div className="rounded-xl  gap-3 flex flex-col p-4 bg-[#fff]">
-                  <div className="flex-1">
+                  <div className="flex-1 w-full flex justify-center">
                     <img src={data.icon} alt="" />
                   </div>
                   <div className="flex-1">

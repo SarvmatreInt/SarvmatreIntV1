@@ -22,11 +22,11 @@ const AboutSection = () => {
               className="about-homecontent flex flex-col flex-1 justify-center"
               data-aos="fade-lef"
             >
-              <h3 className="text-3xl font-bold max-w-fit mb-3 py-2 px-6 bg-[#efcb96] rounded-md ">
+              <h3 className="text-3xl font-bold max-w-fit mb-3 py-2 px-6 bg-[#2ea990] text-white rounded-md ">
                 About us
               </h3>
               <h1 className="text-4xl sm:text-5xl font-bold">{typedSuperPower}</h1>
-              <p className="text-lg py-3 font-medium">
+              <p className="text-lg py-3 font-medium xsm:text-justify">
                 Sarvmatre is an innovative B2B e-commerce platform connecting
                 businesses with global suppliers & customers. We empower
                 sustainable growth through technology tools & collaborative
