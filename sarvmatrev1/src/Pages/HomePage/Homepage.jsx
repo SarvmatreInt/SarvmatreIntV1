@@ -11,7 +11,7 @@ import WhatWeOffer from "./HomePageComponant/WhatWeOffer/WhatWeOffer"
 
 const Homepage = () => {
   return (
-    <div className="m-0 p-0">
+    <div className="mx-auto p-0 home-style">
       <IntoSec/>
       <BecomeOurPartner/>
       <AboutSection/>

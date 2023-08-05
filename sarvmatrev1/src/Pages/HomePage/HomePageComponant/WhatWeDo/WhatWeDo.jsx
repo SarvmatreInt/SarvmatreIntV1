@@ -33,7 +33,7 @@ const WhatWeDo = () => {
     <div className="py-20">
       <div className="container">
         <div>
-          <h1 className="text-center text-green-700 text-2xl font-bold">
+          <h1 className=" text-green-700 text-center font-bold text-4xl mb-8">
             What we do
           </h1>
         </div>
@@ -44,16 +44,16 @@ const WhatWeDo = () => {
           </p>
         </div>
         <div>
-          <div className="flex gap-8 mt-10 flex-wrap ">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 sm:gap-8 mt-10 justify-center">
             {WhatWeDoAray.map((item, index) => (
-              <div key={index} className="flex-1 hover:border border-black rounded-xl p-10">
+              <div key={index} className="flex-1 border-transparent border-2 hover:border-black rounded-xl p-10">
                 <div className="  flex flex-col items-center ">
                   <div className="py-2"><img src={item.Icon} alt="" /></div>
                   <div>
                     <h1 className="font-bold text-5xl py-4">{item.TitleNum}</h1>
                   </div>
                   <div>
-                    <p className="text-center text-xl ">{item.TitleText}</p>
+                    <p className="text-xl ">{item.TitleText}</p>
                   </div>
                 </div>
               </div>

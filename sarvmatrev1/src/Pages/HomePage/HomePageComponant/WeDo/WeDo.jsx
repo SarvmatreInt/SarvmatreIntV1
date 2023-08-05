@@ -42,45 +42,40 @@ const WhatWeDoAray = [
 
 const WeDo = () => {
   return (
-    <div>
-        <div className="">
-            <div className=" py-36">
-              <h1 className="text-6xl text-black text-center -bottom-">What We Offer </h1>
-            </div>
-          <div className="container">
-            <div className=" relative my-20 mx-auto flex    ">
-              <div className="absolute lg:flex hidden">
-                <svg
-                  width="1053"
-                  className="relative left-36 -top-24 opacity-25 rotate-2  "
-                  height="299"
-                  viewBox="0 0 1053 299"
-                  fill="none"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <path
-                    d="M1 5C63.6479 7.06846 122.154 48.4378 266.607 209.778C408.887 368.692 664.391 265.811 740.5 196C813.878 128.695 1002.85 91.8755 1051 107.389"
-                    stroke="#4BACE0"
-                    stroke-width="10"
-                  />
-                </svg>
+    <>
+      <h1 className="text-6xl text-black text-center mt-[100px] lg:pb-36">What We Offer </h1>
+      <div className="container">
+        <div className=" relative my-20 mx-auto flex">
+          <div className="absolute xl:flex hidden">
+            <svg
+              width="1053"
+              className="relative left-36 -top-24 opacity-25 rotate-2  "
+              height="299"
+              viewBox="0 0 1053 299"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M1 5C63.6479 7.06846 122.154 48.4378 266.607 209.778C408.887 368.692 664.391 265.811 740.5 196C813.878 128.695 1002.85 91.8755 1051 107.389"
+                stroke="#4BACE0"
+                stroke-width="10"
+              />
+            </svg>
+          </div>
+          <div className="relative flex md:flex-row flex-wrap md:flex-nowrap flex-col xl:gap-20 gap-5 ">
+            {WhatWeDoAray.map((data, index) => (
+              <div key={index} className="flex-1 flex">
+              <div className={` bg-white  rounded-2xl shadow-md p-4 border flex-1 border-black  relative  ${data.className}`}>
+                  <h3 className="text-5xl font-black pb-3 ">{data.TitleNum}</h3>
+                  <p className="text-2xl font-medium"> {data.TitleText}</p>
+                </div>
               </div>
-              <div className="relative flex sm:flex-row flex-col xl:gap-20 gap-5  ">
-                {WhatWeDoAray.map((data, index) => (
-                  <div key={index} className="flex-1 flex">
-                  <div className={` bg-white  rounded-2xl shadow-md p-4 border flex-1 border-black  relative  ${data.className}`}>
-                      <h3 className="text-5xl font-black pb-3 ">{data.TitleNum}</h3>
-                      <p className="text-2xl font-medium"> {data.TitleText}</p>
-                    </div>
-                  
-                  </div>
-                ))}
-              </div>
-            </div>
+            ))}
           </div>
         </div>
+      </div>
       {/* <NewFooter /> */}
-    </div>
+    </>
   );
 };
 

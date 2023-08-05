@@ -32,22 +32,22 @@ const whatOffer = [
 ];
 const WhatWeOffer = () => {
   return (
-    <div>
+    <>
       <div className="container">
-        <div className="flex sm:flex-row flex-col w-full">
-          <div className=" w-full ">
-            <li className="text-center font-bold text-lg">What We Offer</li>
-            <br />
-          </div>
+        <div className="flex flex-col w-full">
+          <ul className=" w-full ">
+            <li className="text-center font-bold text-4xl mb-8">What We Offer</li>
+            {/* <br /> */}
+          </ul>
           <div>
             <div className="flex lg:flex-row flex-col w-full flex-wrap justify-center gap-7 py-10">
               {whatOffer.map((offer, index) => (
-                <div key={index} className="lg:w-1/4 sm:pb-14 border-t-2 border-black  ">
+                <div key={index} className="lg:w-1/4 sm:pb-7 border-t-2 border-black  ">
                     <div>
-                      <h1 className="text-4xl w-full font-bold pt-5">{offer.title}</h1>
+                      <h1 className="text-3xl w-full font-bold pt-5">{offer.title}</h1>
                     </div>
                     <div>
-                      <p className="items-baseline pt-4">{offer.description}</p>
+                      <p className="items-baseline pt-4 text-justify">{offer.description}</p>
                     </div>
                   </div>
               ))}
@@ -55,7 +55,7 @@ const WhatWeOffer = () => {
           </div>
         </div>
       </div>
-    </div>
+    </>
   );
 };
 
