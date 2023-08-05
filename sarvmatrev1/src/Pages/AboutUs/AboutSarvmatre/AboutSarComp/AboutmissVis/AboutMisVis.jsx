@@ -37,8 +37,8 @@ const AboutMisVis = () => {
     //     ))}
     //   </div>
     // </div>
-    <div className="px-4">
-      <img src={logo} className="lg:hidden w-[80%] mx-auto" />
+    <div className="container">
+      <img src={logo} className="lg:hidden w-[80%] mx-auto mb-8" />
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
         <div className="grid grid-cols-1 gap-8">
           {Missiondata.map((item, index) => (

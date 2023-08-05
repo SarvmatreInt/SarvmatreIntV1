@@ -57,7 +57,7 @@ const AboutDifference = () => {
           How we are different
         </h1>
       </div>
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-x-8 lg:px-4">
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-x-8 lg:px-4">
         {diffdata.map((item, index) => (
           <div key={index} className="my-4">
             <div className="flex gap-5">
