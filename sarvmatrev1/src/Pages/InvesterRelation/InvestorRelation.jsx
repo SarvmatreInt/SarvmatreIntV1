@@ -13,8 +13,8 @@ const InvestorRelation = () => {
       {/* <BecomeOurPartner /> */}
       <SchedMeet/>
       <CompanyOverview/>
-      <Newsletter/>
       <InvesterSumm/>
+      <Newsletter/>
     </div>
   );
 };

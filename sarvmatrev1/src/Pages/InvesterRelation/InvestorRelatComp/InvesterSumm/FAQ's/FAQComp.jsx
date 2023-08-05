@@ -9,10 +9,9 @@ const FAQComp = ({ src, title, content, onClick, className, num }) => {
       onClick={onClick}
     >
       <div className="flex relative select-none items-start ">
-        <h1 className=" text-3xl rounded-[50%]  border-2  border-black p-2 mr-[10px]">
+        <h1 className=" text-3xl font-medium rounded-[50%]  border-2 text-[#902027]  border-[#902027] p-2 mr-[10px]">
           {num}
         </h1>
-
         <div className="max-w-[80%] px-3 font-bold text-[30px]">{title}</div>
         <div className="absolute right-0">
           <img

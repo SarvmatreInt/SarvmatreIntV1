@@ -5,8 +5,8 @@ import NewContactHeader from "./Components/NewContactHeader/NewContactHeader";
 
 const NewContact = () => {
   return (
-    <div>
-      <div className="flex flex-col lg:flex-row ">
+    <div className="">
+      <div className="flex flex-col lg:flex-row pt-[90px]">
         <NewContactHeader />
         <NewContactForm />
       </div>
