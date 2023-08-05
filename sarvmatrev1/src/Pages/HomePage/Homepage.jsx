@@ -7,7 +7,6 @@ import Newsletter from "./HomePageComponant/Newsletter/Newsletter"
 import ProblemWesolve from "./HomePageComponant/ProblemweSolvw/ProblemWesolve"
 import Reasons from "./HomePageComponant/Reasons/Reasons"
 import WeDo from "./HomePageComponant/WeDo/WeDo"
-import WhatWeDo from "./HomePageComponant/WhatWeDo/WhatWeDo"
 import WhatWeOffer from "./HomePageComponant/WhatWeOffer/WhatWeOffer"
 import Tagline from "./HomePageComponant/tagLine/Tagline"
 

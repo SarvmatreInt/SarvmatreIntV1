@@ -50,7 +50,7 @@ const ProblemWesolve = () => {
       <div className="container">
         <div >
   
-          <h1 className="text-6xl  pb-32 font-bold text-left text-[#902027]">
+          <h1 className="text-4xl xsm:text-5xl sm:text-6xl pb-32 font-bold text-left text-[#902027]">
             PROBLEMS WE SOLVE
           </h1>
    

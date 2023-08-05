@@ -43,17 +43,17 @@ const WeDo = () => {
   return (
     <div>
       <div className="">
-        <div className=" py-36">
-          <h1 className="text-6xl text-[#209089] text-center font-bold">
-            WHAT WE DO{" "}
+        <div className=" lg:py-36">
+          <h1 className="text-4xl sm:text-6xl text-[#209089] text-center font-bold">
+            WHAT WE DO
           </h1>
         </div>
         <div className="container">
-          <div className=" relative my-20 mx-auto flex    ">
+          <div className=" relative my-20 mx-auto flex">
             <div className="absolute lg:flex hidden">
               <svg
                 width="1053"
-                className="relative left-36 -top-24 opacity-2 rotate-2  "
+                className="relative w-[75%] left-10 xl:w-full xl:left-36 -top-10 xl:-top-24 opacity-2 rotate-2  "
                 height="299"
                 viewBox="0 0 1053 299"
                 fill="none"
@@ -66,7 +66,7 @@ const WeDo = () => {
                 />
               </svg>
             </div>
-            <div className="relative flex sm:flex-row flex-col xl:gap-20 gap-5  ">
+            <div className="relative flex lg:flex-row flex-col xl:gap-20 gap-5 ">
               {WhatWeDoAray.map((data, index) => (
                 <div key={index} className="flex-1 flex ">
                   <div
@@ -75,7 +75,7 @@ const WeDo = () => {
                     <h3 className="text-5xl font-black pb-3 text-[#902027] ">
                       {data.TitleNum}
                     </h3>
-                    <p className="text-2xl font-medium"> {data.TitleText}</p>
+                    <p className="text-xl sm:text-2xl font-medium"> {data.TitleText}</p>
                   </div>
                 </div>
               ))}
