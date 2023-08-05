@@ -25,14 +25,6 @@ const AboutDifference = () => {
       content:
         "We help businesses build strong and distinctive brands and to establish their brand presence, enhance brand equity, and differentiate themselves in the market.",
     },
-  ];
-  const diffdata2 = [
-    {
-      number: 7,
-      title: "Innovation And Digital Transformation",
-      content:
-        "We assist businesses in embracing innovation and digital transformation. By leveraging emerging technologies, we help businesses enhance their digital capabilities, adopt new business models.",
-    },
     {
       number: 5,
       title: "Long Term Partnership",
@@ -45,7 +37,12 @@ const AboutDifference = () => {
       content:
         "We streamline business processes and optimize operations to enhance efficiency and productivity. Through process reengineering, automation, and implementation of best practices, we help businesses streamline their workflows, reduce costs, and achieve higher levels of operational excellence.",
     },
-
+    {
+      number: 7,
+      title: "Innovation And Digital Transformation",
+      content:
+        "We assist businesses in embracing innovation and digital transformation. By leveraging emerging technologies, we help businesses enhance their digital capabilities, adopt new business models.",
+    },
     {
       number: 8,
       title: "Strategic Guidance",
@@ -55,48 +52,29 @@ const AboutDifference = () => {
   ];
   return (
     <div className="container">
-      <div className="my-16">
-        <h1 className=" font-bold text-5xl text-center">How we are different</h1>
+      <div className="mt-48">
+        <h1 className="font-bold text-5xl text-center mb-16">
+          How we are different
+        </h1>
       </div>
-      <div className="flex flex-wrap flex-row gap-20 md:px-16">
-        <div className="flex flex-1 flex-col flex-wrap">
-          {diffdata.map((item, index) => (
-            <div key={index} className="my-4">
-              <div className="flex gap-5">
-                <div className="w-[7%]">
-                  <img
-                    className="border border-black rounded-[50%] p-2 bg-red-300"
-                    src={check}
-                    alt=""
-                  />
-                </div>
-                <div className="flex-1">
-                  <h1 className=" pb-3 text-3xl font-medium">{item.title}</h1>
-                  <p>{item.content}</p>
-                </div>
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-x-8 lg:px-4">
+        {diffdata.map((item, index) => (
+          <div key={index} className="my-4">
+            <div className="flex gap-5">
+              <div className="w-[10%] md:w-[7%]">
+                <img
+                  className="border border-black rounded-[50%] p-2 bg-red-300"
+                  src={check}
+                  alt=""
+                />
+              </div>
+              <div className="flex-1">
+                <h1 className=" pb-3 text-3xl font-medium">{item.title}</h1>
+                <p>{item.content}</p>
               </div>
             </div>
-          ))}
-        </div>
-        <div className="flex  sm:flex-1 flex-col flex-wrap">
-          {diffdata2.map((item, index) => (
-            <div key={index} className="my-4">
-              <div className="flex gap-5">
-                <div className="w-[7%]">
-                  <img
-                    className="border border-black rounded-[50%] p-2 bg-red-300"
-                    src={check}
-                    alt=""
-                  />
-                </div>
-                <div className="flex-1">
-                  <h1 className=" pb-3 text-3xl font-medium">{item.title}</h1>
-                  <p>{item.content}</p>
-                </div>
-              </div>
-            </div>
-          ))}
-        </div>
+          </div>
+        ))}
         {/* <div className="flex-1 flex w-full  items-end justify-center flex-wrap">
             <img src={check} alt="" className="w-[100%]" />
           </div> */}

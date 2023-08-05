@@ -60,11 +60,11 @@ const AboutValues = () => {
             </div>
           </div>
           <div>
-            <div className="flex flex-wrap justify-center items-center gap-16 mt-5">
+            <div className="flex flex-wrap justify-center items-center gap-8 gap-y-16 mt-5">
               {valueData.map((data, index) => (
                 <div
                   key={index}
-                  className="w-[400px] text-center border-2 border-black p-1 rounded-xl shadow-xl"
+                  className="md:w-[400px] text-center border-2 border-black p-1 rounded-xl shadow-xl"
                 >
                   <div className="p-4 rounded-xl relative">
                     <div className="flex justify-center absolute -top-[24%] left-[40%]">
@@ -82,7 +82,7 @@ const AboutValues = () => {
                       </h1>
                     </div>
                     <div>
-                      <p className="h-[80px]">{data.description}</p>
+                      <p className="h-[100px] sm:h-[80px]">{data.description}</p>
                     </div>
                   </div>
                 </div>
