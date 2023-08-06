@@ -5,8 +5,22 @@ import "react-phone-input-2/lib/style.css";
 import arrow from "./right-arrow.png";
 import validateInput from "./Validation.js";
 import { validateData } from "./Validation.js";
+import { useRef } from 'react';
+import emailjs from '@emailjs/browser';
 
 const NewContactForm = () => {
+  const form = useRef();
+  const sendEmail = (e) => {
+    e.preventDefault();
+    emailjs.sendForm('service_239zzij', 'template_ob6cemk', form.current, '1UU7sjBqQJA7fjCrM')
+    .then((result) => {
+      console.log(result.text);
+    }, (error) => {
+      console.log(error.text);
+    });
+    handleSubmit();
+  };
+
   const initialState = {
     fullName: "",
     phone: "",
@@ -51,7 +65,7 @@ const NewContactForm = () => {
       <div className="flex-1 p-4 bg-[#beeae771]">
         <div className="w-[95%] md:w-[80%] md:ml-[50px]">
           <h1 className="text-[40px] font-bold md:text-[50px]">Contact us</h1>
-          <form className="mt-8" onSubmit={handleSubmit}>
+          <form className="mt-8" ref={form} onSubmit={sendEmail}>
             <Input
               name="fullName"
               value={data["fullName"]}
