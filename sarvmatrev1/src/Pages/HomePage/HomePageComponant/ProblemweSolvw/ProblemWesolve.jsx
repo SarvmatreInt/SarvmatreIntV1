@@ -50,19 +50,19 @@ const ProblemWesolve = () => {
       <div className="container">
         <div >
   
-          <h1 className="text-6xl  pb-32 font-bold text-left text-[#902027]">
+          <h1 className="text-4xl xsm:text-5xl md:text-6xl pb-32 font-bold text-center text-[#902027]">
             PROBLEMS WE SOLVE
           </h1>
    
         </div>
         <div className="flex justify-center">
         </div>
-        <div className="flex flex-col sm:flex-row gap-10">
-          <div className="flex-1 flex sm:flex-col gap-4 relative sm:top-32">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-6">
+          <div className="lg:col-start-1 lg:col-end-5 flex flex-col justify-center gap-6">
             {ProblemWeSolvecol1.map((data, index) => (
               <div key={index} className="">
                 <div className="rounded-xl relative gap-3 flex flex-col p-4 bg-[#fff]">
-                  <div className="flex-1">
+                  <div className="flex-1 w-full flex justify-center">
                     <img src={data.icon}  alt="" />
                   </div>
                   <div className="flex-1">
@@ -72,29 +72,29 @@ const ProblemWesolve = () => {
               </div>
             ))}
           </div>
-          <div className="flex-1 flex flex-col gap-4">
+          <div className="lg:col-start-5 lg:col-end-9 flex flex-col justify-center gap-6">
             {ProblemWeSolvecol2.map((data, index) => (
               <div key={index} className="">
                 <div className={` rounded-xl gap-3 flex flex-col p-4 ${data.className}`}>
-                  <div className="flex-1">
+                  <div className="flex-1 w-full flex justify-center">
                     <img src={data.icon} alt="" />
                   </div>
                   <div className="flex-1">
-                    <h1 className="text-3xl">{data.Problem}</h1>
+                    <h1 className="text-3xl text-center">{data.Problem}</h1>
                   </div>
                 </div>
               </div>
             ))}
           </div>
-          <div className="flex-1 flex lg:flex-col  gap-4 relative sm:top-32">
+          <div className="lg:col-start-9 lg:col-end-13 flex flex-col justify-center gap-6">
             {ProblemWeSolvecol3.map((data, index) => (
               <div key={index} className="">
                 <div className="rounded-xl  gap-3 flex flex-col p-4 bg-[#fff]">
-                  <div className="flex-1">
+                  <div className="flex-1 w-full flex justify-center">
                     <img src={data.icon} alt="" />
                   </div>
                   <div className="flex-1">
-                    <h1 className="text-3xl">{data.Problem}</h1>
+                    <h1 className="text-3xl text-center">{data.Problem}</h1>
                   </div>
                 </div>
               </div>

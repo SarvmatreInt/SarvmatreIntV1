@@ -79,8 +79,8 @@ const NewContactForm = () => {
               }
             />
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-              <div className="mb-[6px]">
-                <div className="text-[12px] pb-[5px]">
+              <div className="">
+                <div className="text-xl font-medium mb-[6px]">
                   PHONE / MOBILE<span className="text-red-600 ml-2">*</span>
                 </div>
                 <PhoneInput
@@ -95,16 +95,18 @@ const NewContactForm = () => {
                     }));
                   }}
                   inputStyle={{
-                    background: "rgb(229, 231, 235)",
                     width: "100%",
                     border: "0px",
-                    borderBottom: "2px solid rgb(156 163 175)",
+                    borderBottom: "2px solid rgb(156,163, 175)",
                     borderRadius: "0",
                     padding: "0px 0px 0px 40px",
+                    backgroundColor: "inherit",
                   }}
                   buttonStyle={{
-                    backgroundColor: "rgb(229, 231, 235)",
                     border: "0px",
+                    background: "white",
+                    marginBottom: "4px",
+                    backgroundColor: "inherit",
                   }}
                   onBlur={(e) => {
                     setErrors(validateInput("phone", data["phone"]));
@@ -112,7 +114,7 @@ const NewContactForm = () => {
                   }}
                 />
                 {Object.keys(errors).includes("phone") && (
-                  <div className="text-[12px] text-red-600">
+                  <div className="text-[12px] text-red-600 my-2">
                     {errors["phone"]}
                   </div>
                 )}
@@ -212,7 +214,10 @@ const NewContactForm = () => {
               />
               <div className="mb-[6px]">
                 <div>
-                  <label htmlFor="newContact_identity" className="text-[12px]">
+                  <label
+                    htmlFor="newContact_identity"
+                    className="text-xl font-medium"
+                  >
                     CORPORATE IDENTITY
                   </label>
                 </div>

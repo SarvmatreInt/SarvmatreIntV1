@@ -17,6 +17,9 @@ export default {
     fontFamily:{
       'comferta':['Comfortaa', 'cursive'],
       'poppins': ['Poppins','sans-serif']
+    },
+    screens: {
+      xsm: "400px"
     }
     },
     

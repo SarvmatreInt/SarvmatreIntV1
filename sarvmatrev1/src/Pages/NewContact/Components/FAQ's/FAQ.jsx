@@ -39,32 +39,30 @@ const FAQ = () => {
   const [active, setActive] = useState(null);
 
   return (
-    <div className="py-20">
     <div className="container">
-    <div className="max-w-[75%] mx-auto ">
-      <h1 className="text-center text-[40px] font-semibold my-16">
-        Frequently asked questions
-      </h1>
-      {DATA.map((item, index) => (
-        <FAQComp
-          key={index}
-          {...item}
-          onClick={() => {
-            setActive((prev) => {
-              if (JSON.stringify(prev) === JSON.stringify(item)) {
-                return null;
-              } else {
-                setActive(item);
-              }
-            });
-          }}
-          className={
-            JSON.stringify(active) === JSON.stringify(item) ? "active" : ""
-          }
-        />
-      ))}
-    </div>
-    </div>
+      <div className="max-w-[75%] mx-auto ">
+        <h1 className="text-center text-[40px] font-semibold my-16">
+          Frequently asked questions
+        </h1>
+        {DATA.map((item, index) => (
+          <FAQComp
+            key={index}
+            {...item}
+            onClick={() => {
+              setActive((prev) => {
+                if (JSON.stringify(prev) === JSON.stringify(item)) {
+                  return null;
+                } else {
+                  setActive(item);
+                }
+              });
+            }}
+            className={
+              JSON.stringify(active) === JSON.stringify(item) ? "active" : ""
+            }
+          />
+        ))}
+      </div>
     </div>
   );
 };

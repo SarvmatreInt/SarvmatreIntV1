@@ -67,20 +67,20 @@ const ContactTeam = () => {
     },
   ];
   return (
-    <div className="py-32">
-    <div className=" container py-36">
-      <h1 className="text-center text-[40px] font-semibold">
-        Contact Our Friendly Team
-      </h1>
-      <p className="text-center text-[20px] mb-8">
-        Let us know how we can help
-      </p>
-      <div className="flex flex-wrap justify-center gap-4 max-w-[95%] mx-auto">
-        {DATA.map((item, index) => (
-          <ContactComp key={index} {...item} />
-        ))}
+    <div className="py-16">
+      <div className=" container">
+        <h1 className="text-center text-[40px] font-semibold">
+          Contact Our Friendly Team
+        </h1>
+        <p className="text-center text-[20px] mb-8">
+          Let us know how we can help
+        </p>
+        <div className="flex flex-wrap justify-center gap-4 max-w-[95%] mx-auto">
+          {DATA.map((item, index) => (
+            <ContactComp key={index} {...item} />
+          ))}
+        </div>
       </div>
-    </div>
     </div>
   );
 };
