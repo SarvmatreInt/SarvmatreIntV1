@@ -12,6 +12,7 @@ import AboutSarv from "./Pages/AboutUs/AboutSarvmatre/AboutSarv";
 import Footer from "./Pages/GlobalPages/Footer/Footer";
 import Navbar from "./Pages/GlobalPages/Navbar/Navbar";
 import NewCareersPage from "./Pages/NewCareersPage/NewCareersPage";
+import AboutProdley from "./Pages/AboutProdley/AboutProdley";
 // import { BrowserRouter, Routes, Route } from "react-router-dom";
 
 function App() {
@@ -26,7 +27,8 @@ function App() {
           <Route path="invester/event" element={<FeaEve />} />
           <Route path="invester/press" element={<PressRelease />} />
           <Route path="invester/news" element={<NewsModule />} />
-          <Route path="/about" element={<AboutSarv />} />
+          <Route path="/about/sarvmatre" element={<AboutSarv />} />
+          <Route path="/about/prodley" element={<AboutProdley />} />
           <Route path="/career" element={<NewCareersPage />} />
         </Routes>
         <Footer />

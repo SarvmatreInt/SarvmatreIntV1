@@ -4,13 +4,15 @@ import menu from "./menu.png";
 import menu2 from "./menu2.png";
 import "./Navbar.css";
 import { useState } from "react";
-import { NavLink, useLocation } from "react-router-dom";
+import { NavLink, Link, useLocation } from "react-router-dom";
 
 const Navbar = () => {
   const [toggle, setToggle] = useState(false);
   const toggleHandler = () => {
     setToggle(!toggle);
   };
+  const location = useLocation();
+  const [show, setShow] = useState("hidden");
   return (
     <div className="flex-col bg-[#F7FCFC] z-10 fixed top-0 w-[100%]">
       <div className="flex container justify-between items-center z-10">
@@ -28,8 +30,34 @@ const Navbar = () => {
               HOME
             </NavLink>
           </div>
-          <div className="navItem mx-3">
-            <NavLink to="/about">ABOUT</NavLink>
+          <div
+            className="navItem mx-3 relative"
+            onClick={() => {
+              setShow((prev) => {
+                if (prev === "hidden") {
+                  return "block";
+                } else {
+                  return "hidden";
+                }
+              });
+            }}
+          >
+            <div
+              className={`cursor-pointer hover:text-[gray] ${
+                location.pathname === "/about/sarvmatre" ||
+                location.pathname === "/about/prodley"
+                  ? "underline decoration- underline-offset-4 decoration-solid decoration-[#2EA990]"
+                  : ""
+              }`}
+            >
+              ABOUT
+            </div>
+            <div
+              className={`absolute ${show} flex flex-col bg-white p-2 rounded-xl top-[30px]`}
+            >
+              <Link to="about/sarvmatre">Sarvmatre</Link>
+              <Link to="about/prodley">Prodley</Link>
+            </div>
           </div>
           <div className="navItem mx-3">
             <NavLink to="/career">CAREER</NavLink>
@@ -51,14 +79,42 @@ const Navbar = () => {
               HOME
             </NavLink>
           </div>
-          <div className="navItem" onClick={toggleHandler}>
-            <NavLink to="/about">ABOUT</NavLink>
+          <div
+            className="navItem mx-3 relative"
+            onClick={() => {
+              setShow((prev) => {
+                if (prev === "hidden") {
+                  return "block";
+                } else {
+                  return "hidden";
+                }
+              });
+            }}
+          >
+            <div
+              className={`cursor-pointer text-center hover:text-[gray] ${
+                location.pathname === "/about/sarvmatre" ||
+                location.pathname === "/about/prodley"
+                  ? "underline decoration- underline-offset-4 decoration-solid decoration-[#2EA990]"
+                  : ""
+              }`}
+            >
+              ABOUT
+            </div>
+            <div className={`${show} flex flex-col items-center rounded-xl`}>
+              <Link to="about/sarvmatre" className="text-[12px]">
+                Sarvmatre
+              </Link>
+              <Link to="about/prodley" className="text-[12px]">
+                Prodley
+              </Link>
+            </div>
           </div>
           <div className="navItem" onClick={toggleHandler}>
             <NavLink to="/career">CAREER</NavLink>
           </div>
           <div className="navItem" onClick={toggleHandler}>
-            <NavLink to="/bloghome">BLOG</NavLink>
+            <NavLink to="/invester">INVESTER</NavLink>
           </div>
           <div className="navItem" onClick={toggleHandler}>
             <NavLink to="/contact">CONTACT US</NavLink>

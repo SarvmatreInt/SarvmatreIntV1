@@ -11,16 +11,16 @@ import SchedMeet from "./InvestorRelatComp/SchedMeet/SchedMeet";
 
 const InvestorRelation = () => {
   return (
-    <div>
+    <div className="overflow-x-hidden">
       <Intro />
       {/* <BecomeOurPartner /> */}
-      <SchedMeet/>
-      <InvesterSumm/>
-      <InvesterContact/>
-      <CurrentInvester/>
-      <CompanyOverview/>
-      <FAQ/>
-      <Newsletter/>
+      <SchedMeet />
+      <InvesterSumm />
+      <InvesterContact />
+      {/* <CurrentInvester /> */}
+      <CompanyOverview />
+      <FAQ />
+      <Newsletter />
     </div>
   );
 };
