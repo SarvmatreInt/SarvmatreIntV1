@@ -1,7 +1,7 @@
 
 const SchedMeet = () => {
   return (
-    <div>
+    <div className="pb-20">
       <div className="container">
         <h1 className="text-4xl py-10 font-bold" >Schedule and Meet</h1>
         <div>
