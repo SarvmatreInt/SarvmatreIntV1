@@ -12,7 +12,7 @@ const FAQComp = ({ src, title, content, onClick, className, num }) => {
         <h1 className=" text-3xl font-medium rounded-[50%]  border-2 text-[#902027]  border-[#902027] p-2 mr-[10px]">
           {num}
         </h1>
-        <div className="max-w-[80%] px-3 font-bold text-[30px]">{title}</div>
+        <div className="max-w-[80%] px-3 font-bold text-[16px] lg:text-[30px]">{title}</div>
         <div className="absolute right-0">
           <img
             src={className === "active" ? up : down}
@@ -24,7 +24,7 @@ const FAQComp = ({ src, title, content, onClick, className, num }) => {
       <div
         className={`ml-[45px] mr-8 pt-2 ${
           className === "active" ? "block" : "hidden"
-        }`}
+        } text-[14px] md:text-[16px]`}
       >
         {content}
       </div>

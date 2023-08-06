@@ -1,3 +1,4 @@
+import OurHistory from "../../OurHistory/OurHistory";
 import AboutDifference from "./AboutSarComp/AboutDifference/AboutDifference";
 import AboutInto from "./AboutSarComp/AboutIntro/AboutInto";
 import AboutValues from "./AboutSarComp/AboutValues/AboutValues";
@@ -9,6 +10,7 @@ const AboutSarv = () => {
       <AboutInto />
       <AboutMisVis />
       <AboutDifference />
+      <OurHistory />
       <AboutValues />
       <div className="py-32">
         <div className="container">
