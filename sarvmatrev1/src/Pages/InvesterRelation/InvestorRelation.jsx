@@ -1,6 +1,7 @@
 import BecomeOurPartner from "../HomePage/HomePageComponant/BecomeOurPartner/BecomeOurPartner";
 import Newsletter from "../HomePage/HomePageComponant/Newsletter/Newsletter";
 import CompanyOverview from "./InvestorRelatComp/CompanyOverview/CompanyOverview";
+import FAQ from "./InvestorRelatComp/FAQ's/FAQ";
 
 import Intro from "./InvestorRelatComp/Intro/Intro";
 import InvesterSumm from "./InvestorRelatComp/InvesterSumm/InvesterSumm";
@@ -14,6 +15,7 @@ const InvestorRelation = () => {
       <SchedMeet/>
       <CompanyOverview/>
       <InvesterSumm/>
+      <FAQ/>
       <Newsletter/>
     </div>
   );
