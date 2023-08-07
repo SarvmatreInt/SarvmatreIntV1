@@ -32,12 +32,12 @@ const IntoSec = () => {
       <img
         src={phots}
         alt=""
-        className="absolute -z-10 w-[100%]   top-[2%] text-center   opacity-[0.25] "
+        className="absolute -z-10 w-[100%] top-[2%] text-center opacity-[0.25] "
       />
       {/* <img src={growth} alt="" className="absolute -z-10 w-[100%]  text-center   opacity-[0.1] "/> */}
       {/* <img src={maps} className="absolute -z-10 w-[100%]  text-center   opacity-[0.5]" alt="" /> */}
       {/* <img src={map3} className="absolute -z-10 w-[100%]  text-center   opacity-[0.5] mix-blend-color-dodge" alt="" /> */}
-      <div className="flex flex-col items-center mt-20 p-4 sm:p-0 font-poppins sm:items-center h-[45vh] sm:h-[50vh] md:h-[70vh]">
+      <div className="flex flex-col items-center mt-20 p-4 sm:p-0 font-poppins sm:items-center h-[60vh] md:h-[70vh] overflow-x-hidden">
         <div className="text-2xl sm:text-3xl font-bold mt-5 text-primary1">
           We Bring
         </div>

@@ -102,10 +102,18 @@ const Navbar = () => {
               ABOUT
             </div>
             <div className={`${show} flex flex-col items-center rounded-xl`}>
-              <Link to="about/sarvmatre" className="text-[12px]">
+              <Link
+                to="about/sarvmatre"
+                className="text-[12px]"
+                onClick={toggleHandler}
+              >
                 Sarvmatre
               </Link>
-              <Link to="about/prodley" className="text-[12px]">
+              <Link
+                to="about/prodley"
+                className="text-[12px]"
+                onClick={toggleHandler}
+              >
                 Prodley
               </Link>
             </div>

@@ -64,7 +64,7 @@ const AboutValues = () => {
               {valueData.map((data, index) => (
                 <div
                   key={index}
-                  className="md:w-[400px] text-center border-2 border-black p-1 rounded-xl shadow-xl"
+                  className="md:w-[400px] w-full text-center border-2 border-black p-1 rounded-xl shadow-xl"
                 >
                   <div className="p-4 rounded-xl relative">
                     <div className="flex justify-center absolute -top-[24%] left-[40%]">

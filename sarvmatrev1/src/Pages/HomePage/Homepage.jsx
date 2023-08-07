@@ -12,7 +12,7 @@ import Tagline from "./HomePageComponant/tagLine/Tagline"
 
 const Homepage = () => {
   return (
-    <div className="mx-auto p-0 home-style overflow-x-hidden">
+    <div className="mx-auto p-0 home-style overflow-hidden">
       <IntoSec/>
       <Tagline/>
       <AboutSection/>
