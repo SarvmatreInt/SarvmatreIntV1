@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 import "./NewCareers.css";
 import arrow from "./images/rightup.png";
 import time from "./images/clock.png";
-import NoJobs from "./images/NoJobs.png";
+import NoJobs from "./images/Nojobs.png";
 import location from "./images/gps.png";
 
 const Schema = {

@@ -1,5 +1,5 @@
 import logo from "./Asset 2.png";
-import MisVisComp from "./misvisComp";
+import MisVisComp from "./MisVisComp";
 const AboutMisVis = () => {
   const Missiondata = [
     {
@@ -47,7 +47,10 @@ const AboutMisVis = () => {
         </div>
         <div className="flex flex-col lg:gap-8">
           <div className="flex-1 flex items-center">
-            <img src={logo} className="hidden lg:block max-h-[200px] w-[90%] mx-auto object-contain" />
+            <img
+              src={logo}
+              className="hidden lg:block max-h-[200px] w-[90%] mx-auto object-contain"
+            />
           </div>
           {whatwedo.map((item, index) => (
             <MisVisComp key={index} {...item} />
