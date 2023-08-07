@@ -1,3 +1,5 @@
+
+import { Link } from "react-router-dom";
 import businessdisc from "./Business Discussion.png";
 const Intrestus = () => {
   return (
@@ -14,7 +16,10 @@ const Intrestus = () => {
               numquam dolores nihil?
             </p>
             <div>
+            <Link to="/invester">
+
               <button className="button-17">View All Services</button>
+            </Link>
             </div>
           </div>
           <div className="flex-1 flex justify-center">
