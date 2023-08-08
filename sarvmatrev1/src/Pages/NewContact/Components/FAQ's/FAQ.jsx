@@ -6,31 +6,51 @@ const FAQ = () => {
   const DATA = [
     {
       src: smile,
-      title: "What is TCS's area of operations?",
+      title: "What is the company's primary business focus?",
       content:
         "Lorem ipsum dolor sit amet consectetur adipisicing elit. Similique repellat alias incidunt omnis totam earum laborum, at iusto praesentium cumque et aspernatur minus nesciunt ad blanditiis quas molestiae nam ipsa!",
     },
     {
       src: smile,
-      title: "When was TCS founded?",
+      title: "What sets your company apart from competitors?",
       content:
         "Lorem ipsum dolor sit amet consectetur adipisicing elit. Similique repellat alias incidunt omnis totam earum laborum, at iusto praesentium cumque et aspernatur minus nesciunt ad blanditiis quas molestiae nam ipsa!",
     },
     {
       src: smile,
-      title: "What is the employee strength of TCS?",
+      title: "What is the long-term growth strategy for the company?",
       content:
         "Lorem ipsum dolor sit amet consectetur adipisicing elit. Similique repellat alias incidunt omnis totam earum laborum, at iusto praesentium cumque et aspernatur minus nesciunt ad blanditiis quas molestiae nam ipsa!",
     },
     {
       src: smile,
-      title: "Where is TCS located?",
+      title: "Has the company raised an investment yet?",
       content:
         "Lorem ipsum dolor sit amet consectetur adipisicing elit. Similique repellat alias incidunt omnis totam earum laborum, at iusto praesentium cumque et aspernatur minus nesciunt ad blanditiis quas molestiae nam ipsa!",
     },
     {
       src: smile,
-      title: "What is the address of TCS registered office?",
+      title:
+        "How to invest in the company and what information can potential investors expect to receive when considering investing in your company?",
+      content:
+        "Lorem ipsum dolor sit amet consectetur adipisicing elit. Similique repellat alias incidunt omnis totam earum laborum, at iusto praesentium cumque et aspernatur minus nesciunt ad blanditiis quas molestiae nam ipsa!",
+    },
+    {
+      src: smile,
+      title: "How does the company plan to utilize the investment funds?",
+      content:
+        "Lorem ipsum dolor sit amet consectetur adipisicing elit. Similique repellat alias incidunt omnis totam earum laborum, at iusto praesentium cumque et aspernatur minus nesciunt ad blanditiis quas molestiae nam ipsa!",
+    },
+    {
+      src: smile,
+      title: "What is the company's strategy for managing risk?",
+      content:
+        "Lorem ipsum dolor sit amet consectetur adipisicing elit. Similique repellat alias incidunt omnis totam earum laborum, at iusto praesentium cumque et aspernatur minus nesciunt ad blanditiis quas molestiae nam ipsa!",
+    },
+    {
+      src: smile,
+      title:
+        "Are there any current or potential legal or regulatory issues that may impact the company's growth prospects?",
       content:
         "Lorem ipsum dolor sit amet consectetur adipisicing elit. Similique repellat alias incidunt omnis totam earum laborum, at iusto praesentium cumque et aspernatur minus nesciunt ad blanditiis quas molestiae nam ipsa!",
     },

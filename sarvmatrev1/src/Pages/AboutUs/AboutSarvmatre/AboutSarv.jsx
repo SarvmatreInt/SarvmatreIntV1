@@ -12,7 +12,7 @@ const AboutSarv = () => {
       <AboutDifference />
       <OurHistory />
       <AboutValues />
-      <div className="py-32">
+      {/* <div className="py-32">
         <div className="container">
           <div className="flex justify-center items-center ">
             <iframe
@@ -24,7 +24,7 @@ const AboutSarv = () => {
             ></iframe>
           </div>
         </div>
-      </div>
+      </div> */}
     </div>
   );
 };
