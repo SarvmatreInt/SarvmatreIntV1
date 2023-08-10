@@ -140,14 +140,16 @@ const NewContactForm = () => {
             />
             <div className="grid grid-cols-1 md:grid-cols-2 gap-x-4">
               <Input
-                name="city"
-                value={data["city"]}
-                title="CITY"
-                id="newContact_city"
+                name="country"
+                value={data["country"]}
+                title="COUNTRY"
+                id="newContact_Country"
                 onChange={handleChange}
-                placeholder="Enter your city name..."
+                placeholder="Enter Country"
                 onBlur={handleChange}
-                error={Object.keys(errors).includes("city") && errors["city"]}
+                error={
+                  Object.keys(errors).includes("country") && errors["country"]
+                }
               />
               <Input
                 name="state"
@@ -173,6 +175,16 @@ const NewContactForm = () => {
                 required={false}
               />
               <Input
+                name="city"
+                value={data["city"]}
+                title="CITY"
+                id="newContact_city"
+                onChange={handleChange}
+                placeholder="Enter your city name..."
+                onBlur={handleChange}
+                error={Object.keys(errors).includes("city") && errors["city"]}
+              />
+              <Input
                 name="pincode"
                 value={data["pincode"]}
                 title="PINCODE"
@@ -184,18 +196,7 @@ const NewContactForm = () => {
                   Object.keys(errors).includes("pincode") && errors["pincode"]
                 }
               />
-              <Input
-                name="country"
-                value={data["country"]}
-                title="COUNTRY"
-                id="newContact_Country"
-                onChange={handleChange}
-                placeholder="Enter Country"
-                onBlur={handleChange}
-                error={
-                  Object.keys(errors).includes("country") && errors["country"]
-                }
-              />
+
               <div className="mb-[6px]">
                 <div>
                   <label htmlFor="newContact_identity" className="text-[12px]">
