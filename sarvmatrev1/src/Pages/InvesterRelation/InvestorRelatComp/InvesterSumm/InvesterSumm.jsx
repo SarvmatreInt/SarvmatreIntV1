@@ -49,36 +49,21 @@ const InvesterSumm = () => {
       src: smile,
       num: "01",
       title: "Featured Events",
-      content:
-        "Lorem ipsum dolor sit amet consectetur adipisicing elit. Similique repellat alias incidunt omnis totam earum laborum, at iusto praesentium cumque et aspernatur minus nesciunt ad blanditiis quas molestiae nam ipsa!",
     },
     {
       src: smile,
       num: "02",
       title: "Latest News",
-      content:
-        "Lorem ipsum dolor sit amet consectetur adipisicing elit. Similique repellat alias incidunt omnis totam earum laborum, at iusto praesentium cumque et aspernatur minus nesciunt ad blanditiis quas molestiae nam ipsa!",
     },
     {
       src: smile,
       num: "03",
       title: "Current Investor",
-      content:
-        "Lorem ipsum dolor sit amet consectetur adipisicing elit. Similique repellat alias incidunt omnis totam earum laborum, at iusto praesentium cumque et aspernatur minus nesciunt ad blanditiis quas molestiae nam ipsa!",
     },
     {
       src: smile,
       num: "04",
-      title: "Business presentation",
-      content:
-        "Lorem ipsum dolor sit amet consectetur adipisicing elit. Similique repellat alias incidunt omnis totam earum laborum, at iusto praesentium cumque et aspernatur minus nesciunt ad blanditiis quas molestiae nam ipsa!",
-    },
-    {
-      src: smile,
-      num: "05",
       title: "Media Coverage & Press release",
-      content:
-        "Lorem ipsum dolor sit amet consectetur adipisicing elit. Similique repellat alias incidunt omnis totam earum laborum, at iusto praesentium cumque et aspernatur minus nesciunt ad blanditiis quas molestiae nam ipsa!",
     },
   ];
   return (
@@ -101,7 +86,7 @@ const InvesterSumm = () => {
                         key={index}
                         {...item}
                         onClick={() => {
-                          setPreview(index+1);
+                          setPreview(index + 1);
                           setActive((prev) => {
                             if (JSON.stringify(prev) === JSON.stringify(item)) {
                               return null;

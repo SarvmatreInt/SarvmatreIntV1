@@ -63,7 +63,7 @@ const Navbar = () => {
             <NavLink to="/career">CAREER</NavLink>
           </div>
           <div className="navItem mx-3">
-            <NavLink to="/invester">INVESTER</NavLink>
+            <NavLink to="/investor">INVESTOR</NavLink>
           </div>
           <div className="navItem ml-3">
             <NavLink to="/contact">CONTACT US</NavLink>
@@ -122,7 +122,7 @@ const Navbar = () => {
             <NavLink to="/career">CAREER</NavLink>
           </div>
           <div className="navItem" onClick={toggleHandler}>
-            <NavLink to="/invester">INVESTER</NavLink>
+            <NavLink to="/investor">INVESTOR</NavLink>
           </div>
           <div className="navItem" onClick={toggleHandler}>
             <NavLink to="/contact">CONTACT US</NavLink>

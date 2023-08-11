@@ -26,10 +26,6 @@ const Footer = () => {
           link: "career",
         },
         {
-          heading: "Investors Relation",
-          link: "investors",
-        },
-        {
           heading: "Blogs",
           link: "bloghome",
         },
@@ -60,20 +56,12 @@ const Footer = () => {
       heading: "Support",
       tags: [
         {
-          heading: "Help Center",
-          link: "",
-        },
-        {
-          heading: "FAQ's",
-          link: "",
-        },
-        {
-          heading: "Chat With Us",
-          link: "",
-        },
-        {
           heading: "Contact Us",
           link: "",
+        },
+        {
+          heading: "Investors Relation",
+          link: "investors",
         },
       ],
     },

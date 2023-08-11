@@ -1,16 +1,25 @@
-import React, { useRef } from 'react';
-import emailjs from '@emailjs/browser';
+import React, { useRef } from "react";
+import emailjs from "@emailjs/browser";
 const SchedMeet = () => {
   const form = useRef();
   const sendEmail = (e) => {
     e.preventDefault();
 
-    emailjs.sendForm('service_vpeq9q9', 'template_gry2eux', form.current, '1UU7sjBqQJA7fjCrM')
-      .then((result) => {
+    emailjs
+      .sendForm(
+        "service_vpeq9q9",
+        "template_gry2eux",
+        form.current,
+        "1UU7sjBqQJA7fjCrM"
+      )
+      .then(
+        (result) => {
           console.log(result.text);
-      }, (error) => {
+        },
+        (error) => {
           console.log(error.text);
-      });
+        }
+      );
   };
   return (
     <div className="pb-20">
@@ -38,10 +47,7 @@ const SchedMeet = () => {
                       name="meetFor"
                       className="border-b-2 border-black focus:outline-none w-[90%] min-w-[350px] md:min-w-[180px] sm:min-w-[0px] text-center"
                     >
-                      <option disabled selected >
-                        Collabrate
-                      </option>
-                      <option>Invest</option>
+                      <option selected>Investment</option>
                     </select>
                   </div>
                 </div>
@@ -51,7 +57,7 @@ const SchedMeet = () => {
                   <div className="flex flex-1">
                     <input
                       type="email"
-                      name='email'
+                      name="email"
                       className="placeholder:text-center border-b-2 border-black mx-0 w-[90%] focus:outline-none min-w-[350px] md:min-w-[0px]"
                       placeholder="Your Email ID here "
                     />
