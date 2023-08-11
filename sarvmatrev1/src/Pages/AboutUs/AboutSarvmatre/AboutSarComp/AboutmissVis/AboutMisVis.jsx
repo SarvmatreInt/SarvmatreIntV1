@@ -1,4 +1,5 @@
 import logo from "./Asset 2.png";
+import MisVisComp from "./MisVisComp";
 const AboutMisVis = () => {
   const Missiondata = [
     {
@@ -13,41 +14,47 @@ const AboutMisVis = () => {
   const whatwedo = [
     {
       title: "What we do",
-      content:
-        "At Sarvmatre International, we provide innovative solutions and unwavering support to businesses of all sizes and sectors. Our platform connects businesses with suppliers and customers both nationally and internationally, providing access to a wider range of suppliers and customers. .",
+      text: "At Sarvmatre International, we provide innovative solutions and unwavering support to businesses of all sizes and sectors. Moreover, our platform connects businesses with suppliers and customers both nationally and international, providing access to a wider range of suppliers and customers. .",
     },
   ];
   return (
-    <div className="py-10">
-      <div className="container">
-        <div className="flex  flex-col-reverse lg:flex-row gap-5">
-          <div className="flex flex-1 gap-20 flex-col">
-            {Missiondata.map((item, index) => (
-              <div key={index}>
-                <div>
-                  <div className="border-2 border-black rounded-xl p-4">
-                    <h1 className="text-5xl font-bold pb-4">{item.title}</h1>
-                    <p className="text-xl">{item.text}</p>
-                  </div>
-                </div>
-              </div>
-            ))}
+    // <div className="flex flex-col-reverse lg:flex-row gap-5 px-4">
+    //   <div className="flex flex-1 gap-5 flex-col">
+    //     {Missiondata.map((item, index) => (
+    //       <MisVisComp key={index} {...item} />
+    //     ))}
+    //   </div>
+    //   <div className="flex flex-1 gap-20 flex-col">
+    //     {whatwedo.map((item, index) => (
+    //       <div key={index}>
+    //         <div className=" rounded-xl flex gap-5 flex-col">
+    //           <div className="flex p-4 justify-center items-center">
+    //             <img className="w-full" src={logo} alt="" />
+    //           </div>
+    //           <MisVisComp key={index} {...item} />
+    //         </div>
+    //       </div>
+    //     ))}
+    //   </div>
+    // </div>
+    <div className="container">
+      <img src={logo} className="lg:hidden w-[80%] mx-auto mb-8" />
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+        <div className="grid grid-cols-1 gap-8">
+          {Missiondata.map((item, index) => (
+            <MisVisComp key={index} {...item} />
+          ))}
+        </div>
+        <div className="flex flex-col lg:gap-8">
+          <div className="flex-1 flex items-center">
+            <img
+              src={logo}
+              className="hidden lg:block max-h-[200px] w-[90%] mx-auto object-contain"
+            />
           </div>
-          <div className="flex flex-1 gap-20 flex-col">
-            {whatwedo.map((item, index) => (
-              <div key={index}>
-                  <div className=" rounded-xl p-4 flex gap-28 flex-col ">
-                    <div className="flex py-3 justify-center items-center">
-                      <img className="w-full" src={logo} alt="" />
-                    </div>
-                    <div className="border-2  border-black rounded-xl p-4">
-                      <h1 className="text-5xl font-bold pb-4">{item.title}</h1>
-                      <p className="text-xl">{item.content}</p>
-                    </div>
-                  </div>
-                </div>
-            ))}
-          </div>
+          {whatwedo.map((item, index) => (
+            <MisVisComp key={index} {...item} />
+          ))}
         </div>
       </div>
     </div>

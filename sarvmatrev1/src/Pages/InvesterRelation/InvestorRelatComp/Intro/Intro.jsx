@@ -5,27 +5,24 @@ const swag = [
   },
   {
     title: "Collabrate",
-    dot: ".",
+    dot: ". ",
   },
   {
     title: "Grow Together",
-
   },
 ];
 const Into = () => {
   return (
-    <div className=" ">
-      <div className="flex flex-col justify-center items-center h-72 w-screen border-2 ">
-        <div className="flex flex-col sm:flex-row">
-          {swag.map((item, index) => (
-            <div key={index}>
-              <h1 className="text-6xl">
-                <span className="text-8xl font-bold">{item.title}</span>
-               <span className="font-extrabold pr-3">{item.dot}</span>
-              </h1>
-            </div>
-          ))}
-        </div>       
+    <div className="flex flex-col justify-center items-center h-[600px] w-screen">
+      <div className="flex flex-col 2xl:flex-row">
+        {swag.map((item, index) => (
+          <div key={index}>
+            <h1 className="text-[50px] xsm:text-[60px] sm:text-[88px]">
+              <span className="font-bold">{item.title}</span>
+              <span className="font-extrabold pr-3">{item.dot}</span>
+            </h1>
+          </div>
+        ))}
       </div>
     </div>
   );

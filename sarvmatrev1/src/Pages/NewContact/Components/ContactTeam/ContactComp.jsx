@@ -3,21 +3,9 @@ import EmailModal from "./EmailModal";
 
 
 
-const ContactComp = ({ src, title, description, link, linkText }) => {
-
-  const [ modalOpen, setModalOpen ] = useState(false);
-
-  const handleOpenModal = () => {
-    setModalOpen(true);
-  }
-  const handleCloseModal = () => {
-    setModalOpen(false);
-  }
-
-  console.log(modalOpen);
-
+const ContactComp = ({ src, title, description, link, linkText, onClick }) => {
   return (
-    <div className="rounded-xl  border-2 bg-white select-none sm:basis-[48%] lg:basis-[24%] basis-[100%] flex flex-col justify-between p-4 shadow-md">
+    <div className="rounded-xl  border-2 bg-white select-none sm:basis-[48%] lg:basis-[24%]  basis-[100%] flex flex-col justify-between px-4 py-2 shadow-md">
       <img
         src={src}
         alt={title}
@@ -25,19 +13,20 @@ const ContactComp = ({ src, title, description, link, linkText }) => {
       />
       <div>
         <div className="text-[20px] font-semibold">{title}</div>
-        <div className="text-[gray] mb-3">{description}</div>
-        <div>
-          {/* <Link to={link} className="font-semibold underline decoration-solid">{linkText}</Link> */}
-          <button value={link} onClick={handleOpenModal} className="bg-gradient-to-br from-[#2EA990] to-[#107882] text-white px-4 py-1 rounded-md hover:from-[#107882] hover:to-[#107882]">Send an email</button>
-          {
-            modalOpen &&
-            <EmailModal 
-              email={linkText}
-              onClose={handleCloseModal}
-              open={modalOpen}
-            />
-          }
+        <div className="text-[gray] mb-3 h-[50px] lg:h-[30px]">
+          {description}
         </div>
+        <div>
+          <Link to={link} className="font-semibold underline decoration-solid">
+            {linkText}
+          </Link>
+        </div>
+        <button
+          className="bg-[#2EA990] mt-2 w-full py-1 rounded-lg text-white font-semibold text-xl active:outline-0 focus:outline-0"
+          onClick={onClick}
+        >
+          Contact Us
+        </button>
       </div>
     </div>
   );

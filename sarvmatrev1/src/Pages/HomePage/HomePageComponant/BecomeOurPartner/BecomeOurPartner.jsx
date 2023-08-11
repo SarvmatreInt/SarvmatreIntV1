@@ -48,15 +48,16 @@ const partnersrow3 = [
 
 const BecomeOurPartner = () => {
   return (
-    <div className="xl:py-36">
+    <div className="lg:py-36 mt-20 lg:my-0">
       <div className="container">
         <div>
+        <h1 className="text-4xl xsm:text-5xl sm:text-6xl font-bold pb-32 text-center">Recognition</h1>
           <div className="flex  gap-5 flex-col  ">
             <div className=" flex pb-10 gap-4">
               {partnersrow1.map((partner, index) => (
                 <div key={index} className="w-full flex items-center justify-center">
                   <div className="flex justify-center w-full">
-                    <img className="w-3/4" src={partner.image} alt="" />
+                    <img className="w-[70%]" src={partner.image} alt="" />
                   </div>
                 </div>
               ))}

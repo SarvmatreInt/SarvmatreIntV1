@@ -1,0 +1,20 @@
+.link-hover:hover>img {
+    transition: .3s;
+    transform: translate(2px, -2px);
+}
+
+.job-container:hover .job-perks {
+    transition: .2s;
+    background-color: black;
+    color: #ffffff;
+}
+
+.job-container:hover .job-perks img {
+    filter: invert(100%);
+}
+
+.job-perks {
+    border: 1px solid black;
+    padding: 1px 8px;
+    border-radius: 25px;
+}

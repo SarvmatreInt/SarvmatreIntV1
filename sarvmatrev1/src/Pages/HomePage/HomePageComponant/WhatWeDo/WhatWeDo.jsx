@@ -46,14 +46,19 @@ const WhatWeDo = () => {
         <div>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 sm:gap-8 mt-10 justify-center">
             {WhatWeDoAray.map((item, index) => (
-              <div key={index} className="flex-1 border-transparent border-2 hover:border-black rounded-xl p-10">
+              <div
+                key={index}
+                className="flex-1 border-transparent border-2 hover:border-black rounded-xl p-10"
+              >
                 <div className="  flex flex-col items-center ">
-                  <div className="py-2"><img src={item.Icon} alt="" /></div>
+                  <div className="py-2">
+                    <img src={item.Icon} alt="" />
+                  </div>
                   <div>
                     <h1 className="font-bold text-5xl py-4">{item.TitleNum}</h1>
                   </div>
                   <div>
-                    <p className="text-xl ">{item.TitleText}</p>
+                    <p className="text-xl text-justify">{item.TitleText}</p>
                   </div>
                 </div>
               </div>

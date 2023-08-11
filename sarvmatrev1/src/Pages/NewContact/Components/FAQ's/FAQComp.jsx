@@ -4,7 +4,7 @@ import { useState } from "react";
 
 const FAQComp = ({ src, title, content, onClick, className }) => {
   return (
-    <div className={`my-4 p-4 rounded-2xl bg-gray-100`}>
+    <div className={`my-4 p-4 rounded-2xl bg-gray-100 cursor-pointer`} onClick={onClick}>
       <div className="flex relative select-none items-start ">
         <img
           src={src}
@@ -15,7 +15,6 @@ const FAQComp = ({ src, title, content, onClick, className }) => {
           <img
             src={className === "active" ? up : down}
             className="w-[20px] cursor-pointer"
-            onClick={onClick}
           />
         </div>
       </div>

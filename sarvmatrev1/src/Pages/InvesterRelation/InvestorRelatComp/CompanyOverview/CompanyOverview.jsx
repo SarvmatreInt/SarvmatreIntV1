@@ -1,53 +1,67 @@
-import { useState } from 'react'
-import BecomeOurPartner from '../../../HomePage/HomePageComponant/BecomeOurPartner/BecomeOurPartner';
-import ProblemWesolve from '../../../HomePage/HomePageComponant/ProblemweSolvw/ProblemWesolve';
+import { useState } from "react";
+import BecomeOurPartner from "../../../HomePage/HomePageComponant/BecomeOurPartner/BecomeOurPartner";
+import ProblemWesolve from "../../../HomePage/HomePageComponant/ProblemweSolvw/ProblemWesolve";
 // import WhatWeDo from '../../../HomePage/HomePageComponant/WhatWeDo/WhatWeDo';
-import WhatWeOffer from '../../../HomePage/HomePageComponant/WhatWeOffer/WhatWeOffer';
+import WhatWeOffer from "../../../HomePage/HomePageComponant/WhatWeOffer/WhatWeOffer";
+import OurHistory from "../../../OurHistory/OurHistory";
+import AboutValues from "../../../AboutUs/AboutSarvmatre/AboutSarComp/AboutValues/AboutValues";
 const CompanyOverview = () => {
-    const [currentOve, serOverview] = useState(1);
-    const ShowOverview = (active) => {
-        switch(active){
-            case 1:
-                return <BecomeOurPartner/>
-            case 2: 
-            return <ProblemWesolve/>
-            case 3: 
-            return <WhatWeOffer/>
-        }
+  const [currentOve, serOverview] = useState(1);
+  const ShowOverview = (active) => {
+    switch (active) {
+      case 1:
+        return <OurHistory />;
+      case 2:
+        return <BecomeOurPartner />;
+      case 3:
+        return <AboutValues />;
+      case 4:
+        return <ProblemWesolve />;
+      case 5:
+        return <WhatWeOffer />;
     }
+  };
   return (
     <div>
-    <div className='container'>
-         <div className='py-10'>
-            <h1 className='text-4xl text-center font-bold'>Company Overview</h1>
-         </div>
-         <div>
-         <hr />
-            <div className='flex flex-row justify-center gap-5 '>
-                <div>
-                    <button className='button-27' onClick={()=>serOverview(1)}>values</button>
-                </div>
-                <div>
-                    <button className='button-27' onClick={()=>serOverview(2)}>values</button>
-                </div>
-                <div>
-                    <button className='button-27' onClick={()=>serOverview(3)}>values</button>
-                </div>
-                <div>
-                    <button className='button-27' onClick={()=>serOverview(4)}>values</button>
-                </div>
-                <div>
-                    <button className='button-27' onClick={()=>serOverview(5)}>values</button>
-                </div>
+      <div className="container">
+        <div className="pt-32 pb-24">
+          <h1 className="text-6xl text-center font-bold">Company Overview</h1>
+        </div>
+        <div>
+          <hr className="pb-3" />
+          <div className="flex flex-row flex-wrap justify-center gap-5 ">
+            <div>
+              <button className="button-17" onClick={() => serOverview(1)}>
+                Our History
+              </button>
             </div>
-            <hr />
-         </div>
+            <div>
+              <button className="button-17" onClick={() => serOverview(2)}>
+                Recognitions
+              </button>
+            </div>
+            <div>
+              <button className="button-17" onClick={() => serOverview(3)}>
+                Our Values
+              </button>
+            </div>
+            <div>
+              <button className="button-17" onClick={() => serOverview(4)}>
+                Problems We Solve
+              </button>
+            </div>
+            <div>
+              <button className="button-17" onClick={() => serOverview(5)}>
+                What we Offer
+              </button>
+            </div>
+          </div>
+        </div>
+        <hr className="mt-3" />
+      </div>
+      {ShowOverview(currentOve)}
     </div>
-      {
-        ShowOverview(currentOve)
-      }
-    </div>
-  )
-}
+  );
+};
 
-export default CompanyOverview
+export default CompanyOverview;
