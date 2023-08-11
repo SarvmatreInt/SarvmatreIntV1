@@ -140,7 +140,7 @@ const Form = (props) => {
   return (
     <Modal onClose={props.onClose}>
       <h1 className="mb-4">{props.name.toUpperCase()} FORM</h1>
-      <form className="w-[350px] max-h-[450px] overflow-y-scroll">
+      <form className="w-[90%] md:w-[400px] max-h-[80vh] md:max-h-[500px] overflow-y-scroll">
         <Input
           name="fullName"
           title="FULL NAME"
@@ -215,7 +215,12 @@ const Form = (props) => {
           value={data.message}
           onChange={handleChange}
         />
-        <button type="submit" className="bg-[#000] text-white pl-1 pr-4 py-1 rounded-r-lg mb-4">Submit</button>
+        <button
+          type="submit"
+          className="bg-[#000] text-white pl-1 pr-4 py-1 rounded-r-lg mb-4"
+        >
+          Submit
+        </button>
       </form>
     </Modal>
   );
