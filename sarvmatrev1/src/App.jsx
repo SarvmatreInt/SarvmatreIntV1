@@ -19,6 +19,7 @@ import Form from "./Pages/NewContact/Components/ContactTeam/Modal/Form";
 
 function App() {
   const [backdrop, setBackdrop] = useState(false);
+  const [form, setForm] = useState("");
   return (
     <div className="m-0 p-0">
       <Router>
@@ -35,10 +36,12 @@ function App() {
                     onClose={() => {
                       setBackdrop((prev) => !prev);
                     }}
+                    name={form}
                   />
                 )}
                 <NewContact
-                  onClick={() => {
+                  onClick={(name) => {
+                    setForm(name);
                     setBackdrop((prev) => !prev);
                   }}
                 />
