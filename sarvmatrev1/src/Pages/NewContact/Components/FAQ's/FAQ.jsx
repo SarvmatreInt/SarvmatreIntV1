@@ -6,53 +6,28 @@ const FAQ = () => {
   const DATA = [
     {
       src: smile,
-      title: "What is the company's primary business focus?",
+      title: "How can I get in touch with Sarvmatre International?",
       content:
-        "Lorem ipsum dolor sit amet consectetur adipisicing elit. Similique repellat alias incidunt omnis totam earum laborum, at iusto praesentium cumque et aspernatur minus nesciunt ad blanditiis quas molestiae nam ipsa!",
+        'If you have any questions or inquiries, you can reach out to us through the "Contact Us" form on our website. You can also find our contact details, including phone number and email address, for direct communication.',
     },
     {
       src: smile,
-      title: "What sets your company apart from competitors?",
+      title: "What kind of inquiries can I contact you about?",
       content:
-        "Lorem ipsum dolor sit amet consectetur adipisicing elit. Similique repellat alias incidunt omnis totam earum laborum, at iusto praesentium cumque et aspernatur minus nesciunt ad blanditiis quas molestiae nam ipsa!",
-    },
-    {
-      src: smile,
-      title: "What is the long-term growth strategy for the company?",
-      content:
-        "Lorem ipsum dolor sit amet consectetur adipisicing elit. Similique repellat alias incidunt omnis totam earum laborum, at iusto praesentium cumque et aspernatur minus nesciunt ad blanditiis quas molestiae nam ipsa!",
-    },
-    {
-      src: smile,
-      title: "Has the company raised an investment yet?",
-      content:
-        "Lorem ipsum dolor sit amet consectetur adipisicing elit. Similique repellat alias incidunt omnis totam earum laborum, at iusto praesentium cumque et aspernatur minus nesciunt ad blanditiis quas molestiae nam ipsa!",
+        "We're here to assist you with a wide range of inquiries, including sales, support, career, grievance redressal, business partnerships, media inquiries, and more. Feel free to reach out to us with any questions you have.",
     },
     {
       src: smile,
       title:
-        "How to invest in the company and what information can potential investors expect to receive when considering investing in your company?",
+        "What information should I include in my message when using the contact form?",
       content:
-        "Lorem ipsum dolor sit amet consectetur adipisicing elit. Similique repellat alias incidunt omnis totam earum laborum, at iusto praesentium cumque et aspernatur minus nesciunt ad blanditiis quas molestiae nam ipsa!",
+        "Please provide your name, email address, phone number, and a detailed message outlining your inquiry or feedback. The more information you provide, the better we can assist you",
     },
     {
       src: smile,
-      title: "How does the company plan to utilize the investment funds?",
+      title: "How long does it take to receive a response to my message?",
       content:
-        "Lorem ipsum dolor sit amet consectetur adipisicing elit. Similique repellat alias incidunt omnis totam earum laborum, at iusto praesentium cumque et aspernatur minus nesciunt ad blanditiis quas molestiae nam ipsa!",
-    },
-    {
-      src: smile,
-      title: "What is the company's strategy for managing risk?",
-      content:
-        "Lorem ipsum dolor sit amet consectetur adipisicing elit. Similique repellat alias incidunt omnis totam earum laborum, at iusto praesentium cumque et aspernatur minus nesciunt ad blanditiis quas molestiae nam ipsa!",
-    },
-    {
-      src: smile,
-      title:
-        "Are there any current or potential legal or regulatory issues that may impact the company's growth prospects?",
-      content:
-        "Lorem ipsum dolor sit amet consectetur adipisicing elit. Similique repellat alias incidunt omnis totam earum laborum, at iusto praesentium cumque et aspernatur minus nesciunt ad blanditiis quas molestiae nam ipsa!",
+        "We strive to respond to all inquiries as quickly as possible. Our team typically replies within 24 to 48 hours on business days. However, during peak times, it may take a little longer.",
     },
   ];
 
