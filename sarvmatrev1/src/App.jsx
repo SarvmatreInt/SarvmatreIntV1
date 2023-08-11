@@ -15,6 +15,7 @@ import NewCareersPage from "./Pages/NewCareersPage/NewCareersPage";
 import AboutProdley from "./Pages/AboutProdley/AboutProdley";
 import { useState } from "react";
 import Form from "./Pages/NewContact/Components/ContactTeam/Modal/Form";
+import JobApplication from "./Pages/JobApplication/JobApplication";
 // import { BrowserRouter, Routes, Route } from "react-router-dom";
 
 function App() {
@@ -51,6 +52,7 @@ function App() {
           <Route path="/about/sarvmatre" element={<AboutSarv />} />
           <Route path="/about/prodley" element={<AboutProdley />} />
           <Route path="/career" element={<NewCareersPage />} />
+          <Route path="/jobapplication" element={<JobApplication />} />
         </Routes>
         <Footer />
       </Router>
