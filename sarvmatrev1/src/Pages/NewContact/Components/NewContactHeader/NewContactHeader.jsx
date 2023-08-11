@@ -77,7 +77,7 @@ const NewContactHeader = () => {
         <ul className="grid gap-[22.5px] justify-start mt-5">
           {contactInformation.map((contact, index) => {
             return (
-              <Link to={contact.to}>
+              <Link to={contact.to} key={index}>
                 <li className="flex items-center lg:items-start gap-3">
                   <img
                     src={contact.icon}
@@ -104,7 +104,7 @@ const NewContactHeader = () => {
             <h1>Follow us:</h1>
             <div className="flex gap-4 my-4">
               {socialLinks.map((item, index) => (
-                <Link to={item.to}>
+                <Link to={item.to} key={index}>
                   <img src={item.icon} className="w-[30px]" />
                 </Link>
               ))}

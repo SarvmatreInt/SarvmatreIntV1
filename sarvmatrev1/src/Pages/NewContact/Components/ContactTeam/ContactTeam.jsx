@@ -3,11 +3,11 @@ import bubbleChat from "./bubble-chat.png";
 import enquiry from "./enquiry.png";
 // import location from "./location.png";
 import messenger from "./messenger.png";
-// import phone from "./phone-call.png";
+import career from "./career-promotion.png";
 import support from "./support.png";
 import press from "./press-release.png";
 import partner from "./partners.png";
-import { useState } from "react";
+// import { useState } from "react";
 
 const ContactTeam = ({ onClick }) => {
   const DATA = [

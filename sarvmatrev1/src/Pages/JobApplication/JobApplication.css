@@ -1,0 +1,13 @@
+input::file-selector-button {
+    background: linear-gradient(to bottom, #107882, #2EA990);
+    color: #ffffff;
+    border-radius: 5px;
+    border: transparent;
+    padding: .3em 1em;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+input:focus {
+    outline: none;
+}
