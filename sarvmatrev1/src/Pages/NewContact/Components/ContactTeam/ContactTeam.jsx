@@ -2,13 +2,15 @@ import ContactComp from "./ContactComp";
 import bubbleChat from "./bubble-chat.png";
 import career from "./career-promotion.png";
 import enquiry from "./enquiry.png";
-import location from "./location.png";
+// import location from "./location.png";
 import messenger from "./messenger.png";
-import phone from "./phone-call.png";
+// import phone from "./phone-call.png";
 import support from "./support.png";
 import press from "./press-release.png";
+import partner from "./partners.png";
+import { useState } from "react";
 
-const ContactTeam = () => {
+const ContactTeam = ({ onClick }) => {
   const DATA = [
     {
       src: enquiry,
@@ -16,6 +18,13 @@ const ContactTeam = () => {
       description: "We're there to help",
       linkText: "enquiries@sarvmatre.com",
       link: "mailto:enquiries@sarvmatre.com",
+    },
+    {
+      src: partner,
+      title: "Partnerships",
+      description: "Partner with us",
+      linkText: "partner@sarvmatre.com",
+      link: "mailto:partner@sarvmatre.com",
     },
     {
       src: bubbleChat,
@@ -32,26 +41,6 @@ const ContactTeam = () => {
       link: "mailto:support@sarvmatre.com",
     },
     {
-      src: phone,
-      title: "Call us",
-      description: "Speak to our friendly team",
-      linkText: "+91(123-456-789)",
-    },
-    {
-      src: career,
-      title: "Career",
-      description: "For your Bright Future",
-      linkText: "career@sarvmatre.com",
-      link: "mailto:careers@sarvmatre.com",
-    },
-    {
-      src: messenger,
-      title: "Grievance Redressal",
-      description: "For your Grievance Redressal",
-      linkText: "grievance@sarvmatre.com",
-      link: "mailto:grievance@sarvmatre.com",
-    },
-    {
       src: press,
       title: "Press & Media",
       description: "Reach Our Media team",
@@ -59,11 +48,18 @@ const ContactTeam = () => {
       link: "mailto:press@sarvmatre.com",
     },
     {
-      src: location,
-      title: "Visit us",
-      description: "Visit our office HQ",
-      linkText: "View on Google Maps",
-      link: "https://goo.gl/maps/1r8KUfKjuR8mT99Q8",
+      src: career,
+      title: "Career",
+      description: "For your Brigt Career",
+      linkText: "career@sarvmatre.com",
+      link: "mailto:grievance@sarvmatre.com",
+    },
+    {
+      src: messenger,
+      title: "Grievance Redressal",
+      description: "For your Grievance Redressal",
+      linkText: "grievance@sarvmatre.com",
+      link: "mailto:grievance@sarvmatre.com",
     },
   ];
   return (
@@ -73,11 +69,11 @@ const ContactTeam = () => {
           Contact Our Friendly Team
         </h1>
         <p className="text-center text-[20px] mb-8">
-          Let us know how we can help
+          Want to get in touch? We'd love to hear from you.
         </p>
         <div className="flex flex-wrap justify-center gap-4 max-w-[95%] mx-auto">
           {DATA.map((item, index) => (
-            <ContactComp key={index} {...item} />
+            <ContactComp key={index} {...item} onClick={onClick} />
           ))}
         </div>
       </div>

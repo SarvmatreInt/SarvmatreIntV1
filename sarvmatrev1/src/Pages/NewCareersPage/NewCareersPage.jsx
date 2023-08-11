@@ -16,14 +16,37 @@ const Schema = {
 
 const NewCareersPage = () => {
   const careersData = [
-    
+    // {
+    //   jobTitle: "Product Designer",
+    //   jobDescription:
+    //     "Lorem ipsum dolor sit amet consectetur adipisicing elit. Inventore excepturi, cumque vero dignissimos corrupti voluptatum!",
+    //   jobType: "100% remote",
+    //   jobEnrollmentStatus: "Full-time",
+    //   applyLink: "careers",
+    // },
+    // {
+    //   jobTitle: "Product Designer",
+    //   jobDescription:
+    //     "Lorem ipsum dolor sit amet consectetur adipisicing elit. Inventore excepturi, cumque vero dignissimos corrupti voluptatum!",
+    //   jobType: "100% remote",
+    //   jobEnrollmentStatus: "Full-time",
+    //   applyLink: "careers",
+    // },
+    // {
+    //   jobTitle: "Product Designer",
+    //   jobDescription:
+    //     "Lorem ipsum dolor sit amet consectetur adipisicing elit. Inventore excepturi, cumque vero dignissimos corrupti voluptatum!",
+    //   jobType: "100% remote",
+    //   jobEnrollmentStatus: "Full-time",
+    //   applyLink: "careers",
+    // },
   ];
 
   return (
     <>
       <p className="flex flex-col gap-6 text-center max-w-[650px] mx-auto mt-32">
         <span className="text-4xl font-bold flex flex-col">
-          Join out world-class team of Creators <span>&</span> Dreamers
+          Join our world-class team of Creators <span>&</span> Dreamers
         </span>
         <p className="max-w-[85%] mx-auto">
           Our philosophy is simple -- hire a team of diverse, passionate people
@@ -33,7 +56,7 @@ const NewCareersPage = () => {
 
       <ul className="grid gap-5 my-10">
         {careersData.length === 0 ? (
-          <img src={NoJobs} className="mx-auto h-[300px]"/>
+          <img src={NoJobs} className="mx-auto h-[300px]" />
         ) : (
           careersData.map((data, index) => (
             <li
