@@ -133,7 +133,7 @@ const Footer = () => {
             ))}
           </ul>
         </div>
-        <div className="flex  flex-wrap xsm:grid xsm:grid-cols-2 sm:grid-cols-4 mt-8 gap-16 w-full z-40">
+        <div className="flex  flex-wrap xsm:grid xsm:grid-cols-2 sm:grid-cols-4 mt-8 gap-16 w-full z-[10]">
           {footer_data.map((data, index) => {
             return (
               <div
