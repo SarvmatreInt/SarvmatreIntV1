@@ -15,14 +15,17 @@ import NewCareersPage from "./Pages/NewCareersPage/NewCareersPage";
 import AboutProdley from "./Pages/AboutProdley/AboutProdley";
 import { useState } from "react";
 import Form from "./Pages/NewContact/Components/ContactTeam/Modal/Form";
+import ScrollToTop from "./Pages/GlobalPages/ScrollToTop/ScrollToTop";
 // import { BrowserRouter, Routes, Route } from "react-router-dom";
 
 function App() {
   const [backdrop, setBackdrop] = useState(false);
   const [form, setForm] = useState("");
+
   return (
     <div className="m-0 p-0">
       <Router>
+        <ScrollToTop />
         <Navbar />
         <Routes>
           <Route path="/" element={<Homepage />} />

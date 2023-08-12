@@ -55,7 +55,7 @@ const NewContactHeader = () => {
   return (
     <div className="lg:basis-[40%] min-h-full">
       <div className="flex flex-col h-full w-[90%] mx-auto gap-4 lg:gap-8 pt-8">
-        <h1 className="bg-gradient-to-b from-[#2EA990] to-[#107882] text-transparent bg-clip-text text-5xl font-bold">
+        <h1 className="bg-gradient-to-b from-[#2EA990] to-[#107882] text-transparent bg-clip-text text-5xl font-bold py-2">
           Let's get in touch
         </h1>
         <p className="text-[#5b5b5b] text-lg font-medium">
