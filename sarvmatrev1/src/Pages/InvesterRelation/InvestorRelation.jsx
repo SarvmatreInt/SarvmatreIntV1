@@ -15,10 +15,10 @@ const InvestorRelation = () => {
       <Intro />
       {/* <BecomeOurPartner /> */}
       <SchedMeet />
-      <InvesterSumm />
+      <CompanyOverview />
       <InvesterContact />
       {/* <CurrentInvester /> */}
-      <CompanyOverview />
+      <InvesterSumm />
       <FAQ />
       <Newsletter />
     </div>
