@@ -97,17 +97,6 @@ const InvesterContact = () => {
                 // onBlur={handleChange}
                 // error={Object.keys(errors).includes("email") && errors["email"]}
               />
-
-              <Input
-                name="group"
-                value={data["group"]}
-                title="GROUP OR COMPANY"
-                id="investor_group"
-                onChange={handleChange}
-                placeholder="Body"
-                // onBlur={handleChange}
-                // error={Object.keys(errors).includes("email") && errors["email"]}
-              />
               <Input
                 name="investorType"
                 value={data.investorType}
@@ -150,6 +139,7 @@ const InvesterContact = () => {
                   <option value="group">Group</option>
                   <option value="company">Company</option>
                 </select>
+                <div className="h-[24px]"></div>
               </div>
             </div>
             {data.identity === "group" && (
