@@ -19,7 +19,6 @@ const InvesterContact = () => {
     message: "",
     designation: "",
     company: "",
-    group: "",
   };
 
   const [data, setData] = useState(initialState);
