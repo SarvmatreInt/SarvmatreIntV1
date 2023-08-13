@@ -5,19 +5,28 @@ import "react-phone-input-2/lib/style.css";
 import arrow from "./right-arrow.png";
 import validateInput from "./Validation.js";
 import { validateData } from "./Validation.js";
-import { useRef } from 'react';
-import emailjs from '@emailjs/browser';
+import { useRef } from "react";
+import emailjs from "@emailjs/browser";
 
 const NewContactForm = () => {
   const form = useRef();
   const sendEmail = (e) => {
     e.preventDefault();
-    emailjs.sendForm('service_239zzij', 'template_ob6cemk', form.current, '1UU7sjBqQJA7fjCrM')
-    .then((result) => {
-      console.log(result.text);
-    }, (error) => {
-      console.log(error.text);
-    });
+    emailjs
+      .sendForm(
+        "service_239zzij",
+        "template_ob6cemk",
+        form.current,
+        "1UU7sjBqQJA7fjCrM"
+      )
+      .then(
+        (result) => {
+          console.log(result.text);
+        },
+        (error) => {
+          console.log(error.text);
+        }
+      );
     handleSubmit();
   };
 
@@ -32,11 +41,12 @@ const NewContactForm = () => {
     province: "",
     pincode: "",
     country: "",
-    identity: "team",
+    identity: "individual",
     company: "",
     designation: "",
     message: "",
     countryCode: "",
+    group: "",
   };
   const [data, setData] = useState(initialState);
   const [errors, setErrors] = useState({});
@@ -62,7 +72,7 @@ const NewContactForm = () => {
 
   return (
     <>
-      <div className="flex-1 p-4 bg-[#beeae771]">
+      <div className="flex-1 p-4 bg-[#beeae771] lg:basis-[60%]">
         <div className="w-[95%] md:w-[80%] md:ml-[50px]">
           <h1 className="text-[40px] font-bold md:text-[50px]">Contact us</h1>
           <form className="mt-8" ref={form} onSubmit={sendEmail}>
@@ -79,9 +89,9 @@ const NewContactForm = () => {
               }
             />
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-              <div className="">
+              <div>
                 <div className="text-xl font-medium mb-[6px]">
-                  PHONE / MOBILE<span className="text-red-600 ml-2">*</span>
+                  PHONE<span className="text-red-600 ml-2">*</span>
                 </div>
                 <PhoneInput
                   country={"in"}
@@ -156,24 +166,28 @@ const NewContactForm = () => {
             />
             <div className="grid grid-cols-1 md:grid-cols-2 gap-x-4">
               <Input
+                name="country"
+                value={data["country"]}
+                title="COUNTRY"
+                id="newContact_Country"
+                onChange={handleChange}
+                placeholder="Enter Country"
+                onBlur={handleChange}
+                error={
+                  Object.keys(errors).includes("country") && errors["country"]
+                }
+              />
+              <Input
                 name="city"
                 value={data["city"]}
                 title="CITY"
                 id="newContact_city"
                 onChange={handleChange}
-                placeholder="Enter your city name..."
+                placeholder="Enter Country"
                 onBlur={handleChange}
-                error={Object.keys(errors).includes("city") && errors["city"]}
-              />
-              <Input
-                name="state"
-                value={data["state"]}
-                title="STATE / UT"
-                id="newContact_state"
-                onChange={handleChange}
-                placeholder="Enter state name..."
-                onBlur={handleChange}
-                error={Object.keys(errors).includes("state") && errors["state"]}
+                error={
+                  Object.keys(errors).includes("country") && errors["country"]
+                }
               />
               <Input
                 name="province"
@@ -189,6 +203,16 @@ const NewContactForm = () => {
                 required={false}
               />
               <Input
+                name="state"
+                value={data["state"]}
+                title="STATE / UT"
+                id="newContact_state"
+                onChange={handleChange}
+                placeholder="Enter state name..."
+                onBlur={handleChange}
+                error={Object.keys(errors).includes("state") && errors["state"]}
+              />
+              <Input
                 name="pincode"
                 value={data["pincode"]}
                 title="PINCODE"
@@ -200,18 +224,6 @@ const NewContactForm = () => {
                   Object.keys(errors).includes("pincode") && errors["pincode"]
                 }
               />
-              <Input
-                name="country"
-                value={data["country"]}
-                title="COUNTRY"
-                id="newContact_Country"
-                onChange={handleChange}
-                placeholder="Enter Country"
-                onBlur={handleChange}
-                error={
-                  Object.keys(errors).includes("country") && errors["country"]
-                }
-              />
               <div className="mb-[6px]">
                 <div>
                   <label
@@ -219,6 +231,7 @@ const NewContactForm = () => {
                     className="text-xl font-medium"
                   >
                     CORPORATE IDENTITY
+                    <span className="text-red-600 ml-2">*</span>
                   </label>
                 </div>
                 <select
@@ -229,10 +242,25 @@ const NewContactForm = () => {
                   name="identity"
                 >
                   <option value="individual">Individual</option>
-                  <option value="team">Team</option>
+                  <option value="group">Group</option>
+                  <option value="company">Company</option>
                 </select>
               </div>
             </div>
+
+            {data.identity === "group" && (
+              <Input
+                name="group"
+                value={data["group"]}
+                title="GROUP"
+                id="newContact_group"
+                onChange={handleChange}
+                placeholder="Enter Group..."
+                onBlur={handleChange}
+                error={Object.keys(errors).includes("group") && errors["group"]}
+              />
+            )}
+
             <Input
               name="company"
               value={data["company"]}
@@ -245,19 +273,22 @@ const NewContactForm = () => {
                 Object.keys(errors).includes("company") && errors["company"]
               }
             />
-            <Input
-              name="designation"
-              value={data["designation"]}
-              title="DESIGNATION"
-              id="newContact_designation"
-              onChange={handleChange}
-              placeholder="Enter Designation..."
-              onBlur={handleChange}
-              error={
-                Object.keys(errors).includes("designation") &&
-                errors["designation"]
-              }
-            />
+
+            {(data.identity === "group" || data.identity === "individual") && (
+              <Input
+                name="designation"
+                value={data["designation"]}
+                title="DESIGNATION"
+                id="newContact_designation"
+                onChange={handleChange}
+                placeholder="Enter Designation..."
+                onBlur={handleChange}
+                error={
+                  Object.keys(errors).includes("designation") &&
+                  errors["designation"]
+                }
+              />
+            )}
             <Input
               name="message"
               value={data["message"]}

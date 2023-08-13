@@ -1,3 +1,5 @@
+const urlRegex = /[(http(s)?):\/\/(www\.)?a-zA-Z0-9@:%._\+~#=]{2,256}\.[a-z]{2,6}\b([-a-zA-Z0-9@:%_\+.~#?&//=]*)/
+
 const errors = {};
 
 const validateName = (value) => {
@@ -44,7 +46,7 @@ const validateCommon = (name, value) => {
   }
 };
 
-const validateInput = (name, value) => {
+export default function validateInput (name, value)  {
   if (name === "fullName") {
     validateName(value);
   } else if (name === "phone") {
@@ -59,8 +61,7 @@ const validateInput = (name, value) => {
     name === "country" ||
     name === "company" ||
     name === "designation" ||
-    name === "message" ||
-    name === "group"
+    name === "message"
   ) {
     validateCommon(name, value);
   } else if (name === "pincode") {
@@ -78,5 +79,3 @@ export const validateData = (data) => {
 
   return errors;
 };
-
-export default validateInput;

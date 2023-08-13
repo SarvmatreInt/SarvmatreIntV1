@@ -13,23 +13,56 @@ import Footer from "./Pages/GlobalPages/Footer/Footer";
 import Navbar from "./Pages/GlobalPages/Navbar/Navbar";
 import NewCareersPage from "./Pages/NewCareersPage/NewCareersPage";
 import AboutProdley from "./Pages/AboutProdley/AboutProdley";
+import { useState } from "react";
+import Form from "./Pages/NewContact/Components/ContactTeam/Modal/Form";
+import ScrollToTop from "./Pages/GlobalPages/ScrollToTop/ScrollToTop";
+import JobApplication from "./Pages/JobApplication/JobApplication";
+import NewCareersLayout from "./Pages/NewCareersPage/NewCareersLayout";
 // import { BrowserRouter, Routes, Route } from "react-router-dom";
 
 function App() {
+  const [backdrop, setBackdrop] = useState(false);
+  const [form, setForm] = useState("");
+
   return (
     <div className="m-0 p-0">
       <Router>
+        <ScrollToTop />
         <Navbar />
         <Routes>
           <Route path="/" element={<Homepage />} />
-          <Route path="/invester" element={<InvestorRelation />} />
-          <Route path="contact" element={<NewContact />} />
-          <Route path="invester/event" element={<FeaEve />} />
-          <Route path="invester/press" element={<PressRelease />} />
-          <Route path="invester/news" element={<NewsModule />} />
+          <Route path="/investor" element={<InvestorRelation />} />
+          <Route
+            path="contact"
+            element={
+              <>
+                {backdrop && (
+                  <Form
+                    onClose={() => {
+                      setBackdrop((prev) => !prev);
+                    }}
+                    name={form}
+                  />
+                )}
+                <NewContact
+                  onClick={(name) => {
+                    setForm(name);
+                    setBackdrop((prev) => !prev);
+                  }}
+                />
+              </>
+            }
+          />
+          <Route path="investor/event" element={<FeaEve />} />
+          <Route path="investor/press" element={<PressRelease />} />
+          <Route path="investor/news" element={<NewsModule />} />
           <Route path="/about/sarvmatre" element={<AboutSarv />} />
           <Route path="/about/prodley" element={<AboutProdley />} />
-          <Route path="/career" element={<NewCareersPage />} />
+          <Route path="careers" element={<NewCareersLayout />} >
+            <Route index element={<NewCareersPage />}/>
+            <Route path="career/:jobId" element={<JobApplication />}/>
+          </Route>
+          <Route path="/jobapplication" element={<JobApplication />} />
         </Routes>
         <Footer />
       </Router>
