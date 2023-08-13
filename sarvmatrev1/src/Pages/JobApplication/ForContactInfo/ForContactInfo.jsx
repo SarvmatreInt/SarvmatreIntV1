@@ -2,7 +2,7 @@ import PhoneInput from "react-phone-input-2";
 import { inputFields } from "../InputData";
 import Input from "../../NewContact/Components/Input/Input";
 
-export const ForContactInfo = ({handleChange, onBlur}) => {
+export const ForContactInfo = ({handleChange, onBlur, formData}) => {
 
   return (
     <>

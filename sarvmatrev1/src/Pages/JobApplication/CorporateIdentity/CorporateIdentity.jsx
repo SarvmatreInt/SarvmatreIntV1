@@ -1,6 +1,6 @@
 
 
-const CorporateIdentity = ({handleChange}) => {
+const CorporateIdentity = ({handleChange, formData}) => {
   return (
     <>
         <div className="mb-[6px] max-w-[300px]">
