@@ -26,7 +26,7 @@ const NewCareersPage = () => {
         "Lorem ipsum dolor sit amet consectetur adipisicing elit. Inventore excepturi, cumque vero dignissimos corrupti voluptatum!",
       jobType: "100% remote",
       jobEnrollmentStatus: "Full-time",
-      applyLink: "/career/1",
+      applyLink: "career/productdesigner",
     },
     {
       jobTitle: "Product Designer",
@@ -34,7 +34,7 @@ const NewCareersPage = () => {
         "Lorem ipsum dolor sit amet consectetur adipisicing elit. Inventore excepturi, cumque vero dignissimos corrupti voluptatum!",
       jobType: "100% remote",
       jobEnrollmentStatus: "Full-time",
-      applyLink: "/career/2",
+      applyLink: "career/productdesigner",
     },
     {
       jobTitle: "Product Designer",
@@ -42,7 +42,7 @@ const NewCareersPage = () => {
         "Lorem ipsum dolor sit amet consectetur adipisicing elit. Inventore excepturi, cumque vero dignissimos corrupti voluptatum!",
       jobType: "100% remote",
       jobEnrollmentStatus: "Full-time",
-      applyLink: "/career/3",
+      applyLink: "career/productdesigner",
     },
   ];
 
@@ -83,7 +83,7 @@ const NewCareersPage = () => {
                 </div>
               </div>
               {/* Job Link */}
-              <Link to={ data.applyLink} state={{name:data.jobTitle}} className="flex justify-between items-start  link-hover h-fit w-fit relative">
+              <Link to={data.applyLink} className="flex justify-between items-start  link-hover h-fit w-fit relative">
                 <p className="font-bold">Apply</p>
                 <img
                   src={arrow}

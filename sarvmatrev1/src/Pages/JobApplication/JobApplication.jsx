@@ -13,7 +13,7 @@ import ForAddress from "./ForAddress/ForAddress";
 import CheckBox from "./ResumeAndCheckBox/CheckBox";
 import ResumeUpload from "./ResumeAndCheckBox/ResumeUpload";
 import CorporateIdentity from "./CorporateIdentity/CorporateIdentity";
-import { useLocation } from "react-router";
+import { useParams } from "react-router-dom";
 
 
 function JobApplication({ jobData, jobTitle = "Lorem Ipsum" }) {
@@ -23,6 +23,11 @@ function JobApplication({ jobData, jobTitle = "Lorem Ipsum" }) {
     let data = useLocation();
    let job_title = (data.state.name);
 
+
+    const {jobId} = useParams();
+
+    console.log(jobId);
+    console.log(useParams());
 
     const [progress, setProgress] = useState(0);
     const [numberOfCollegeEducation, setnumberOfCollegeEducation] = useState(1)
@@ -97,11 +102,11 @@ function JobApplication({ jobData, jobTitle = "Lorem Ipsum" }) {
             return formData
         })
     }
-    console.log(formData);
+    // console.log(formData);
 
     return (
-        <form onSubmit={(event) => {event.preventDefault}} className="container mb-24">
-            <p className="uppercase font-bold text-3xl blue-text-gradient text-center my-4">You’re applying for {job_title} </p>
+        <form onSubmit={(event) => {event.preventDefault}} className="container mt-32 mb-24">
+            <p className="uppercase font-bold text-3xl blue-text-gradient text-center my-4">You’re applying for {jobId}</p>
             <div className="w-full flex justify-center items-center gap-2 my-5">
                 <Line
                     style={{ height: "0.56rem", borderRadius: "1rem", width: "80%" }}
@@ -234,7 +239,7 @@ function JobApplication({ jobData, jobTitle = "Lorem Ipsum" }) {
                         };
                         return {...newState};
                     })
-                    console.log(formData);
+                    // console.log(formData);
                 }} 
             >
             Add Education +
