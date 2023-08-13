@@ -59,7 +59,8 @@ const validateInput = (name, value) => {
     name === "country" ||
     name === "company" ||
     name === "designation" ||
-    name === "message"
+    name === "message" ||
+    name === "group"
   ) {
     validateCommon(name, value);
   } else if (name === "pincode") {

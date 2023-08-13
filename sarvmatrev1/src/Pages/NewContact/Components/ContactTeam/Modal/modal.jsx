@@ -12,15 +12,17 @@ const Backdrop = (props) => {
 
 const ModalOverlay = (props) => {
   return (
-    <div className="fixed top-[30%] left-[40%] width-[100%] bg-[white] p-[1rem] rounded-[14px] z-[30]">
-      <div className="relative">
-        <img
-          src={close}
-          className="absolute w-[20px] right-0 cursor-pointer"
-          onClick={props.onClose}
-        />
+    <div className="w-[100%] h-[100vh] flex items-center justify-center absolute">
+      <div className="fixed bg-[white] p-[1rem] rounded-[14px] z-[60]">
+        <div className="relative">
+          <img
+            src={close}
+            className="absolute w-[20px] right-0 cursor-pointer"
+            onClick={props.onClose}
+          />
+        </div>
+        <div className="">{props.children}</div>
       </div>
-      <div className="">{props.children}</div>
     </div>
   );
 };

@@ -61,10 +61,6 @@ function JobApplication({ jobData, jobTitle = "Lorem Ipsum" }) {
         joiningStatus: ""
     })
 
-    useEffect(() => {
-
-    },[formData])
-
 
     const handleChange = (e) => {
         const { name, value } = e.target;
@@ -72,7 +68,7 @@ function JobApplication({ jobData, jobTitle = "Lorem Ipsum" }) {
             ...prev,
             [name]: value,
         }));
-        setErrors(validateInput(name, value));
+        // setErrors(validateInput(name, value));
     };
 
     const mobileChange = (e) => {
