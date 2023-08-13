@@ -72,8 +72,17 @@ function JobApplication({ jobData, jobTitle = "Lorem Ipsum" }) {
             ...prev,
             [name]: value,
         }));
-        // setErrors(validateInput(name, value));
+        setErrors(validateInput(name, value));
     };
+
+    const mobileChange = (e) => {
+        setFormData(prevState => {
+            return {
+                ...prevState,
+                mobile: e
+            }
+        })
+    }
     
     const handleEducationChange = (event) => {
         const { name, value, id } = event.target
@@ -97,6 +106,7 @@ function JobApplication({ jobData, jobTitle = "Lorem Ipsum" }) {
             <ForContactInfo 
                 handleChange={handleChange}
                 formData={formData}
+                changeinMobile={mobileChange}
             />
             <ResumeUpload  
                 handleChange={handleChange}

@@ -2,7 +2,7 @@ import PhoneInput from "react-phone-input-2";
 import { inputFields } from "../InputData";
 import Input from "../../NewContact/Components/Input/Input";
 
-export const ForContactInfo = ({handleChange, onBlur, formData}) => {
+export const ForContactInfo = ({handleChange, onBlur, formData, changeinMobile}) => {
 
   return (
     <>
@@ -21,7 +21,7 @@ export const ForContactInfo = ({handleChange, onBlur, formData}) => {
                                     <PhoneInput
                                         country={"in"}
                                         // value={data["phone"]}
-                                        onChange={handleChange}
+                                        onChange={field.name === 'mobile' ? changeinMobile : handleChange}
                                         inputStyle={{
                                         width: "100%",
                                         border: "0px",
@@ -36,7 +36,7 @@ export const ForContactInfo = ({handleChange, onBlur, formData}) => {
                                         marginBottom: "4px",
                                         backgroundColor: "inherit",
                                         }}
-                                        onBlur={onBlur}
+                                        value={formData.mobile}
                                     />
                                     {/* {Object.keys(errors).includes("phone") && (
                                         <div className="text-[12px] text-red-600 my-2">
