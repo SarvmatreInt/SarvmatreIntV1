@@ -19,19 +19,19 @@ const Footer = () => {
         },
         {
           heading: "About Us",
-          link: "/",
+          link: "/about/sarvmatre",
         },
         {
           heading: "Careers",
-          link: "career",
+          link: "/career",
         },
         {
           heading: "Blogs",
-          link: "bloghome",
+          link: "/blog",
         },
         {
           heading: "Newsroom",
-          link: "/",
+          link: "/investor/news",
         },
       ],
     },
@@ -40,15 +40,15 @@ const Footer = () => {
       tags: [
         {
           heading: "Overview",
-          link: "",
+          link: "/",
         },
         {
           heading: "About Prodley",
-          link: "about",
+          link: "/about/prodley",
         },
         {
           heading: "Join Prodley",
-          link: "",
+          link: "/about/prodley",
         },
       ],
     },
@@ -57,11 +57,11 @@ const Footer = () => {
       tags: [
         {
           heading: "Contact Us",
-          link: "",
+          link: "/contact",
         },
         {
           heading: "Investors Relation",
-          link: "investors",
+          link: "/investor",
         },
       ],
     },
@@ -133,7 +133,7 @@ const Footer = () => {
             ))}
           </ul>
         </div>
-        <div className="flex  flex-wrap xsm:grid xsm:grid-cols-2 sm:grid-cols-4 mt-8 gap-16 w-full z-40">
+        <div className="flex  flex-wrap xsm:grid xsm:grid-cols-2 sm:grid-cols-4 mt-8 gap-16 w-full z-[10]">
           {footer_data.map((data, index) => {
             return (
               <div
@@ -145,11 +145,7 @@ const Footer = () => {
                   {data.tags.map((tag, index) => {
                     return (
                       <li key={index}>
-                        <Link
-                          to={`${import.meta.env.VITE_BASE_URL}/${tag.link}`}
-                        >
-                          {tag.heading}
-                        </Link>
+                        <Link to={`${tag.link}`}>{tag.heading}</Link>
                       </li>
                     );
                   })}

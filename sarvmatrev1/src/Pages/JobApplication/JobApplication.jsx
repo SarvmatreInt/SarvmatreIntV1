@@ -69,10 +69,6 @@ function JobApplication({ jobData, jobTitle = "Lorem Ipsum" }) {
         joiningStatus: ""
     })
 
-    useEffect(() => {
-
-    },[formData])
-
 
     const handleChange = (e) => {
         const { name, value } = e.target;
@@ -83,6 +79,15 @@ function JobApplication({ jobData, jobTitle = "Lorem Ipsum" }) {
         setErrors(validateInput(name, value));
         console.log(errors);
     };
+
+    const mobileChange = (e) => {
+        setFormData(prevState => {
+            return {
+                ...prevState,
+                mobile: e
+            }
+        })
+    }
     
     const handleEducationChange = (event) => {
         const { name, value, id } = event.target
@@ -106,6 +111,7 @@ function JobApplication({ jobData, jobTitle = "Lorem Ipsum" }) {
             <ForContactInfo 
                 handleChange={handleChange}
                 formData={formData}
+                changeinMobile={mobileChange}
             />
             <ResumeUpload  
                 handleChange={handleChange}

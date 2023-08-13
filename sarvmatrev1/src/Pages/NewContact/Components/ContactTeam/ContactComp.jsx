@@ -4,7 +4,15 @@ import {Link} from "react-router-dom"
 
 
 
-const ContactComp = ({ src, title, description, link, linkText, onClick }) => {
+const ContactComp = ({
+  src,
+  title,
+  description,
+  link,
+  linkText,
+  onClick,
+  name,
+}) => {
   return (
     <div className="rounded-xl  border-2 bg-white select-none sm:basis-[48%] lg:basis-[24%]  basis-[100%] flex flex-col justify-between px-4 py-2 shadow-md">
       <img
@@ -22,12 +30,23 @@ const ContactComp = ({ src, title, description, link, linkText, onClick }) => {
             {linkText}
           </Link>
         </div>
-        <button
-          className="bg-[#2EA990] mt-2 w-full py-1 rounded-lg text-white font-semibold text-xl active:outline-0 focus:outline-0"
-          onClick={onClick}
-        >
-          Contact Us
-        </button>
+        {title !== "Career" && (
+          <button
+            className="bg-[#2EA990] mt-2 w-full py-1 rounded-lg text-white font-semibold text-xl active:outline-0 focus:outline-0"
+            onClick={() => {
+              onClick(name);
+            }}
+          >
+            Contact Us
+          </button>
+        )}
+        {title === "Career" && (
+          <Link to="/career">
+            <button className="bg-[#2EA990] mt-2 w-full py-1 rounded-lg text-white font-semibold text-xl active:outline-0 focus:outline-0">
+              Career Page
+            </button>
+          </Link>
+        )}
       </div>
     </div>
   );

@@ -41,11 +41,12 @@ const NewContactForm = () => {
     province: "",
     pincode: "",
     country: "",
-    identity: "team",
+    identity: "individual",
     company: "",
     designation: "",
     message: "",
     countryCode: "",
+    group: "",
   };
   const [data, setData] = useState(initialState);
   const [errors, setErrors] = useState({});
@@ -71,7 +72,7 @@ const NewContactForm = () => {
 
   return (
     <>
-      <div className="flex-1 p-4 bg-[#beeae771] lg:basis-[1/2]">
+      <div className="flex-1 p-4 bg-[#beeae771] lg:basis-[60%]">
         <div className="w-[95%] md:w-[80%] md:ml-[50px]">
           <h1 className="text-[40px] font-bold md:text-[50px]">Contact us</h1>
           <form className="mt-8" ref={form} onSubmit={sendEmail}>
@@ -88,9 +89,9 @@ const NewContactForm = () => {
               }
             />
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-              <div className="">
+              <div>
                 <div className="text-xl font-medium mb-[6px]">
-                  PHONE / MOBILE<span className="text-red-600 ml-2">*</span>
+                  PHONE<span className="text-red-600 ml-2">*</span>
                 </div>
                 <PhoneInput
                   country={"in"}
@@ -169,6 +170,8 @@ const NewContactForm = () => {
                 value={data["country"]}
                 title="COUNTRY"
                 id="newContact_Country"
+<<<<<<< HEAD
+=======
                 onChange={handleChange}
                 placeholder="Enter Country"
                 onBlur={handleChange}
@@ -177,14 +180,17 @@ const NewContactForm = () => {
                 }
               />
               <Input
-                name="state"
-                value={data["state"]}
-                title="STATE / UT"
-                id="newContact_state"
+                name="city"
+                value={data["city"]}
+                title="CITY"
+                id="newContact_city"
+>>>>>>> 1d5ce495f36dfc6300d0ddb51df9235b582b4ff7
                 onChange={handleChange}
-                placeholder="Enter state name..."
+                placeholder="Enter Country"
                 onBlur={handleChange}
-                error={Object.keys(errors).includes("state") && errors["state"]}
+                error={
+                  Object.keys(errors).includes("country") && errors["country"]
+                }
               />
               <Input
                 name="province"
@@ -200,6 +206,7 @@ const NewContactForm = () => {
                 required={false}
               />
               <Input
+<<<<<<< HEAD
                 name="city"
                 value={data["city"]}
                 title="CITY"
@@ -208,6 +215,16 @@ const NewContactForm = () => {
                 placeholder="Enter your city name..."
                 onBlur={handleChange}
                 error={Object.keys(errors).includes("city") && errors["city"]}
+=======
+                name="state"
+                value={data["state"]}
+                title="STATE / UT"
+                id="newContact_state"
+                onChange={handleChange}
+                placeholder="Enter state name..."
+                onBlur={handleChange}
+                error={Object.keys(errors).includes("state") && errors["state"]}
+>>>>>>> 1d5ce495f36dfc6300d0ddb51df9235b582b4ff7
               />
               <Input
                 name="pincode"
@@ -221,7 +238,10 @@ const NewContactForm = () => {
                   Object.keys(errors).includes("pincode") && errors["pincode"]
                 }
               />
+<<<<<<< HEAD
 
+=======
+>>>>>>> 1d5ce495f36dfc6300d0ddb51df9235b582b4ff7
               <div className="mb-[6px]">
                 <div>
                   <label
@@ -229,6 +249,7 @@ const NewContactForm = () => {
                     className="text-xl font-medium"
                   >
                     CORPORATE IDENTITY
+                    <span className="text-red-600 ml-2">*</span>
                   </label>
                 </div>
                 <select
@@ -244,6 +265,20 @@ const NewContactForm = () => {
                 </select>
               </div>
             </div>
+
+            {data.identity === "group" && (
+              <Input
+                name="group"
+                value={data["group"]}
+                title="GROUP"
+                id="newContact_group"
+                onChange={handleChange}
+                placeholder="Enter Group..."
+                onBlur={handleChange}
+                error={Object.keys(errors).includes("group") && errors["group"]}
+              />
+            )}
+
             <Input
               name="company"
               value={data["company"]}
@@ -256,19 +291,22 @@ const NewContactForm = () => {
                 Object.keys(errors).includes("company") && errors["company"]
               }
             />
-            <Input
-              name="designation"
-              value={data["designation"]}
-              title="DESIGNATION"
-              id="newContact_designation"
-              onChange={handleChange}
-              placeholder="Enter Designation..."
-              onBlur={handleChange}
-              error={
-                Object.keys(errors).includes("designation") &&
-                errors["designation"]
-              }
-            />
+
+            {(data.identity === "group" || data.identity === "individual") && (
+              <Input
+                name="designation"
+                value={data["designation"]}
+                title="DESIGNATION"
+                id="newContact_designation"
+                onChange={handleChange}
+                placeholder="Enter Designation..."
+                onBlur={handleChange}
+                error={
+                  Object.keys(errors).includes("designation") &&
+                  errors["designation"]
+                }
+              />
+            )}
             <Input
               name="message"
               value={data["message"]}
