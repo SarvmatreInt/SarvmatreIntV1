@@ -1,14 +1,13 @@
 import ContactComp from "./ContactComp";
 import bubbleChat from "./bubble-chat.png";
-import career from "./career-promotion.png";
 import enquiry from "./enquiry.png";
 // import location from "./location.png";
 import messenger from "./messenger.png";
-// import phone from "./phone-call.png";
+import career from "./career-promotion.png";
 import support from "./support.png";
 import press from "./press-release.png";
 import partner from "./partners.png";
-import { useState } from "react";
+// import { useState } from "react";
 
 const ContactTeam = ({ onClick }) => {
   const DATA = [
@@ -18,6 +17,7 @@ const ContactTeam = ({ onClick }) => {
       description: "We're there to help",
       linkText: "enquiries@sarvmatre.com",
       link: "mailto:enquiries@sarvmatre.com",
+      name: "general",
     },
     {
       src: partner,
@@ -25,6 +25,7 @@ const ContactTeam = ({ onClick }) => {
       description: "Partner with us",
       linkText: "partner@sarvmatre.com",
       link: "mailto:partner@sarvmatre.com",
+      name: "partner",
     },
     {
       src: bubbleChat,
@@ -32,6 +33,7 @@ const ContactTeam = ({ onClick }) => {
       description: "We'll take your sales to next level",
       linkText: "sales@sarvmatre.com",
       link: "mailto:sales@sarvmatre.com",
+      name: "sales",
     },
     {
       src: support,
@@ -39,6 +41,7 @@ const ContactTeam = ({ onClick }) => {
       description: "Chat with us",
       linkText: "support@sarvmatre.com",
       link: "mailto:support@sarvmatre.com",
+      name: "support",
     },
     {
       src: press,
@@ -46,6 +49,7 @@ const ContactTeam = ({ onClick }) => {
       description: "Reach Our Media team",
       linkText: "press@sarvmatre.com",
       link: "mailto:press@sarvmatre.com",
+      name: "press",
     },
     {
       src: career,
@@ -53,6 +57,7 @@ const ContactTeam = ({ onClick }) => {
       description: "For your Brigt Career",
       linkText: "career@sarvmatre.com",
       link: "mailto:grievance@sarvmatre.com",
+      name: "career",
     },
     {
       src: messenger,
@@ -60,6 +65,7 @@ const ContactTeam = ({ onClick }) => {
       description: "For your Grievance Redressal",
       linkText: "grievance@sarvmatre.com",
       link: "mailto:grievance@sarvmatre.com",
+      name: "grievance",
     },
   ];
   return (

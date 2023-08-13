@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+import { Link} from "react-router-dom";
 import "./NewCareers.css";
 import arrow from "./images/rightup.png";
 import time from "./images/clock.png";
@@ -15,35 +15,40 @@ const Schema = {
 };
 
 const NewCareersPage = () => {
+  
+//  const params = useParams();
+//     const {jobid} = params;
+//     console.log(jobid);
   const careersData = [
-    // {
-    //   jobTitle: "Product Designer",
-    //   jobDescription:
-    //     "Lorem ipsum dolor sit amet consectetur adipisicing elit. Inventore excepturi, cumque vero dignissimos corrupti voluptatum!",
-    //   jobType: "100% remote",
-    //   jobEnrollmentStatus: "Full-time",
-    //   applyLink: "careers",
-    // },
-    // {
-    //   jobTitle: "Product Designer",
-    //   jobDescription:
-    //     "Lorem ipsum dolor sit amet consectetur adipisicing elit. Inventore excepturi, cumque vero dignissimos corrupti voluptatum!",
-    //   jobType: "100% remote",
-    //   jobEnrollmentStatus: "Full-time",
-    //   applyLink: "careers",
-    // },
-    // {
-    //   jobTitle: "Product Designer",
-    //   jobDescription:
-    //     "Lorem ipsum dolor sit amet consectetur adipisicing elit. Inventore excepturi, cumque vero dignissimos corrupti voluptatum!",
-    //   jobType: "100% remote",
-    //   jobEnrollmentStatus: "Full-time",
-    //   applyLink: "careers",
-    // },
+    {
+      jobTitle: "Product Designer",
+      jobDescription:
+        "Lorem ipsum dolor sit amet consectetur adipisicing elit. Inventore excepturi, cumque vero dignissimos corrupti voluptatum!",
+      jobType: "100% remote",
+      jobEnrollmentStatus: "Full-time",
+      applyLink: "career/productdesigner",
+    },
+    {
+      jobTitle: "Product Designer",
+      jobDescription:
+        "Lorem ipsum dolor sit amet consectetur adipisicing elit. Inventore excepturi, cumque vero dignissimos corrupti voluptatum!",
+      jobType: "100% remote",
+      jobEnrollmentStatus: "Full-time",
+      applyLink: "career/productdesigner",
+    },
+    {
+      jobTitle: "Product Designer",
+      jobDescription:
+        "Lorem ipsum dolor sit amet consectetur adipisicing elit. Inventore excepturi, cumque vero dignissimos corrupti voluptatum!",
+      jobType: "100% remote",
+      jobEnrollmentStatus: "Full-time",
+      applyLink: "career/productdesigner",
+    },
   ];
 
   return (
     <>
+    {/* <Outlet/> */}
       <p className="flex flex-col gap-6 text-center max-w-[650px] mx-auto mt-32">
         <span className="text-4xl font-bold flex flex-col">
           Join our world-class team of Creators <span>&</span> Dreamers
@@ -78,18 +83,21 @@ const NewCareersPage = () => {
                 </div>
               </div>
               {/* Job Link */}
-              <Link className="flex justify-between items-start  link-hover h-fit w-fit relative">
+              <Link to={data.applyLink} className="flex justify-between items-start  link-hover h-fit w-fit relative">
                 <p className="font-bold">Apply</p>
                 <img
                   src={arrow}
                   alt=""
                   className="max-w-[15px] absolute right-[-20px] top-[-5px]"
                 />
+                 {/* <Outlet/> */}
               </Link>
+             
             </li>
           ))
         )}
       </ul>
+     
     </>
   );
 };
