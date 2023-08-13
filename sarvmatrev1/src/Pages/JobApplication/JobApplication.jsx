@@ -1,4 +1,5 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState} from "react";
+// import { useParams } from "react-router-dom";
 import {Line} from "rc-progress";
 import PhoneInput from "react-phone-input-2";
 import 'react-phone-input-2/lib/style.css';
@@ -12,9 +13,16 @@ import ForAddress from "./ForAddress/ForAddress";
 import CheckBox from "./ResumeAndCheckBox/CheckBox";
 import ResumeUpload from "./ResumeAndCheckBox/ResumeUpload";
 import CorporateIdentity from "./CorporateIdentity/CorporateIdentity";
+import { useLocation } from "react-router";
 
 
 function JobApplication({ jobData, jobTitle = "Lorem Ipsum" }) {
+    // const params = useParams();
+    // const {jobid} = params;
+    // console.log(jobid);
+    let data = useLocation();
+   let job_title = (data.state.name);
+
 
     const [progress, setProgress] = useState(0);
     const [numberOfCollegeEducation, setnumberOfCollegeEducation] = useState(1)
@@ -72,7 +80,8 @@ function JobApplication({ jobData, jobTitle = "Lorem Ipsum" }) {
             ...prev,
             [name]: value,
         }));
-        // setErrors(validateInput(name, value));
+        setErrors(validateInput(name, value));
+        console.log(errors);
     };
     
     const handleEducationChange = (event) => {
@@ -87,7 +96,7 @@ function JobApplication({ jobData, jobTitle = "Lorem Ipsum" }) {
 
     return (
         <form onSubmit={(event) => {event.preventDefault}} className="container mb-24">
-            <p className="uppercase font-bold text-3xl blue-text-gradient text-center my-4">You’re applying for {jobTitle}</p>
+            <p className="uppercase font-bold text-3xl blue-text-gradient text-center my-4">You’re applying for {job_title} </p>
             <div className="w-full flex justify-center items-center gap-2 my-5">
                 <Line
                     style={{ height: "0.56rem", borderRadius: "1rem", width: "80%" }}

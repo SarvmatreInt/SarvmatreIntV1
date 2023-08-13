@@ -51,7 +51,12 @@ function App() {
           <Route path="investor/news" element={<NewsModule />} />
           <Route path="/about/sarvmatre" element={<AboutSarv />} />
           <Route path="/about/prodley" element={<AboutProdley />} />
-          <Route path="/career" element={<NewCareersPage />} />
+          <Route path="/career" element={<NewCareersPage />} ></Route>
+          
+          <Route path="/career/:jobid" element={<JobApplication/>}></Route>
+          
+        
+         
           <Route path="/jobapplication" element={<JobApplication />} />
         </Routes>
         <Footer />
