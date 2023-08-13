@@ -16,6 +16,7 @@ import AboutProdley from "./Pages/AboutProdley/AboutProdley";
 import { useState } from "react";
 import Form from "./Pages/NewContact/Components/ContactTeam/Modal/Form";
 import ScrollToTop from "./Pages/GlobalPages/ScrollToTop/ScrollToTop";
+import JobApplication from "./Pages/JobApplication/JobApplication";
 // import { BrowserRouter, Routes, Route } from "react-router-dom";
 
 function App() {
