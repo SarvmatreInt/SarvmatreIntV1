@@ -170,8 +170,6 @@ const NewContactForm = () => {
                 value={data["country"]}
                 title="COUNTRY"
                 id="newContact_Country"
-<<<<<<< HEAD
-=======
                 onChange={handleChange}
                 placeholder="Enter Country"
                 onBlur={handleChange}
@@ -184,7 +182,6 @@ const NewContactForm = () => {
                 value={data["city"]}
                 title="CITY"
                 id="newContact_city"
->>>>>>> 1d5ce495f36dfc6300d0ddb51df9235b582b4ff7
                 onChange={handleChange}
                 placeholder="Enter Country"
                 onBlur={handleChange}
@@ -206,16 +203,6 @@ const NewContactForm = () => {
                 required={false}
               />
               <Input
-<<<<<<< HEAD
-                name="city"
-                value={data["city"]}
-                title="CITY"
-                id="newContact_city"
-                onChange={handleChange}
-                placeholder="Enter your city name..."
-                onBlur={handleChange}
-                error={Object.keys(errors).includes("city") && errors["city"]}
-=======
                 name="state"
                 value={data["state"]}
                 title="STATE / UT"
@@ -224,7 +211,6 @@ const NewContactForm = () => {
                 placeholder="Enter state name..."
                 onBlur={handleChange}
                 error={Object.keys(errors).includes("state") && errors["state"]}
->>>>>>> 1d5ce495f36dfc6300d0ddb51df9235b582b4ff7
               />
               <Input
                 name="pincode"
@@ -238,10 +224,6 @@ const NewContactForm = () => {
                   Object.keys(errors).includes("pincode") && errors["pincode"]
                 }
               />
-<<<<<<< HEAD
-
-=======
->>>>>>> 1d5ce495f36dfc6300d0ddb51df9235b582b4ff7
               <div className="mb-[6px]">
                 <div>
                   <label

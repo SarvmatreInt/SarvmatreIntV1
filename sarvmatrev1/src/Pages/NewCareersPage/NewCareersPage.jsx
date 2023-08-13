@@ -16,30 +16,30 @@ const Schema = {
 
 const NewCareersPage = () => {
   const careersData = [
-    // {
-    //   jobTitle: "Product Designer",
-    //   jobDescription:
-    //     "Lorem ipsum dolor sit amet consectetur adipisicing elit. Inventore excepturi, cumque vero dignissimos corrupti voluptatum!",
-    //   jobType: "100% remote",
-    //   jobEnrollmentStatus: "Full-time",
-    //   applyLink: "careers",
-    // },
-    // {
-    //   jobTitle: "Product Designer",
-    //   jobDescription:
-    //     "Lorem ipsum dolor sit amet consectetur adipisicing elit. Inventore excepturi, cumque vero dignissimos corrupti voluptatum!",
-    //   jobType: "100% remote",
-    //   jobEnrollmentStatus: "Full-time",
-    //   applyLink: "careers",
-    // },
-    // {
-    //   jobTitle: "Product Designer",
-    //   jobDescription:
-    //     "Lorem ipsum dolor sit amet consectetur adipisicing elit. Inventore excepturi, cumque vero dignissimos corrupti voluptatum!",
-    //   jobType: "100% remote",
-    //   jobEnrollmentStatus: "Full-time",
-    //   applyLink: "careers",
-    // },
+    {
+      jobTitle: "Product Designer",
+      jobDescription:
+        "Lorem ipsum dolor sit amet consectetur adipisicing elit. Inventore excepturi, cumque vero dignissimos corrupti voluptatum!",
+      jobType: "100% remote",
+      jobEnrollmentStatus: "Full-time",
+      applyLink: "career/productdesigner",
+    },
+    {
+      jobTitle: "Product Designer",
+      jobDescription:
+        "Lorem ipsum dolor sit amet consectetur adipisicing elit. Inventore excepturi, cumque vero dignissimos corrupti voluptatum!",
+      jobType: "100% remote",
+      jobEnrollmentStatus: "Full-time",
+      applyLink: "career/productdesigner",
+    },
+    {
+      jobTitle: "Product Designer",
+      jobDescription:
+        "Lorem ipsum dolor sit amet consectetur adipisicing elit. Inventore excepturi, cumque vero dignissimos corrupti voluptatum!",
+      jobType: "100% remote",
+      jobEnrollmentStatus: "Full-time",
+      applyLink: "career/productdesigner",
+    },
   ];
 
   return (
@@ -78,7 +78,7 @@ const NewCareersPage = () => {
                 </div>
               </div>
               {/* Job Link */}
-              <Link className="flex justify-between items-start  link-hover h-fit w-fit relative">
+              <Link to={data.applyLink} className="flex justify-between items-start  link-hover h-fit w-fit relative">
                 <p className="font-bold">Apply</p>
                 <img
                   src={arrow}
