@@ -26,7 +26,7 @@ const NewCareersPage = () => {
         "Lorem ipsum dolor sit amet consectetur adipisicing elit. Inventore excepturi, cumque vero dignissimos corrupti voluptatum!",
       jobType: "100% remote",
       jobEnrollmentStatus: "Full-time",
-      applyLink: "career/productdesigner",
+      applyLink: "productdesigner",
     },
     {
       jobTitle: "Product Designer",
@@ -34,7 +34,7 @@ const NewCareersPage = () => {
         "Lorem ipsum dolor sit amet consectetur adipisicing elit. Inventore excepturi, cumque vero dignissimos corrupti voluptatum!",
       jobType: "100% remote",
       jobEnrollmentStatus: "Full-time",
-      applyLink: "career/productdesigner",
+      applyLink: "productdesigner",
     },
     {
       jobTitle: "Product Designer",
@@ -42,7 +42,7 @@ const NewCareersPage = () => {
         "Lorem ipsum dolor sit amet consectetur adipisicing elit. Inventore excepturi, cumque vero dignissimos corrupti voluptatum!",
       jobType: "100% remote",
       jobEnrollmentStatus: "Full-time",
-      applyLink: "career/productdesigner",
+      applyLink: "productdesigner",
     },
   ];
 

@@ -60,7 +60,7 @@ const Navbar = () => {
             </div>
           </div>
           <div className="navItem mx-3">
-            <NavLink to="/career">CAREER</NavLink>
+            <NavLink to="/careers">CAREER</NavLink>
           </div>
           <div className="navItem mx-3">
             <NavLink to="/investor">INVESTOR</NavLink>
@@ -119,7 +119,7 @@ const Navbar = () => {
             </div>
           </div>
           <div className="navItem" onClick={toggleHandler}>
-            <NavLink to="/career">CAREER</NavLink>
+            <NavLink to="/careers">CAREERS</NavLink>
           </div>
           <div className="navItem" onClick={toggleHandler}>
             <NavLink to="/investor">INVESTOR</NavLink>
