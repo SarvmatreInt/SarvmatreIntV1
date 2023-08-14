@@ -1,4 +1,4 @@
-import { useEffect, useState} from "react";
+import { useState} from "react";
 // import { useParams } from "react-router-dom";
 import {Line} from "rc-progress";
 import PhoneInput from "react-phone-input-2";
@@ -17,17 +17,9 @@ import { useParams } from "react-router-dom";
 
 
 function JobApplication({ jobData, jobTitle = "Lorem Ipsum" }) {
-    // const params = useParams();
-    // const {jobid} = params;
-    // console.log(jobid);
-    let data = useLocation();
-   let job_title = (data.state.name);
-
 
     const {jobId} = useParams();
 
-    console.log(jobId);
-    console.log(useParams());
 
     const [progress, setProgress] = useState(0);
     const [numberOfCollegeEducation, setnumberOfCollegeEducation] = useState(1)
@@ -43,6 +35,10 @@ function JobApplication({ jobData, jobTitle = "Lorem Ipsum" }) {
         collegeGradeObtained: "",
     }
 
+    const [education, setEducation] = useState([
+        {...educationSchema}
+    ])
+
     const [formData, setFormData] = useState({
         // For Personal Details
         fullName: "",
@@ -57,10 +53,6 @@ function JobApplication({ jobData, jobTitle = "Lorem Ipsum" }) {
         state: "",
         city: "",
         pincode: "",
-        // For education
-        education: [
-            {...educationSchema}
-        ],
         // For Professional details
         currentCompany: "",
         department: "",
@@ -96,13 +88,8 @@ function JobApplication({ jobData, jobTitle = "Lorem Ipsum" }) {
     
     const handleEducationChange = (event) => {
         const { name, value, id } = event.target
-        setFormData(prevState => {
-            let updatedEducation = prevState.education[id];
-            console.log(updatedEducation);
-            return formData
-        })
+        console.log(name, value, id);
     }
-    // console.log(formData);
 
     return (
         <form onSubmit={(event) => {event.preventDefault}} className="container mt-32 mb-24">
@@ -139,7 +126,7 @@ function JobApplication({ jobData, jobTitle = "Lorem Ipsum" }) {
             <ul className="grid gap-5 font-medium">
             {
                 Array.from({
-                    length: formData.education
+                    length: education.length
                 })
                 .map((_, index) => {
                     const MainIndex = index;
@@ -151,7 +138,7 @@ function JobApplication({ jobData, jobTitle = "Lorem Ipsum" }) {
                                     <Input 
                                     {...field}
                                     id={MainIndex}
-                                    value={formData.education[MainIndex][field.name]}
+                                    value={education[MainIndex][field.name]}
                                     onChange={handleEducationChange}
                                     key={index}
                                     />
@@ -164,7 +151,7 @@ function JobApplication({ jobData, jobTitle = "Lorem Ipsum" }) {
                                     <Input 
                                     {...field}
                                     id={MainIndex}
-                                    value={formData.education[MainIndex][field.name]}
+                                    value={education[MainIndex][field.name]}
                                     onChange={handleEducationChange}
                                     key={index}
                                     />
@@ -177,7 +164,7 @@ function JobApplication({ jobData, jobTitle = "Lorem Ipsum" }) {
                                         <Input 
                                         {...field}
                                         id={MainIndex}
-                                        value={formData.education[MainIndex][field.name]}
+                                        value={education[MainIndex][field.name]}
                                         onChange={handleEducationChange}
                                         key={index}
                                         />
@@ -190,7 +177,7 @@ function JobApplication({ jobData, jobTitle = "Lorem Ipsum" }) {
                                     <Input 
                                     {...field}
                                     id={MainIndex}
-                                    value={formData.education[MainIndex][field.name]}
+                                    value={education[MainIndex][field.name]}
                                     onChange={handleEducationChange}
                                     key={index}
                                     />
@@ -201,17 +188,11 @@ function JobApplication({ jobData, jobTitle = "Lorem Ipsum" }) {
                                 className="max-w-fit rounded-lg flex items-center px-4 py-2  border-red-600 border gap-2 font-medium text-red-600 hover:bg-red-600 hover:text-white" 
                                 onClick={(event) => {
                                     event.preventDefault();
-                                    if(formData.education.length > 1) {
-                                        setFormData(prevState => {
-                                            const firstHalf = prevState.education.slice(0, MainIndex);
-                                            const secondHalf = prevState.education.slice(MainIndex+1);
-                                            return {
-                                                ...prevState,
-                                                education: [
-                                                    ...firstHalf,
-                                                    ...secondHalf
-                                                ]
-                                            }
+                                    if(education.length > 1) {
+                                        setEducation(prevState => {
+                                            const firstHalf = prevState.slice(0, MainIndex);
+                                            const secondHalf = prevState.slice(MainIndex+1);
+                                            return [...firstHalf, ...secondHalf];
                                         })
                                     }
                                 }}
@@ -229,22 +210,13 @@ function JobApplication({ jobData, jobTitle = "Lorem Ipsum" }) {
                 className="border-[1px] border-[#166316] text-[#166316] max-w-fit px-5 py-1 rounded-lg hover:bg-green hover:text-white hover:bg-[#166316] font-medium mt-4" 
                 onClick={(event) => {
                     event.preventDefault();
-                    setFormData(prevState => {
-                        const newState = {
-                            ...prevState,
-                            education: [
-                                ...prevState.education,
-                                {...educationSchema}
-                            ]
-                        };
-                        return {...newState};
+                    setEducation(prevState => {
+                        return [...prevState, {...educationSchema}];
                     })
-                    // console.log(formData);
-                }} 
+                }}
             >
             Add Education +
             </button>
-
 
             <h2 className="blue-text-gradient font-bold text-2xl mt-10 my-4 capitalize">Professional Detail</h2>
             <div className="grid sm:grid-cols-2 gap-4 font-medium my-4">
