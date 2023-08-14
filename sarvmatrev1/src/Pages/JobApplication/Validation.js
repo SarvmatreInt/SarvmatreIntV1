@@ -11,12 +11,12 @@ const validateName = (value) => {
 };
 
 const validatePhone = (value) => {
-  const regex =
-    /((?:\+|00)[17](?: |\-)?|(?:\+|00)[1-9]\d{0,2}(?: |\-)?|(?:\+|00)1\-\d{3}(?: |\-)?)?(0\d|\([0-9]{3}\)|[1-9]{0,3})(?:((?: |\-)[0-9]{2}){4}|((?:[0-9]{2}){4})|((?: |\-)[0-9]{3}(?: |\-)[0-9]{4})|([0-9]{7}))/g;
+  const regex = /^[0-9]{8,}$/;
   if (!regex.test(value)) {
-    errors.phone = "Must be a valid Phone Number";
+   
+    errors.mobile = "Must be a valid Phone Number";
   } else {
-    delete errors["phone"];
+    delete errors["mobile"];
   }
 };
 
@@ -28,6 +28,15 @@ const validateEmail = (value) => {
     delete errors["email"];
   }
 };
+
+const validateLinkedIn = (value) => {
+  const regex = /^https:\/\/www\.linkedin\.com\/in\/[a-zA-Z0-9-]+\/?$/;
+  if (!regex.test(value)) {
+    errors.linkedin = "Must be a valid linked In profile";
+  } else {
+    delete errors["linkedin"];
+  }
+}
 
 const validatePinCode = (value) => {
   const regex = /^[1-9][0-9]{5}$/;
@@ -49,10 +58,12 @@ const validateCommon = (name, value) => {
 export default function validateInput (name, value)  {
   if (name === "fullName") {
     validateName(value);
-  } else if (name === "phone") {
+  } else if (name === "mobile") {
     validatePhone(value);
   } else if (name === "email") {
     validateEmail(value);
+  } else if(name === "linkedin"){
+    validateLinkedIn(value);
   } else if (
     name === "subject" ||
     name === "address" ||

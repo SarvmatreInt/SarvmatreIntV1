@@ -2,7 +2,7 @@ import PhoneInput from "react-phone-input-2";
 import { inputFields } from "../InputData";
 import Input from "../../NewContact/Components/Input/Input";
 
-export const ForContactInfo = ({handleChange, onBlur, formData, changeinMobile}) => {
+export const ForContactInfo = ({handleChange, onBlur, formData, changeinMobile,  errors }) => {
 
   return (
     <>
@@ -20,6 +20,8 @@ export const ForContactInfo = ({handleChange, onBlur, formData, changeinMobile})
                                     </div>
                                     <PhoneInput
                                         country={"in"}
+                                        value={formData.mobile}
+                                         
                                         // value={data["phone"]}
                                         onChange={field.name === 'mobile' ? changeinMobile : handleChange}
                                         inputStyle={{
@@ -36,19 +38,22 @@ export const ForContactInfo = ({handleChange, onBlur, formData, changeinMobile})
                                         marginBottom: "4px",
                                         backgroundColor: "inherit",
                                         }}
-                                        value={formData.mobile}
+                                      
+                                        
                                     />
-                                    {/* {Object.keys(errors).includes("phone") && (
+                                    {Object.keys(errors).includes("mobile") && (
                                         <div className="text-[12px] text-red-600 my-2">
-                                        {errors["phone"]}
+                                        {errors["mobile"]}
                                         </div>
-                                    )} */}
+                                    )}
+                                 
                                 </div>
                             </label>
                         :
                             <Input
                             {...field}
                             onChange={handleChange}
+                            error={Object.keys(errors).includes(field.name) && errors[field.name]}
                             />
                         }
                     </li>

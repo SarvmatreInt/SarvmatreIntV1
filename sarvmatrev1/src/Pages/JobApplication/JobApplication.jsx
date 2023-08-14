@@ -19,9 +19,10 @@ import { useParams } from "react-router-dom";
 function JobApplication({ jobData, jobTitle = "Lorem Ipsum" }) {
 
     const {jobId} = useParams();
-
+    
 
     const [progress, setProgress] = useState(0);
+    const [errors, setErrors] = useState({});
     const [numberOfCollegeEducation, setnumberOfCollegeEducation] = useState(1)
 
     const educationSchema = {
@@ -78,12 +79,16 @@ function JobApplication({ jobData, jobTitle = "Lorem Ipsum" }) {
     };
 
     const mobileChange = (e) => {
+        setErrors(validateInput("mobile", e));
         setFormData(prevState => {
             return {
                 ...prevState,
                 mobile: e
             }
         })
+
+       
+        
     }
     
     const handleEducationChange = (event) => {
@@ -104,6 +109,7 @@ function JobApplication({ jobData, jobTitle = "Lorem Ipsum" }) {
                 handleChange={handleChange}
                 formData={formData}
                 changeinMobile={mobileChange}
+                errors = {errors}
             />
             <ResumeUpload  
                 handleChange={handleChange}
