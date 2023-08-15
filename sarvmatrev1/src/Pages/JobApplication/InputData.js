@@ -146,7 +146,8 @@ export const inputFields = {
         title: "Start date",
         required: true,
         placeHolder: "",
-        type: "date"
+        type: "date",
+        disabled: false
       },
       {
         id: "endDate",
@@ -155,7 +156,8 @@ export const inputFields = {
         title: "End date",
         required: true,
         placeHolder: "",
-        type: "date"
+        type: "date",
+        disabled: false
       },
       {
         id: "collegeGradeObtained",

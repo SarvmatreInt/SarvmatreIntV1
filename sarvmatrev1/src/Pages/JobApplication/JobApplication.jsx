@@ -16,14 +16,118 @@ import CorporateIdentity from "./CorporateIdentity/CorporateIdentity";
 import { useParams } from "react-router-dom";
 
 
-function JobApplication({ jobData, jobTitle = "Lorem Ipsum" }) {
+function JobApplication() {
 
     const {jobId} = useParams();
 
+    // General formData
+    const [formData, setFormData] = useState({
+        // For Personal Details
+        fullName: "",
+        mobile: "",
+        email: "",
+        linkedin: "",
+        residentType: "",
+        // For Address
+        address1: "",
+        address2: "",
+        country: "",
+        state: "",
+        city: "",
+        pincode: "",
+    })
+    // ==================================
+    
+    // This code part is exclusively for professional detail;
+    
+    const [hasExperience, setHasExperience] = useState(false);
+    const [nri, setNri] = useState(false);
+    
+    const jobExperienceSchema = {
+        currentCompany: "",
+        department: "",
+        currentDesignation: "",
+        currentCTC: "",
+        yrsWithCurrCompany: null,
+        totalExperience: null,
+        servingNoticePeriodStatus: "",
+        totTimeNoticePeriod: null,
+        joiningStatus: ""
+    }
+    
+    const professionalFieldsAdder = (isChecked) => {
+        setFormData(prevState => {
+            let newFormData;
+            if(isChecked) {
+                newFormData = {...prevState, ...jobExperienceSchema}
+            }
+            else {
+                let {
+                    currentCompany,
+                    department,
+                    currentDesignation,
+                    currentCTC,
+                    yrsWithCurrCompany,
+                    totalExperience,
+                    servingNoticePeriodStatus,
+                    totTimeNoticePeriod,
+                    joiningStatus,
+                    ...restData
+                } = prevState;
+                newFormData = restData;
+            }
+            return newFormData
+        })
+    }
+    
+    const getExperience = (event) => {
+        const { checked } = event.target
+        setHasExperience(checked);
+        professionalFieldsAdder(checked);
+    }
+    
+    // ==============================================
+    
+    
+    
+    // Handling resident is NRI or not
+    const handleResidentType = (event) => {
+        const {checked} = event.target;
+        setNri(checked)
+        setFormData(prevState => {
+            return {
+                ...prevState,
+                residentType: checked ? "NRI" : ""
+            }
+        })
+    }
+    // ===============================
+    
+    
+    // General change section 
+    const handleChange = (e) => {
+        const { name, value } = e.target;
+        setFormData((prev) => ({
+            ...prev,
+            [name]: value,
+        }));
+    };
+    // =====================
+    
+    // Mobile number change section
 
-    const [progress, setProgress] = useState(0);
-    const [numberOfCollegeEducation, setnumberOfCollegeEducation] = useState(1)
-
+    const mobileChange = (e) => {
+        setFormData(prevState => {
+            return {
+                ...prevState,
+                mobile: e
+            }
+        })
+    }
+    // ==============================
+    
+    // Education changing and modification section
+    
     const educationSchema = {
         collegeName: "",
         universityName: "",
@@ -38,68 +142,35 @@ function JobApplication({ jobData, jobTitle = "Lorem Ipsum" }) {
     const [education, setEducation] = useState([
         {...educationSchema}
     ])
-
-    const [formData, setFormData] = useState({
-        // For Personal Details
-        fullName: "",
-        mobile: "",
-        email: "",
-        linkedin: "",
-        residentType: true,
-        // For Address
-        address1: "",
-        address2: "",
-        country: "",
-        state: "",
-        city: "",
-        pincode: "",
-        // For Professional details
-        currentCompany: "",
-        department: "",
-        currentDesignation: "",
-        currentCTC: "",
-        currentCTC: "",
-        yrsWithCurrCompany: null,
-        totalExperience: null,
-        servingNoticePeriodStatus: "",
-        totTimeNoticePeriod: null,
-        joiningStatus: ""
-    })
-
-
-    const handleChange = (e) => {
-        const { name, value } = e.target;
-        setFormData((prev) => ({
-            ...prev,
-            [name]: value,
-        }));
-        setErrors(validateInput(name, value));
-        console.log(errors);
-    };
-
-    const mobileChange = (e) => {
-        setFormData(prevState => {
-            return {
-                ...prevState,
-                mobile: e
-            }
-        })
-    }
-    
     const handleEducationChange = (event) => {
         const { name, value, id } = event.target
-        console.log(name, value, id);
+        setEducation(prevState => {
+            let newArray = prevState[id];
+            newArray = {
+                ...newArray,
+                [name]: value
+            };
+            return [
+                ...prevState.slice(0, id),
+                {...newArray},
+                ...prevState.slice(id+1)
+            ];
+        });
+    };
+
+    const [isDisabled, setIsDisabled] = useState(false);
+    const handleEducationPursuing = (event) => {
+        if(isDisabled) {
+
+        }
     }
 
+    // ======================================================
+
     return (
-        <form onSubmit={(event) => {event.preventDefault}} className="container mt-32 mb-24">
-            <p className="uppercase font-bold text-3xl blue-text-gradient text-center my-4">You’re applying for {jobId}</p>
-            <div className="w-full flex justify-center items-center gap-2 my-5">
-                <Line
-                    style={{ height: "0.56rem", borderRadius: "1rem", width: "80%" }}
-                    percent={progress} />
-                <span className="font-medium">{progress}%</span>
-            </div>
+        <form onSubmit={(event) => {event.preventDefault}} className="container mt-44 mb-24">
+            <p className="uppercase font-bold text-3xl blue-text-gradient text-center my-10">You’re applying for {jobId}</p>
+
             <ForContactInfo 
                 handleChange={handleChange}
                 formData={formData}
@@ -109,18 +180,13 @@ function JobApplication({ jobData, jobTitle = "Lorem Ipsum" }) {
                 handleChange={handleChange}
             />
             <CheckBox  
-                handleChange={handleChange}
-                formData={formData}
+                handleChange={handleResidentType}
+                nri={nri}
             />
             <ForAddress  
                 handleChange={handleChange}
                 formData={formData}
             />
-            <CorporateIdentity  
-                handleChange={handleChange}
-                formData={formData}
-            />
-
 
             <h2 className="font-bold text-2xl mt-16">Education</h2>
             <ul className="grid gap-5 font-medium">
@@ -138,8 +204,8 @@ function JobApplication({ jobData, jobTitle = "Lorem Ipsum" }) {
                                     <Input 
                                     {...field}
                                     id={MainIndex}
-                                    value={education[MainIndex][field.name]}
                                     onChange={handleEducationChange}
+                                    value={education[MainIndex][field.name]}
                                     key={index}
                                     />
                                 )
@@ -151,8 +217,8 @@ function JobApplication({ jobData, jobTitle = "Lorem Ipsum" }) {
                                     <Input 
                                     {...field}
                                     id={MainIndex}
-                                    value={education[MainIndex][field.name]}
                                     onChange={handleEducationChange}
+                                    value={education[MainIndex][field.name]}
                                     key={index}
                                     />
                                 ))
@@ -164,26 +230,31 @@ function JobApplication({ jobData, jobTitle = "Lorem Ipsum" }) {
                                         <Input 
                                         {...field}
                                         id={MainIndex}
-                                        value={education[MainIndex][field.name]}
                                         onChange={handleEducationChange}
+                                        value={education[MainIndex][field.name]}
                                         key={index}
+                                        
                                         />
                                     ))
                                 }
                             </div>
                             <div className="max-w-[250px]">
                                 {
-                                inputFields.education.filter((field, index) => index===7).map((field, index) => (
-                                    <Input 
+                                    inputFields.education.filter((field, index) => index===7).map((field, index) => (
+                                        <Input 
                                     {...field}
                                     id={MainIndex}
                                     value={education[MainIndex][field.name]}
                                     onChange={handleEducationChange}
                                     key={index}
                                     />
-                                ))
+                                    ))
                                 }
                             </div>
+                            <label htmlFor="" className="max-w-fit mb-3 flex items-center gap-3">
+                                <input type="checkbox" name="currentlyPursuing" id=""  />
+                                <span>Currently Pursuing</span>
+                            </label>
                             <button 
                                 className="max-w-fit rounded-lg flex items-center px-4 py-2  border-red-600 border gap-2 font-medium text-red-600 hover:bg-red-600 hover:text-white" 
                                 onClick={(event) => {
@@ -194,6 +265,8 @@ function JobApplication({ jobData, jobTitle = "Lorem Ipsum" }) {
                                             const secondHalf = prevState.slice(MainIndex+1);
                                             return [...firstHalf, ...secondHalf];
                                         })
+                                    } else {
+                                        alert("Atleast one education qualification is must!")
                                     }
                                 }}
                             >
@@ -219,16 +292,27 @@ function JobApplication({ jobData, jobTitle = "Lorem Ipsum" }) {
             </button>
 
             <h2 className="blue-text-gradient font-bold text-2xl mt-10 my-4 capitalize">Professional Detail</h2>
-            <div className="grid sm:grid-cols-2 gap-4 font-medium my-4">
-                {
-                inputFields.professionalDetails.map((field, index) => (
-                    <Input 
-                    {...field}
-                    onChange={handleChange}
-                    />
-                ))
-                }
-            </div>
+            <label htmlFor="hasExperience" className="flex items-center gap-2">
+                <input type="checkbox" name="hasExperience" 
+                onChange={getExperience}/>
+                <span className="porse font-medium">Do you have any previous work experience ?</span>
+            </label>
+            {
+                hasExperience ? 
+                <div className="grid sm:grid-cols-2 gap-4 font-medium my-4">
+                    {
+                    inputFields.professionalDetails.map((field, index) => (
+                        <Input 
+                        {...field}
+                        onChange={handleChange}
+                        key={index}
+                        />
+                    ))
+                    }
+                </div>
+                :
+                ""
+            }
             <button 
                 type="submit" 
                 className=" max-w-fit px-4 py-2 bg-gradient-to-br from-[#2EA990] to-[#107882] hover:from-[#107882] hover:to-[#107882] cursor-pointer font-medium text-[#ffffffe7] hover:text-white text-opacity-[100%] rounded-md">

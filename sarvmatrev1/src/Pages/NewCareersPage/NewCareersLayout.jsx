@@ -6,7 +6,7 @@ const NewCareersLayout = () => {
   return (
     <>
         <Outlet />
-        <NewCareersPage />
+        {/* <NewCareersPage /> */}
     </>
   )
 }
