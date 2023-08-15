@@ -231,6 +231,7 @@ function JobApplication({ jobData, jobTitle = "Lorem Ipsum" }) {
                     <Input 
                     {...field}
                     onChange={handleChange}
+                    error={Object.keys(errors).includes(field.name) && errors[field.name]}
                     />
                 ))
                 }

@@ -11,7 +11,7 @@ const validateName = (value) => {
 };
 
 const validatePhone = (value) => {
-  const regex = /^[0-9]{8,}$/;
+  const regex = /^[0-9]{10}$/;
   if (!regex.test(value)) {
    
     errors.mobile = "Must be a valid Phone Number";
@@ -47,6 +47,36 @@ const validatePinCode = (value) => {
   }
 };
 
+const validateNumber = (name,value) => {
+  const regex = /^[0-9]+$/;
+  if (!regex.test(value)) {
+    errors[name] = `Must be a number`;
+  } else {
+    delete errors[name];
+  }
+}
+
+const validateMonth = (value) =>{
+ 
+  if(value>=0 && value<=12){
+        
+         delete errors["totTimeNoticePeriod"];
+  }
+  else{
+    errors.totTimeNoticePeriod = "must be a valid month";
+  }
+}
+
+const validateYesNo = (value) =>{
+  const regex = /^(yes|no)$/i;
+  value = value.toLowerCase();
+  if (!regex.test(value)) {
+    errors.servingNoticePeriodStatus = `Must be a yes or no`;
+  } else {
+    delete errors["servingNoticePeriodStatus"];
+  }
+}
+
 const validateCommon = (name, value) => {
   if (value.trim().length < 3) {
     errors[name] = `Must be a valid ${name}`;
@@ -72,12 +102,30 @@ export default function validateInput (name, value)  {
     name === "country" ||
     name === "company" ||
     name === "designation" ||
-    name === "message"
-  ) {
+    name === "message" ||
+    name === "currentCompany" ||
+    name === "department" ||
+    name === "currentDesignation" ||
+    name === "joiningStatus"
+  ) 
+  
+  {
     validateCommon(name, value);
-  } else if (name === "pincode") {
+  } 
+  
+  else if (name === "pincode") {
     validatePinCode(value);
-  } else {
+  } 
+  else if(name === "yrsWithCurrCompany" || name === "totalExperience" || name === "currentCTC" || name === "currentHandPackage"){
+    validateNumber(name,value);
+  }
+  else if(name === "totTimeNoticePeriod"){
+    validateMonth(value);
+  }
+  else if(name === "servingNoticePeriodStatus"){
+    validateYesNo(value);
+  }
+  else {
     return errors;
   }
   return errors;
