@@ -1,19 +1,15 @@
 import { useState} from "react";
-// import { useParams } from "react-router-dom";
-import {Line} from "rc-progress";
-import PhoneInput from "react-phone-input-2";
+import { useParams } from "react-router-dom";
 import 'react-phone-input-2/lib/style.css';
 import { inputFields } from "./InputData";
-import validateInput, {validateData} from "./Validation";
+import validateInput, {fileVerification, validateData} from "./Validation";
 import trash from './images/trash-bin.png'
 import Input from "../NewContact/Components/Input/Input";
 import "./JobApplication.css";
 import { ForContactInfo } from "./ForContactInfo/ForContactInfo";
 import ForAddress from "./ForAddress/ForAddress";
-import CheckBox from "./ResumeAndCheckBox/CheckBox";
-import ResumeUpload from "./ResumeAndCheckBox/ResumeUpload";
-import CorporateIdentity from "./CorporateIdentity/CorporateIdentity";
-import { useParams } from "react-router-dom";
+import CheckBox from "./CheckBox/CheckBox";
+import ResumeUpload from "./CheckBox/CheckBox";
 
 
 function JobApplication() {
@@ -28,10 +24,12 @@ function JobApplication() {
         email: "",
         linkedin: "",
         residentType: "",
+        resume: false,
         // For Address
         address1: "",
         address2: "",
         country: "",
+        province: "",
         state: "",
         city: "",
         pincode: "",
@@ -158,14 +156,76 @@ function JobApplication() {
         });
     };
 
-    const [isDisabled, setIsDisabled] = useState(false);
+    const [isDisabled, setIsDisabled] = useState([false]);
     const handleEducationPursuing = (event) => {
-        if(isDisabled) {
+        const {id, checked} = event.target
+        setIsDisabled(prevState => {
+            let changedDisabled = prevState[id];
+            changedDisabled = checked;
+            return [
+                ...prevState.slice(0, id),
+                changedDisabled,
+                ...prevState.slice(id+1)
+            ]
+        });
 
+        if(checked === true) {
+            setEducation(prevState => {
+                let newArray = prevState[id];
+                const { endDate, ...rest } = newArray;
+                newArray = {
+                    ...rest,
+                    currentlyPursuing: "Yes"
+                }
+                return [
+                    ...prevState.slice(0, id),
+                    {...newArray},
+                    ...prevState.slice(id+1)
+                ]
+            })
+        } else {
+            setEducation(prevState => {
+                let newArray = prevState[id];
+                const { currentlyPursuing, endDate ,...rest } = newArray;
+                newArray = {
+                    ...rest,
+                    endDate: ""
+                }
+                return [
+                    ...prevState.slice(0, id),
+                    {...newArray},
+                    ...prevState.slice(id+1)
+                ]
+            })
+        }
+    }
+    // ======================================================
+
+    const resumeUpload = (event) => {
+        const file = event.target.files[0];
+        if(!file) {
+            alert("Please upload a file");
+            return;
+        }
+
+        const allowedExtensions = ['.pdf', '.docx'];
+        const fileExtension = file.name.split('.').pop().toLowerCase();
+        if(!allowedExtensions.includes(fileExtension)) {
+            alert("Upload only pdf and docx file extended documents");
+            return;
+        }
+
+        const maxFileLimit = 2000;
+        const size = Math.round(file.size / 1024);
+        if(size < maxFileLimit){
+            alert("File uploaded successfully");
+            return;
+        } else {
+            alert("File size larger than 2 MB");
+            return;
         }
     }
 
-    // ======================================================
 
     return (
         <form onSubmit={(event) => {event.preventDefault}} className="container mt-44 mb-24">
@@ -176,9 +236,20 @@ function JobApplication() {
                 formData={formData}
                 changeinMobile={mobileChange}
             />
-            <ResumeUpload  
-                handleChange={handleChange}
+            <Input 
+                type="file" 
+                name="resume" 
+                id="resume" 
+                required 
+                className="max-w-fit" 
+                onChange={resumeUpload} 
+                title={'Resume'} 
+                inputClass={`max-w-fit`}
             />
+            
+            <span className="font-medium text-gray-500 select-none">
+                (Max file size limit less than 2MB)
+            </span>
             <CheckBox  
                 handleChange={handleResidentType}
                 nri={nri}
@@ -226,16 +297,19 @@ function JobApplication() {
                             </div>
                             <div className="grid grid-cols-2 sm:grid-cols-3 gap-4">
                                 {
-                                    inputFields.education.filter((field, index) => index > 3 && index < 7).map((field, index) => (
-                                        <Input 
-                                        {...field}
-                                        id={MainIndex}
-                                        onChange={handleEducationChange}
-                                        value={education[MainIndex][field.name]}
-                                        key={index}
-                                        
-                                        />
-                                    ))
+                                    inputFields.education.filter((field, index) => index > 3 && index < 7).map((field, index) => {
+                                        // console.log(index);
+                                        return(
+                                            <Input 
+                                            {...field}
+                                            id={MainIndex}
+                                            onChange={handleEducationChange}
+                                            value={education[MainIndex][field.name]}
+                                            key={index}
+                                            disabled={index == 2 && isDisabled[MainIndex]}
+                                            inputClass={index == 2 && isDisabled[MainIndex] ? "bg-gray-200 disabled:hover:cursor-not-allowed" : ""}
+                                            />
+                                    )})
                                 }
                             </div>
                             <div className="max-w-[250px]">
@@ -252,7 +326,7 @@ function JobApplication() {
                                 }
                             </div>
                             <label htmlFor="" className="max-w-fit mb-3 flex items-center gap-3">
-                                <input type="checkbox" name="currentlyPursuing" id=""  />
+                                <input type="checkbox" name="currentlyPursuing" id={MainIndex} onChange={handleEducationPursuing} />
                                 <span>Currently Pursuing</span>
                             </label>
                             <button 

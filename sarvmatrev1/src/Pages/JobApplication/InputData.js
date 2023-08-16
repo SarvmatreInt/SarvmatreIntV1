@@ -69,9 +69,18 @@ export const inputFields = {
         id: "State",
         name: "state",
         label: "State",
-        title: "State",
+        title: "State / UT",
         required: true,
         placeHolder: "Lorem",
+        type: "text"
+      },
+      {
+        id: "Province",
+        name: "province",
+        label: "Province",
+        title: "Province",
+        required: false,
+        placeHolder: "Province",
         type: "text"
       },
       {
@@ -228,7 +237,7 @@ export const inputFields = {
         id: "totalExperience",
         name: "totalExperience",
         label: "Total Experience",
-        title: "Total Experience",
+        title: "Total Experience (in years)",
         required: true,
         placeHolder: "Lorem",
         type: "number"
@@ -255,7 +264,7 @@ export const inputFields = {
         id: "joiningStatus",
         name: "joiningStatus",
         label: "How Soon You Can Join Us",
-        title: "How Soon You Can Join Us",
+        title: "How Soon You Can Join Us (in weeks)",
         required: true,
         placeHolder: "Lorem",
         type: "text"
