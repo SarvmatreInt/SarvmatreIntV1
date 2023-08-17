@@ -79,3 +79,15 @@ export const validateData = (data) => {
 
   return errors;
 };
+
+
+export const fileVerification = (file) => {
+  const allowedExtensions  = ['.pdf', '.docx'];
+  const fileName = file.name;
+  const fileExtension = fileName.split('.').pop().toLowerCase();
+  if(fileExtension in allowedExtensions) {
+    console.log(fileExtension);
+  } else {
+    throw new Error("NO");
+  }
+}

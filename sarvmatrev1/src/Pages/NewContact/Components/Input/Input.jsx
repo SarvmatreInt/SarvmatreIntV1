@@ -3,12 +3,14 @@ const Input = ({
   value,
   title,
   id,
+  type,
   onChange,
   placeholder,
   inputClass,
   onBlur,
   required,
   error,
+  disabled
 }) => {
   return (
     <div className="mb-[6px] w-full">
@@ -22,10 +24,12 @@ const Input = ({
         id={id}
         name={name}
         value={value}
+        type={type}
         onChange={onChange}
         placeholder={placeholder}
-        className={`w-full bg-inherit border-b-2 border-gray-400 active:border-gray-700 focus:border-gray-700 focus:outline-0 cursor-pointer py-1 ${inputClass}`}
+        className={`w-full bg-inherit border-b-2 ${type === "file" ? "border-transparent" : "border-gray-400 active:border-gray-700 focus:border-gray-700"}  focus:outline-0 cursor-pointer py-1 ${inputClass}`}
         onBlur={onBlur}
+        disabled={disabled}
       />
       <div className="text-[12px] h-[12px] my-2 text-red-600">{error}</div>
     </div>

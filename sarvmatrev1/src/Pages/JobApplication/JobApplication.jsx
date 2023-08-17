@@ -1,37 +1,131 @@
-import { useEffect, useState} from "react";
-// import { useParams } from "react-router-dom";
-import {Line} from "rc-progress";
-import PhoneInput from "react-phone-input-2";
+import { useState} from "react";
+import { useParams } from "react-router-dom";
 import 'react-phone-input-2/lib/style.css';
 import { inputFields } from "./InputData";
-import validateInput, {validateData} from "./Validation";
+import validateInput, {fileVerification, validateData} from "./Validation";
 import trash from './images/trash-bin.png'
 import Input from "../NewContact/Components/Input/Input";
 import "./JobApplication.css";
 import { ForContactInfo } from "./ForContactInfo/ForContactInfo";
 import ForAddress from "./ForAddress/ForAddress";
-import CheckBox from "./ResumeAndCheckBox/CheckBox";
-import ResumeUpload from "./ResumeAndCheckBox/ResumeUpload";
-import CorporateIdentity from "./CorporateIdentity/CorporateIdentity";
-import { useParams } from "react-router-dom";
+import CheckBox from "./CheckBox/CheckBox";
+import ResumeUpload from "./CheckBox/CheckBox";
 
 
-function JobApplication({ jobData, jobTitle = "Lorem Ipsum" }) {
-    // const params = useParams();
-    // const {jobid} = params;
-    // console.log(jobid);
-    let data = useLocation();
-   let job_title = (data.state.name);
-
+function JobApplication() {
 
     const {jobId} = useParams();
 
-    console.log(jobId);
-    console.log(useParams());
+    // General formData
+    const [formData, setFormData] = useState({
+        // For Personal Details
+        fullName: "",
+        mobile: "",
+        email: "",
+        linkedin: "",
+        residentType: "",
+        resume: false,
+        // For Address
+        address1: "",
+        address2: "",
+        country: "",
+        province: "",
+        state: "",
+        city: "",
+        pincode: "",
+    })
+    // ==================================
+    
+    // This code part is exclusively for professional detail;
+    
+    const [hasExperience, setHasExperience] = useState(false);
+    const [nri, setNri] = useState(false);
+    
+    const jobExperienceSchema = {
+        currentCompany: "",
+        department: "",
+        currentDesignation: "",
+        currentCTC: "",
+        yrsWithCurrCompany: null,
+        totalExperience: null,
+        servingNoticePeriodStatus: "",
+        totTimeNoticePeriod: null,
+        joiningStatus: ""
+    }
+    
+    const professionalFieldsAdder = (isChecked) => {
+        setFormData(prevState => {
+            let newFormData;
+            if(isChecked) {
+                newFormData = {...prevState, ...jobExperienceSchema}
+            }
+            else {
+                let {
+                    currentCompany,
+                    department,
+                    currentDesignation,
+                    currentCTC,
+                    yrsWithCurrCompany,
+                    totalExperience,
+                    servingNoticePeriodStatus,
+                    totTimeNoticePeriod,
+                    joiningStatus,
+                    ...restData
+                } = prevState;
+                newFormData = restData;
+            }
+            return newFormData
+        })
+    }
+    
+    const getExperience = (event) => {
+        const { checked } = event.target
+        setHasExperience(checked);
+        professionalFieldsAdder(checked);
+    }
+    
+    // ==============================================
+    
+    
+    
+    // Handling resident is NRI or not
+    const handleResidentType = (event) => {
+        const {checked} = event.target;
+        setNri(checked)
+        setFormData(prevState => {
+            return {
+                ...prevState,
+                residentType: checked ? "NRI" : ""
+            }
+        })
+    }
+    // ===============================
+    
+    
+    // General change section 
+    const handleChange = (e) => {
+        const { name, value } = e.target;
+        setFormData((prev) => ({
+            ...prev,
+            [name]: value,
+        }));
+    };
+    // =====================
+    
+    // Mobile number change section
 
-    const [progress, setProgress] = useState(0);
-    const [numberOfCollegeEducation, setnumberOfCollegeEducation] = useState(1)
-
+    const mobileChange = (e) => {
+        setFormData(prevState => {
+            return {
+                ...prevState,
+                mobile: e
+            }
+        })
+    }
+    // ==============================
+    
+    // Education changing and modification section
+    
     const educationSchema = {
         collegeName: "",
         universityName: "",
@@ -43,103 +137,133 @@ function JobApplication({ jobData, jobTitle = "Lorem Ipsum" }) {
         collegeGradeObtained: "",
     }
 
-    const [formData, setFormData] = useState({
-        // For Personal Details
-        fullName: "",
-        mobile: "",
-        email: "",
-        linkedin: "",
-        residentType: true,
-        // For Address
-        address1: "",
-        address2: "",
-        country: "",
-        state: "",
-        city: "",
-        pincode: "",
-        // For education
-        education: [
-            {...educationSchema}
-        ],
-        // For Professional details
-        currentCompany: "",
-        department: "",
-        currentDesignation: "",
-        currentCTC: "",
-        currentCTC: "",
-        yrsWithCurrCompany: null,
-        totalExperience: null,
-        servingNoticePeriodStatus: "",
-        totTimeNoticePeriod: null,
-        joiningStatus: ""
-    })
-
-
-    const handleChange = (e) => {
-        const { name, value } = e.target;
-        setFormData((prev) => ({
-            ...prev,
-            [name]: value,
-        }));
-        setErrors(validateInput(name, value));
-        console.log(errors);
-    };
-
-    const mobileChange = (e) => {
-        setFormData(prevState => {
-            return {
-                ...prevState,
-                mobile: e
-            }
-        })
-    }
-    
+    const [education, setEducation] = useState([
+        {...educationSchema}
+    ])
     const handleEducationChange = (event) => {
         const { name, value, id } = event.target
-        setFormData(prevState => {
-            let updatedEducation = prevState.education[id];
-            console.log(updatedEducation);
-            return formData
-        })
+        setEducation(prevState => {
+            let newArray = prevState[id];
+            newArray = {
+                ...newArray,
+                [name]: value
+            };
+            return [
+                ...prevState.slice(0, id),
+                {...newArray},
+                ...prevState.slice(id+1)
+            ];
+        });
+    };
+
+    const [isDisabled, setIsDisabled] = useState([false]);
+    const handleEducationPursuing = (event) => {
+        const {id, checked} = event.target
+        setIsDisabled(prevState => {
+            let changedDisabled = prevState[id];
+            changedDisabled = checked;
+            return [
+                ...prevState.slice(0, id),
+                changedDisabled,
+                ...prevState.slice(id+1)
+            ]
+        });
+
+        if(checked === true) {
+            setEducation(prevState => {
+                let newArray = prevState[id];
+                const { endDate, ...rest } = newArray;
+                newArray = {
+                    ...rest,
+                    currentlyPursuing: "Yes"
+                }
+                return [
+                    ...prevState.slice(0, id),
+                    {...newArray},
+                    ...prevState.slice(id+1)
+                ]
+            })
+        } else {
+            setEducation(prevState => {
+                let newArray = prevState[id];
+                const { currentlyPursuing, endDate ,...rest } = newArray;
+                newArray = {
+                    ...rest,
+                    endDate: ""
+                }
+                return [
+                    ...prevState.slice(0, id),
+                    {...newArray},
+                    ...prevState.slice(id+1)
+                ]
+            })
+        }
     }
-    // console.log(formData);
+    // ======================================================
+
+    const resumeUpload = (event) => {
+        const file = event.target.files[0];
+        if(!file) {
+            alert("Please upload a file");
+            return;
+        }
+
+        const allowedExtensions = ['.pdf', '.docx'];
+        const fileExtension = file.name.split('.').pop().toLowerCase();
+        if(!allowedExtensions.includes(fileExtension)) {
+            alert("Upload only pdf and docx file extended documents");
+            return;
+        }
+
+        const maxFileLimit = 2000;
+        const size = Math.round(file.size / 1024);
+        if(size < maxFileLimit){
+            alert("File uploaded successfully");
+            return;
+        } else {
+            alert("File size larger than 2 MB");
+            return;
+        }
+    }
+
 
     return (
-        <form onSubmit={(event) => {event.preventDefault}} className="container mt-32 mb-24">
-            <p className="uppercase font-bold text-3xl blue-text-gradient text-center my-4">You’re applying for {jobId}</p>
-            <div className="w-full flex justify-center items-center gap-2 my-5">
-                <Line
-                    style={{ height: "0.56rem", borderRadius: "1rem", width: "80%" }}
-                    percent={progress} />
-                <span className="font-medium">{progress}%</span>
-            </div>
+        <form onSubmit={(event) => {event.preventDefault}} className="container mt-44 mb-24">
+            <p className="uppercase font-bold text-3xl blue-text-gradient text-center my-10">You’re applying for {jobId}</p>
+
             <ForContactInfo 
                 handleChange={handleChange}
                 formData={formData}
                 changeinMobile={mobileChange}
             />
-            <ResumeUpload  
-                handleChange={handleChange}
+            <Input 
+                type="file" 
+                name="resume" 
+                id="resume" 
+                required 
+                className="max-w-fit" 
+                onChange={resumeUpload} 
+                title={'Resume'} 
+                inputClass={`max-w-fit`}
             />
+            
+            <span className="font-medium text-gray-500 select-none">
+                (Max file size limit less than 2MB)
+            </span>
             <CheckBox  
-                handleChange={handleChange}
-                formData={formData}
+                handleChange={handleResidentType}
+                nri={nri}
             />
             <ForAddress  
                 handleChange={handleChange}
                 formData={formData}
             />
-            <CorporateIdentity  
-                handleChange={handleChange}
-                formData={formData}
-            />
-
 
             <h2 className="font-bold text-2xl mt-16">Education</h2>
             <ul className="grid gap-5 font-medium">
             {
                 Array.from({
-                    length: formData.education
+                    length: education.length
                 })
                 .map((_, index) => {
                     const MainIndex = index;
@@ -151,8 +275,8 @@ function JobApplication({ jobData, jobTitle = "Lorem Ipsum" }) {
                                     <Input 
                                     {...field}
                                     id={MainIndex}
-                                    value={formData.education[MainIndex][field.name]}
                                     onChange={handleEducationChange}
+                                    value={education[MainIndex][field.name]}
                                     key={index}
                                     />
                                 )
@@ -164,8 +288,8 @@ function JobApplication({ jobData, jobTitle = "Lorem Ipsum" }) {
                                     <Input 
                                     {...field}
                                     id={MainIndex}
-                                    value={formData.education[MainIndex][field.name]}
                                     onChange={handleEducationChange}
+                                    value={education[MainIndex][field.name]}
                                     key={index}
                                     />
                                 ))
@@ -173,46 +297,50 @@ function JobApplication({ jobData, jobTitle = "Lorem Ipsum" }) {
                             </div>
                             <div className="grid grid-cols-2 sm:grid-cols-3 gap-4">
                                 {
-                                    inputFields.education.filter((field, index) => index > 3 && index < 7).map((field, index) => (
-                                        <Input 
-                                        {...field}
-                                        id={MainIndex}
-                                        value={formData.education[MainIndex][field.name]}
-                                        onChange={handleEducationChange}
-                                        key={index}
-                                        />
-                                    ))
+                                    inputFields.education.filter((field, index) => index > 3 && index < 7).map((field, index) => {
+                                        // console.log(index);
+                                        return(
+                                            <Input 
+                                            {...field}
+                                            id={MainIndex}
+                                            onChange={handleEducationChange}
+                                            value={education[MainIndex][field.name]}
+                                            key={index}
+                                            disabled={index == 2 && isDisabled[MainIndex]}
+                                            inputClass={index == 2 && isDisabled[MainIndex] ? "bg-gray-200 disabled:hover:cursor-not-allowed" : ""}
+                                            />
+                                    )})
                                 }
                             </div>
                             <div className="max-w-[250px]">
                                 {
-                                inputFields.education.filter((field, index) => index===7).map((field, index) => (
-                                    <Input 
+                                    inputFields.education.filter((field, index) => index===7).map((field, index) => (
+                                        <Input 
                                     {...field}
                                     id={MainIndex}
-                                    value={formData.education[MainIndex][field.name]}
+                                    value={education[MainIndex][field.name]}
                                     onChange={handleEducationChange}
                                     key={index}
                                     />
-                                ))
+                                    ))
                                 }
                             </div>
+                            <label htmlFor="" className="max-w-fit mb-3 flex items-center gap-3">
+                                <input type="checkbox" name="currentlyPursuing" id={MainIndex} onChange={handleEducationPursuing} />
+                                <span>Currently Pursuing</span>
+                            </label>
                             <button 
                                 className="max-w-fit rounded-lg flex items-center px-4 py-2  border-red-600 border gap-2 font-medium text-red-600 hover:bg-red-600 hover:text-white" 
                                 onClick={(event) => {
                                     event.preventDefault();
-                                    if(formData.education.length > 1) {
-                                        setFormData(prevState => {
-                                            const firstHalf = prevState.education.slice(0, MainIndex);
-                                            const secondHalf = prevState.education.slice(MainIndex+1);
-                                            return {
-                                                ...prevState,
-                                                education: [
-                                                    ...firstHalf,
-                                                    ...secondHalf
-                                                ]
-                                            }
+                                    if(education.length > 1) {
+                                        setEducation(prevState => {
+                                            const firstHalf = prevState.slice(0, MainIndex);
+                                            const secondHalf = prevState.slice(MainIndex+1);
+                                            return [...firstHalf, ...secondHalf];
                                         })
+                                    } else {
+                                        alert("Atleast one education qualification is must!")
                                     }
                                 }}
                             >
@@ -229,34 +357,36 @@ function JobApplication({ jobData, jobTitle = "Lorem Ipsum" }) {
                 className="border-[1px] border-[#166316] text-[#166316] max-w-fit px-5 py-1 rounded-lg hover:bg-green hover:text-white hover:bg-[#166316] font-medium mt-4" 
                 onClick={(event) => {
                     event.preventDefault();
-                    setFormData(prevState => {
-                        const newState = {
-                            ...prevState,
-                            education: [
-                                ...prevState.education,
-                                {...educationSchema}
-                            ]
-                        };
-                        return {...newState};
+                    setEducation(prevState => {
+                        return [...prevState, {...educationSchema}];
                     })
-                    // console.log(formData);
-                }} 
+                }}
             >
             Add Education +
             </button>
 
-
             <h2 className="blue-text-gradient font-bold text-2xl mt-10 my-4 capitalize">Professional Detail</h2>
-            <div className="grid sm:grid-cols-2 gap-4 font-medium my-4">
-                {
-                inputFields.professionalDetails.map((field, index) => (
-                    <Input 
-                    {...field}
-                    onChange={handleChange}
-                    />
-                ))
-                }
-            </div>
+            <label htmlFor="hasExperience" className="flex items-center gap-2">
+                <input type="checkbox" name="hasExperience" 
+                onChange={getExperience}/>
+                <span className="porse font-medium">Do you have any previous work experience ?</span>
+            </label>
+            {
+                hasExperience ? 
+                <div className="grid sm:grid-cols-2 gap-4 font-medium my-4">
+                    {
+                    inputFields.professionalDetails.map((field, index) => (
+                        <Input 
+                        {...field}
+                        onChange={handleChange}
+                        key={index}
+                        />
+                    ))
+                    }
+                </div>
+                :
+                ""
+            }
             <button 
                 type="submit" 
                 className=" max-w-fit px-4 py-2 bg-gradient-to-br from-[#2EA990] to-[#107882] hover:from-[#107882] hover:to-[#107882] cursor-pointer font-medium text-[#ffffffe7] hover:text-white text-opacity-[100%] rounded-md">
