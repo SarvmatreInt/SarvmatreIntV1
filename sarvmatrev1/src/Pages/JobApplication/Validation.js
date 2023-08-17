@@ -11,12 +11,12 @@ const validateName = (value) => {
 };
 
 const validatePhone = (value) => {
-  const regex =
-    /((?:\+|00)[17](?: |\-)?|(?:\+|00)[1-9]\d{0,2}(?: |\-)?|(?:\+|00)1\-\d{3}(?: |\-)?)?(0\d|\([0-9]{3}\)|[1-9]{0,3})(?:((?: |\-)[0-9]{2}){4}|((?:[0-9]{2}){4})|((?: |\-)[0-9]{3}(?: |\-)[0-9]{4})|([0-9]{7}))/g;
+  const regex = /^[0-9]{10}$/;
   if (!regex.test(value)) {
-    errors.phone = "Must be a valid Phone Number";
+   
+    errors.mobile = "Must be a valid Phone Number";
   } else {
-    delete errors["phone"];
+    delete errors["mobile"];
   }
 };
 
@@ -29,6 +29,15 @@ const validateEmail = (value) => {
   }
 };
 
+const validateLinkedIn = (value) => {
+  const regex = /^https:\/\/www\.linkedin\.com\/in\/[a-zA-Z0-9-]+\/?$/;
+  if (!regex.test(value)) {
+    errors.linkedin = "Must be a valid linked In profile";
+  } else {
+    delete errors["linkedin"];
+  }
+}
+
 const validatePinCode = (value) => {
   const regex = /^[1-9][0-9]{5}$/;
   if (!regex.test(value)) {
@@ -37,6 +46,36 @@ const validatePinCode = (value) => {
     delete errors["pincode"];
   }
 };
+
+const validateNumber = (name,value) => {
+  const regex = /^[0-9]+$/;
+  if (!regex.test(value)) {
+    errors[name] = `Must be a number`;
+  } else {
+    delete errors[name];
+  }
+}
+
+const validateMonth = (value) =>{
+ 
+  if(value>=0 && value<=12){
+        
+         delete errors["totTimeNoticePeriod"];
+  }
+  else{
+    errors.totTimeNoticePeriod = "must be a valid month";
+  }
+}
+
+const validateYesNo = (value) =>{
+  const regex = /^(yes|no)$/i;
+  value = value.toLowerCase();
+  if (!regex.test(value)) {
+    errors.servingNoticePeriodStatus = `Must be a yes or no`;
+  } else {
+    delete errors["servingNoticePeriodStatus"];
+  }
+}
 
 const validateCommon = (name, value) => {
   if (value.trim().length < 3) {
@@ -49,10 +88,12 @@ const validateCommon = (name, value) => {
 export default function validateInput (name, value)  {
   if (name === "fullName") {
     validateName(value);
-  } else if (name === "phone") {
+  } else if (name === "mobile") {
     validatePhone(value);
   } else if (name === "email") {
     validateEmail(value);
+  } else if(name === "linkedin"){
+    validateLinkedIn(value);
   } else if (
     name === "subject" ||
     name === "address" ||
@@ -61,12 +102,30 @@ export default function validateInput (name, value)  {
     name === "country" ||
     name === "company" ||
     name === "designation" ||
-    name === "message"
-  ) {
+    name === "message" ||
+    name === "currentCompany" ||
+    name === "department" ||
+    name === "currentDesignation" ||
+    name === "joiningStatus"
+  ) 
+  
+  {
     validateCommon(name, value);
-  } else if (name === "pincode") {
+  } 
+  
+  else if (name === "pincode") {
     validatePinCode(value);
-  } else {
+  } 
+  else if(name === "yrsWithCurrCompany" || name === "totalExperience" || name === "currentCTC" || name === "currentHandPackage"){
+    validateNumber(name,value);
+  }
+  else if(name === "totTimeNoticePeriod"){
+    validateMonth(value);
+  }
+  else if(name === "servingNoticePeriodStatus"){
+    validateYesNo(value);
+  }
+  else {
     return errors;
   }
   return errors;

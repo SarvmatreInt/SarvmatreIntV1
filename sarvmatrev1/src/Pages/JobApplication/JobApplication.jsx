@@ -2,21 +2,21 @@ import { useState} from "react";
 import { useParams } from "react-router-dom";
 import 'react-phone-input-2/lib/style.css';
 import { inputFields } from "./InputData";
-import validateInput, {fileVerification, validateData} from "./Validation";
+import validateInput, {validateData} from "./Validation";
 import trash from './images/trash-bin.png'
 import Input from "../NewContact/Components/Input/Input";
 import "./JobApplication.css";
 import { ForContactInfo } from "./ForContactInfo/ForContactInfo";
 import ForAddress from "./ForAddress/ForAddress";
-import CheckBox from "./CheckBox/CheckBox";
-import ResumeUpload from "./CheckBox/CheckBox";
+import Checkbox from "./CheckBox/CheckBox";
 
 
-function JobApplication() {
+function JobApplication({ jobData, jobTitle = "Lorem Ipsum" }) {
 
     const {jobId} = useParams();
+    
+    const [errors, setErrors] = useState({});
 
-    // General formData
     const [formData, setFormData] = useState({
         // For Personal Details
         fullName: "",
@@ -40,8 +40,8 @@ function JobApplication() {
     
     const [hasExperience, setHasExperience] = useState(false);
     const [nri, setNri] = useState(false);
-    
     const jobExperienceSchema = {
+        // For Professional details
         currentCompany: "",
         department: "",
         currentDesignation: "",
@@ -115,6 +115,7 @@ function JobApplication() {
     // Mobile number change section
 
     const mobileChange = (e) => {
+        setErrors(validateInput("mobile", e));
         setFormData(prevState => {
             return {
                 ...prevState,
@@ -140,6 +141,8 @@ function JobApplication() {
     const [education, setEducation] = useState([
         {...educationSchema}
     ])
+
+
     const handleEducationChange = (event) => {
         const { name, value, id } = event.target
         setEducation(prevState => {
@@ -155,7 +158,6 @@ function JobApplication() {
             ];
         });
     };
-
     const [isDisabled, setIsDisabled] = useState([false]);
     const handleEducationPursuing = (event) => {
         const {id, checked} = event.target
@@ -235,6 +237,7 @@ function JobApplication() {
                 handleChange={handleChange}
                 formData={formData}
                 changeinMobile={mobileChange}
+                errors = {errors}
             />
             <Input 
                 type="file" 
@@ -263,7 +266,7 @@ function JobApplication() {
             <ul className="grid gap-5 font-medium">
             {
                 Array.from({
-                    length: education.length
+                    length: formData.education
                 })
                 .map((_, index) => {
                     const MainIndex = index;
@@ -297,19 +300,17 @@ function JobApplication() {
                             </div>
                             <div className="grid grid-cols-2 sm:grid-cols-3 gap-4">
                                 {
-                                    inputFields.education.filter((field, index) => index > 3 && index < 7).map((field, index) => {
-                                        // console.log(index);
-                                        return(
-                                            <Input 
-                                            {...field}
-                                            id={MainIndex}
-                                            onChange={handleEducationChange}
-                                            value={education[MainIndex][field.name]}
-                                            key={index}
-                                            disabled={index == 2 && isDisabled[MainIndex]}
-                                            inputClass={index == 2 && isDisabled[MainIndex] ? "bg-gray-200 disabled:hover:cursor-not-allowed" : ""}
-                                            />
-                                    )})
+                                    inputFields.education.filter((field, index) => index > 3 && index < 7).map((field, index) => (
+                                        <Input 
+                                        {...field}
+                                        id={MainIndex}
+                                        onChange={handleEducationChange}
+                                        value={education[MainIndex][field.name]}
+                                        key={index}
+                                        disabled={index == 2 && isDisabled[MainIndex]}
+                                        inputClass={index == 2 && isDisabled[MainIndex] ? "bg-gray-200 disabled:hover:cursor-not-allowed" : ""}
+                                        />
+                                    ))
                                 }
                             </div>
                             <div className="max-w-[250px]">
@@ -364,7 +365,6 @@ function JobApplication() {
             >
             Add Education +
             </button>
-
             <h2 className="blue-text-gradient font-bold text-2xl mt-10 my-4 capitalize">Professional Detail</h2>
             <label htmlFor="hasExperience" className="flex items-center gap-2">
                 <input type="checkbox" name="hasExperience" 
@@ -379,6 +379,7 @@ function JobApplication() {
                         <Input 
                         {...field}
                         onChange={handleChange}
+                        error={Object.keys(errors).includes(field.name) && errors[field.name]}
                         key={index}
                         />
                     ))
