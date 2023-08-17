@@ -253,7 +253,7 @@ function JobApplication({ jobData, jobTitle = "Lorem Ipsum" }) {
             <span className="font-medium text-gray-500 select-none">
                 (Max file size limit less than 2MB)
             </span>
-            <CheckBox  
+            <Checkbox  
                 handleChange={handleResidentType}
                 nri={nri}
             />
@@ -266,7 +266,7 @@ function JobApplication({ jobData, jobTitle = "Lorem Ipsum" }) {
             <ul className="grid gap-5 font-medium">
             {
                 Array.from({
-                    length: formData.education
+                    length: education.length
                 })
                 .map((_, index) => {
                     const MainIndex = index;
