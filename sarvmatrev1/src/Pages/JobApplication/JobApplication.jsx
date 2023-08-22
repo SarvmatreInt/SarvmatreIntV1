@@ -2,7 +2,7 @@ import { useState} from "react";
 import { useParams } from "react-router-dom";
 import 'react-phone-input-2/lib/style.css';
 import { inputFields } from "./InputData";
-import validateInput, {validateData} from "./Validation";
+import validateInput, {educationValidation, validateData} from "./Validation";
 import trash from './images/trash-bin.png'
 import Input from "../NewContact/Components/Input/Input";
 import "./JobApplication.css";
@@ -16,6 +16,7 @@ function JobApplication({ jobData, jobTitle = "Lorem Ipsum" }) {
     const {jobId} = useParams();
     
     const [errors, setErrors] = useState({});
+    const [educationErrors, setEducationErrors] = useState ([]);
 
     const [formData, setFormData] = useState({
         // For Personal Details
@@ -24,7 +25,10 @@ function JobApplication({ jobData, jobTitle = "Lorem Ipsum" }) {
         email: "",
         linkedin: "",
         residentType: "",
-        resume: false,
+        resume: {
+            fileExtensions: ['pdf', 'docx'],
+            doesExist: false
+        },
         // For Address
         address1: "",
         address2: "",
@@ -109,6 +113,7 @@ function JobApplication({ jobData, jobTitle = "Lorem Ipsum" }) {
             ...prev,
             [name]: value,
         }));
+        setErrors(validateData({name, value}))
     };
     // =====================
     
@@ -142,7 +147,6 @@ function JobApplication({ jobData, jobTitle = "Lorem Ipsum" }) {
         {...educationSchema}
     ])
 
-
     const handleEducationChange = (event) => {
         const { name, value, id } = event.target
         setEducation(prevState => {
@@ -157,7 +161,9 @@ function JobApplication({ jobData, jobTitle = "Lorem Ipsum" }) {
                 ...prevState.slice(id+1)
             ];
         });
+        setEducationErrors(educationValidation(name, value, id));
     };
+
     const [isDisabled, setIsDisabled] = useState([false]);
     const handleEducationPursuing = (event) => {
         const {id, checked} = event.target
@@ -206,28 +212,74 @@ function JobApplication({ jobData, jobTitle = "Lorem Ipsum" }) {
     const resumeUpload = (event) => {
         const file = event.target.files[0];
         if(!file) {
-            alert("Please upload a file");
+            setFormData(prevState => {
+                return {
+                    ...prevState,
+                    resume: {
+                        ...prevState.resume,
+                        doesExist: false
+                    }
+                }
+            })
+            setErrors(prevErrors => {
+                return {
+                    ...prevErrors,
+                    resume: "Please upload a file"
+                }
+            });
             return;
         }
 
-        const allowedExtensions = ['.pdf', '.docx'];
+        const allowedExtensions = ['pdf', 'docx'];
         const fileExtension = file.name.split('.').pop().toLowerCase();
         if(!allowedExtensions.includes(fileExtension)) {
-            alert("Upload only pdf and docx file extended documents");
+            setErrors(prevState => {
+                return {
+                    ...prevState,
+                    resume: "Upload only .pdf and .docx files"
+                }
+            })
             return;
         }
 
         const maxFileLimit = 2000;
         const size = Math.round(file.size / 1024);
-        if(size < maxFileLimit){
-            alert("File uploaded successfully");
-            return;
+        if(size <= maxFileLimit){
+            setFormData(prevState => {
+                return {
+                    ...prevState,
+                    resume: {
+                        ...prevState.resume,
+                        doesExist: true
+                    }
+                }
+            })
+            setErrors(prevState => {
+                delete prevState.resume;
+                return {
+                    ...prevState
+                }
+            })
         } else {
-            alert("File size larger than 2 MB");
-            return;
+            setFormData(prevState => {
+                return {
+                    ...prevState,
+                    resume: {
+                        ...prevState.resume,
+                        doesExist: false
+                    }
+                }
+            })
+            setErrors(prevState => {
+                return {
+                    ...prevState,
+                    resume: "File size is greater than 2MB"
+                }
+            })
         }
     }
 
+    // console.log(errors);
 
     return (
         <form onSubmit={(event) => {event.preventDefault}} className="container mt-44 mb-24">
@@ -237,7 +289,7 @@ function JobApplication({ jobData, jobTitle = "Lorem Ipsum" }) {
                 handleChange={handleChange}
                 formData={formData}
                 changeinMobile={mobileChange}
-                errors = {errors}
+                errors = {...errors}
             />
             <Input 
                 type="file" 
@@ -249,9 +301,10 @@ function JobApplication({ jobData, jobTitle = "Lorem Ipsum" }) {
                 title={'Resume'} 
                 inputClass={`max-w-fit`}
             />
+            {errors.resume && formData.resume.doesExist ? "" : <span>(Max File size must be 2MB)</span>}
             
-            <span className="font-medium text-gray-500 select-none">
-                (Max file size limit less than 2MB)
+            <span className="font-medium text-red-500 select-none">
+                {errors.resume}
             </span>
             <Checkbox  
                 handleChange={handleResidentType}
@@ -281,6 +334,7 @@ function JobApplication({ jobData, jobTitle = "Lorem Ipsum" }) {
                                     onChange={handleEducationChange}
                                     value={education[MainIndex][field.name]}
                                     key={index}
+                                    error={...errors[MainIndex]}
                                     />
                                 )
                                 })
@@ -365,6 +419,7 @@ function JobApplication({ jobData, jobTitle = "Lorem Ipsum" }) {
             >
             Add Education +
             </button>
+
             <h2 className="blue-text-gradient font-bold text-2xl mt-10 my-4 capitalize">Professional Detail</h2>
             <label htmlFor="hasExperience" className="flex items-center gap-2">
                 <input type="checkbox" name="hasExperience" 

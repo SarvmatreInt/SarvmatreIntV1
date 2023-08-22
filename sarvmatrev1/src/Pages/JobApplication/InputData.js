@@ -31,7 +31,7 @@ export const inputFields = {
         id: "LinkedIn Profile",
         name: "linkedin",
         label: "LinkedIn Profile",
-        title: "LinkedIn Profile",
+        title: "LinkedIn Profile URL",
         required: false,
         placeHolder: "https://linkedin.com/<your_id>",
         type: "url"

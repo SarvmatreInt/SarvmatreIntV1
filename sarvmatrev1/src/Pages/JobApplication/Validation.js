@@ -12,10 +12,10 @@ const validateName = (value) => {
 
 const validatePhone = (value) => {
   const regex = /^[0-9]{10}$/;
-  if (!regex.test(value)) {
-   
-    errors.mobile = "Must be a valid Phone Number";
-  } else {
+  if (value.length < 10 ) {
+    errors.mobile = "Contact number must be satisfied numbers";
+  }
+  else {
     delete errors["mobile"];
   }
 };
@@ -30,9 +30,9 @@ const validateEmail = (value) => {
 };
 
 const validateLinkedIn = (value) => {
-  const regex = /^https:\/\/www\.linkedin\.com\/in\/[a-zA-Z0-9-]+\/?$/;
+  const regex = /^https:\/\/www\.linkedin\.com\/[a-zA-Z0-9-]{3,}\/?$/;
   if (!regex.test(value)) {
-    errors.linkedin = "Must be a valid linked In profile";
+    errors.linkedin = "Must be a valid linkedin profile url";
   } else {
     delete errors["linkedin"];
   }
@@ -57,10 +57,9 @@ const validateNumber = (name,value) => {
 }
 
 const validateMonth = (value) =>{
- 
+
   if(value>=0 && value<=12){
-        
-         delete errors["totTimeNoticePeriod"];
+    delete errors["totTimeNoticePeriod"];
   }
   else{
     errors.totTimeNoticePeriod = "must be a valid month";
@@ -79,7 +78,7 @@ const validateYesNo = (value) =>{
 
 const validateCommon = (name, value) => {
   if (value.trim().length < 3) {
-    errors[name] = `Must be a valid ${name}`;
+    errors[name] = `Must be a valid ${name.toUpperCase()}`;
   } else {
     delete errors[name];
   }
@@ -132,21 +131,36 @@ export default function validateInput (name, value)  {
 };
 
 export const validateData = (data) => {
-  Object.entries(data).map((item) => {
-    validateInput(item[0], item[1]);
+  // console.log(data);
+  [{...data}].map((item) => {
+    validateInput(item.name, item.value);
   });
-
   return errors;
 };
 
 
-export const fileVerification = (file) => {
-  const allowedExtensions  = ['.pdf', '.docx'];
-  const fileName = file.name;
-  const fileExtension = fileName.split('.').pop().toLowerCase();
-  if(fileExtension in allowedExtensions) {
-    console.log(fileExtension);
-  } else {
-    throw new Error("NO");
-  }
+// Validation for education
+
+// let educationErrors = []
+
+// const validateGeneral = (name, value, MainIndex) => {
+//   if(value.length < 3) {
+//     educationErrors.fill({}, 0, MainIndex+1)
+//     let newEducationErrors = educationErrors;
+
+//     console.log(educationErrors);
+//     return educationErrors;
+//   } else {
+//     delete educationErrors[MainIndex][name];
+//     console.log(educationErrors);
+//   }
+//   return educationErrors
+// }
+
+export const educationValidation = (name, value, MainIndex) => {
+//   if( name === "collegeName" || name === "universityName" ) 
+//   {
+//     validateGeneral(name, value, MainIndex);
+//     return educationErrors;
+//   }
 }
