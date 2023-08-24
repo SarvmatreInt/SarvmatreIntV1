@@ -2,7 +2,7 @@ import PhoneInput from "react-phone-input-2";
 import { inputFields } from "../InputData";
 import Input from "../../NewContact/Components/Input/Input";
 
-const ForAddress = ({handleChange, formData}) => {
+const ForAddress = ({handleChange, formData, errors={}}) => {
   return (
     <>
         <h2 className="blue-text-gradient font-bold text-2xl mt-4"> Current Address</h2>
@@ -16,6 +16,7 @@ const ForAddress = ({handleChange, formData}) => {
                         onChange={handleChange}
                         key={index}
                         value={formData[field.name]}
+                        error={Object.keys(errors).includes(field.name) && errors[field.name]}
                     />
                     )
                     })
@@ -30,6 +31,7 @@ const ForAddress = ({handleChange, formData}) => {
                     onChange={handleChange}
                     key={index}
                     value={formData[field.name]}
+                    error={Object.keys(errors).includes(field.name) && errors[field.name]}
                     />
                 )
                 })
@@ -47,6 +49,7 @@ const ForAddress = ({handleChange, formData}) => {
                         onChange={handleChange}
                         key={index}
                         value={formData[field.name]}
+                        error={Object.keys(errors).includes(field.name) && errors[field.name]}
                     />
                     )
                     })
@@ -61,6 +64,7 @@ const ForAddress = ({handleChange, formData}) => {
                     onChange={handleChange}
                     key={index}
                     value={formData[field.name]}
+                    error={Object.keys(errors).includes(field.name) && errors[field.name]}
                     />
                 )
                 })

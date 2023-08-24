@@ -116,7 +116,7 @@ function JobApplication({ jobData, jobTitle = "Lorem Ipsum" }) {
         setErrors(validateData({name, value}))
     };
     // =====================
-    
+    console.log(errors);
     // Mobile number change section
 
     const mobileChange = (e) => {
@@ -279,8 +279,6 @@ function JobApplication({ jobData, jobTitle = "Lorem Ipsum" }) {
         }
     }
 
-    // console.log(errors);
-
     return (
         <form onSubmit={(event) => {event.preventDefault}} className="container mt-44 mb-24">
             <p className="uppercase font-bold text-3xl blue-text-gradient text-center my-10">You’re applying for {jobId}</p>
@@ -301,7 +299,7 @@ function JobApplication({ jobData, jobTitle = "Lorem Ipsum" }) {
                 title={'Resume'} 
                 inputClass={`max-w-fit`}
             />
-            {errors.resume && formData.resume.doesExist ? "" : <span>(Max File size must be 2MB)</span>}
+            {errors.resume && !formData.resume.doesExist ? "" : <span>(Max File size must be 2MB)</span>}
             
             <span className="font-medium text-red-500 select-none">
                 {errors.resume}
@@ -313,6 +311,7 @@ function JobApplication({ jobData, jobTitle = "Lorem Ipsum" }) {
             <ForAddress  
                 handleChange={handleChange}
                 formData={formData}
+                errors={...errors}
             />
 
             <h2 className="font-bold text-2xl mt-16">Education</h2>
@@ -334,7 +333,7 @@ function JobApplication({ jobData, jobTitle = "Lorem Ipsum" }) {
                                     onChange={handleEducationChange}
                                     value={education[MainIndex][field.name]}
                                     key={index}
-                                    error={...errors[MainIndex]}
+                                    // error={educationErrors[0]}
                                     />
                                 )
                                 })

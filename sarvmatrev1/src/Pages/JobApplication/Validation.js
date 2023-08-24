@@ -77,8 +77,8 @@ const validateYesNo = (value) =>{
 }
 
 const validateCommon = (name, value) => {
-  if (value.trim().length < 3) {
-    errors[name] = `Must be a valid ${name.toUpperCase()}`;
+  if (value.trim().length <= 3) {
+    errors[name] = `Minimum 3 character required!`;
   } else {
     delete errors[name];
   }
@@ -95,7 +95,8 @@ export default function validateInput (name, value)  {
     validateLinkedIn(value);
   } else if (
     name === "subject" ||
-    name === "address" ||
+    name === "address1" ||
+    name === "address2" ||
     name === "city" ||
     name === "state" ||
     name === "country" ||
@@ -141,26 +142,35 @@ export const validateData = (data) => {
 
 // Validation for education
 
-// let educationErrors = []
+let educationErrors = []
 
-// const validateGeneral = (name, value, MainIndex) => {
-//   if(value.length < 3) {
-//     educationErrors.fill({}, 0, MainIndex+1)
-//     let newEducationErrors = educationErrors;
-
-//     console.log(educationErrors);
-//     return educationErrors;
-//   } else {
-//     delete educationErrors[MainIndex][name];
-//     console.log(educationErrors);
-//   }
-//   return educationErrors
-// }
+const validateGeneral = (name, value, MainIndex) => {
+  if(value.length <= 3) {
+    let newError = educationErrors.filter((element) => element.id === MainIndex);
+    if(newError.length == 0) {
+      newError = {
+        id: MainIndex,
+        [name]: value
+      }
+      educationErrors = [
+        ...educationErrors,
+        {...newError}
+      ]
+      return educationErrors;
+    } else {
+      educationErrors = [
+        {...newError}
+      ]
+    }
+    return educationErrors;
+  }
+  return educationErrors;
+}
 
 export const educationValidation = (name, value, MainIndex) => {
-//   if( name === "collegeName" || name === "universityName" ) 
-//   {
-//     validateGeneral(name, value, MainIndex);
-//     return educationErrors;
-//   }
+  if( name === "collegeName" || name === "universityName" ) 
+  {
+    return validateGeneral(name, value, MainIndex);
+  }
+  return educationErrors;
 }
