@@ -17,7 +17,10 @@ const Navbar = () => {
     <div className="flex-col bg-[#F7FCFC] z-10 fixed top-0 w-[100%]">
       <div className="flex container justify-between items-center z-10">
         <div className="logo py-3 z-10">
-          <img src={logo} alt="logo" className={`h-10 md:h-14`} />
+        <Link to="/">
+        <img src={logo} alt="logo" className={`h-10 md:h-14`} />
+        </Link>
+          
         </div>
         <div className="z-10" onClick={toggleHandler}>
           <img src={menu2} alt="menuIcon" className="md:hidden z-10" />

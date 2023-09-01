@@ -66,7 +66,7 @@ const ProblemWesolve = () => {
                     <img src={data.icon}  alt="" />
                   </div>
                   <div className="flex-1">
-                    <h1 className="text-3xl ">{data.Problem}</h1>
+                    <h1 className="text-3xl text-center">{data.Problem}</h1>
                   </div>
                 </div>
               </div>
