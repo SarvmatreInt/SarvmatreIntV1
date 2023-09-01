@@ -1,3 +1,5 @@
+import Bnaer from "../../HomePage/HomePageComponant/Baner.jsx/Bnaer";
+import Newsletter from "../../HomePage/HomePageComponant/Newsletter/Newsletter";
 import OurHistory from "../../OurHistory/OurHistory";
 import AboutDifference from "./AboutSarComp/AboutDifference/AboutDifference";
 import AboutInto from "./AboutSarComp/AboutIntro/AboutInto";
@@ -10,8 +12,10 @@ const AboutSarv = () => {
       <AboutInto />
       <AboutMisVis />
       <AboutDifference />
+      <Bnaer/>
       <OurHistory />
       <AboutValues />
+      <Newsletter/>
       {/* <div className="py-32">
         <div className="container">
           <div className="flex justify-center items-center ">

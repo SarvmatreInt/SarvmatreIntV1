@@ -3,8 +3,8 @@ import MisVisComp from "./MisVisComp";
 const AboutMisVis = () => {
   const Missiondata = [
     {
-      title: "Mission",
-      text: "Our “Mission” is to empower businesses to thrive by providing innovative solutions and unwavering support. Our sector-agnostic approach caters to businesses of all sizes, we strongly endorse, support, and are committed to - 'Vocal for Local' Our platform enables businesses to connect seamlessly with suppliers and customers across the Country and in International markets.",
+      title: "What we do ",
+      text: "At Sarvmatre International, we provide innovative solutions and unwavering support to businesses of all sizes and sectors. Moreover, our platform connects businesses with suppliers and customers both nationally and international, providing access to a wider range of suppliers and customers.",
     },
     {
       title: "Our Vision",
@@ -13,8 +13,8 @@ const AboutMisVis = () => {
   ];
   const whatwedo = [
     {
-      title: "What we do",
-      text: "At Sarvmatre International, we provide innovative solutions and unwavering support to businesses of all sizes and sectors. Moreover, our platform connects businesses with suppliers and customers both nationally and international, providing access to a wider range of suppliers and customers. .",
+      title: "Mission",
+      text: "Our “Mission” is to empower businesses to thrive by providing innovative solutions and unwavering support. Our sector-agnostic approach caters to businesses of all sizes, we strongly endorse, support, and are committed to - 'Vocal for Local' Our platform enables businesses to connect seamlessly with suppliers and customers across the Country and in International markets.",
     },
   ];
   return (
@@ -37,7 +37,7 @@ const AboutMisVis = () => {
     //     ))}
     //   </div>
     // </div>
-    <div className="container">
+    <div className="container py-[80px]">
       <img src={logo} className="lg:hidden w-[80%] mx-auto mb-8" />
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
         <div className="grid grid-cols-1 gap-8">

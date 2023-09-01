@@ -55,7 +55,7 @@ const AboutValues = () => {
       <div className="container">
         <div>
           <div>
-            <div className="text-6xl font-bold text-center py-16">
+            <div className="text-6xl font-bold text-center py-16 text-primary1">
               Our Root Values
             </div>
           </div>
@@ -64,11 +64,11 @@ const AboutValues = () => {
               {valueData.map((data, index) => (
                 <div
                   key={index}
-                  className="md:w-[400px] w-full text-center border-2 border-black p-1 rounded-xl shadow-xl"
+                  className="md:w-[400px] w-full text-center border-[1.5px] border-red-900 p-1 rounded-xl bg-[#FCF9F9]"
                 >
                   <div className="p-4 rounded-xl relative">
                     <div className="flex justify-center absolute -top-[24%] left-[40%]">
-                      <div className="border-2 border-red-900 rounded-[50%]">
+                      <div className="border-[1.5px] border-red-900 rounded-[50%]">
                         <img
                           src={data.icon}
                           alt=""
@@ -77,7 +77,7 @@ const AboutValues = () => {
                       </div>
                     </div>
                     <div>
-                      <h1 className="text-3xl font-medium py-2">
+                      <h1 className="text-3xl font-bold text-[#902027] py-2">
                         {data.title}
                       </h1>
                     </div>

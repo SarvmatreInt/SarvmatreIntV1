@@ -53,7 +53,7 @@ const AboutDifference = () => {
   return (
     <div className="container">
       <div className="mt-48">
-        <h1 className="font-bold text-5xl text-center mb-16">
+        <h1 className="font-bold text-5xl text-center mb-16 text-[#209089]">
           How we are different
         </h1>
       </div>
