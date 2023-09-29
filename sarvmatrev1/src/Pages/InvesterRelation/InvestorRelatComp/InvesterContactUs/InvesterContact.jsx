@@ -36,171 +36,180 @@ const InvesterContact = () => {
   };
 
   return (
-    <div className="py-20">
+    <div className="my-[100px]">
       <div className="container">
-        <div className="text-4xl font-bold text-center mb-24">CONTACT US</div>
-        <div>
-          <form action="">
-            <Input
-              name="fullName"
-              id="investor_fullName"
-              title="FULL NAME"
-              value={data.fullName}
-              onChange={handleChange}
-              placeholder="Body"
-              required={true}
-            />
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-              <div className="mb-[6px]">
-                <div className="text-xl font-medium mb-[6.5px]">
-                  PHONE / MOBILE<span className="text-red-600 ml-2">*</span>
-                </div>
-                <PhoneInput
-                  country={"in"}
-                  value={data["phone"]}
-                  onChange={(value, country) => {
-                    // setErrors(validateInput("phone", data["phone"]));
-                    setData((prev) => ({
-                      ...prev,
-                      phone: value,
-                      // countryCode: country,
-                    }));
-                  }}
-                  inputStyle={{
-                    width: "100%",
-                    border: "0px",
-                    borderBottom: "2px solid rgb(156,163, 175)",
-                    borderRadius: "0",
-                    padding: "0px 0px 0px 40px",
-                    backgroundColor: "inherit",
-                  }}
-                  buttonStyle={{
-                    border: "0px",
-                    background: "white",
-                    marginBottom: "4px",
-                    backgroundColor: "inherit",
-                  }}
-                  // onBlur={(e) => {
-                  //   setErrors(validateInput("phone", data["phone"]));
-                  //   setData((prev) => ({ ...prev }));
-                  // }}
-                />
-                <div className="h-[12px]"></div>
-              </div>
-              <Input
-                name="email"
-                value={data["email"]}
-                title="EMAIL"
-                id="investor_email"
-                onChange={handleChange}
-                placeholder="Enter your email"
-                // onBlur={handleChange}
-                // error={Object.keys(errors).includes("email") && errors["email"]}
-              />
-              <Input
-                name="investorType"
-                value={data.investorType}
-                title="INVESTOR TYPE"
-                id="investor_type"
-                onChange={handleChange}
-                placeholder="Body"
-                // onBlur={handleChange}
-                // error={Object.keys(errors).includes("email") && errors["email"]}
-              />
-              <Input
-                name="country"
-                value={data.country}
-                title="COUNTRY"
-                id="investor_country"
-                onChange={handleChange}
-                placeholder="Body"
-                // onBlur={handleChange}
-                // error={Object.keys(errors).includes("email") && errors["email"]}
-              />
-
-              <div className="mb-[6px]">
-                <div>
-                  <label
-                    htmlFor="investor_identity"
-                    className="text-xl font-medium"
-                  >
-                    CORPORATE IDENTITY
-                    <span className="text-red-600 ml-2">*</span>
-                  </label>
-                </div>
-                <select
-                  className="w-full p-[6.5px] focus:outline-0 bg-inherit"
-                  style={{ borderBottom: "2px solid #9CA3AF" }}
-                  value={data["identity"]}
-                  onChange={handleChange}
-                  name="identity"
-                >
-                  <option value="individual">Individual</option>
-                  <option value="group">Group</option>
-                  <option value="company">Company</option>
-                </select>
-                <div className="h-[24px]"></div>
-              </div>
+        <div className="flex border-2 rounded-xl py-[100px] px-[50px]">
+          <div className="w-[40%]">
+            <div className="text-4xl font-bold mb-24">
+              CONTACT US
             </div>
-            {data.identity === "group" && (
-              <Input
-                name="group"
-                value={data["group"]}
-                title="GROUP"
-                id="newContact_group"
-                onChange={handleChange}
-                placeholder="Enter Group..."
-                // onBlur={handleChange}
-                // error={Object.keys(errors).includes("group") && errors["group"]}
-              />
-            )}
+          </div>
+          <div className="w-[60%]">
+            <div>
+              <form action="">
+                <Input
+                  name="fullName"
+                  id="investor_fullName"
+                  title="FULL NAME"
+                  value={data.fullName}
+                  onChange={handleChange}
+                  placeholder="Body"
+                  required={true}
+                />
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                  <div className="mb-[6px]">
+                    <div className="text-xl font-medium mb-[6.5px]">
+                      PHONE / MOBILE<span className="text-red-600 ml-2">*</span>
+                    </div>
+                    <PhoneInput
+                      country={"in"}
+                      value={data["phone"]}
+                      onChange={(value, country) => {
+                        // setErrors(validateInput("phone", data["phone"]));
+                        setData((prev) => ({
+                          ...prev,
+                          phone: value,
+                          // countryCode: country,
+                        }));
+                      }}
+                      inputStyle={{
+                        width: "100%",
+                        border: "0px",
+                        borderBottom: "2px solid rgb(156,163, 175)",
+                        borderRadius: "0",
+                        padding: "0px 0px 0px 40px",
+                        backgroundColor: "inherit",
+                      }}
+                      buttonStyle={{
+                        border: "0px",
+                        background: "white",
+                        marginBottom: "4px",
+                        backgroundColor: "inherit",
+                      }}
+                      // onBlur={(e) => {
+                      //   setErrors(validateInput("phone", data["phone"]));
+                      //   setData((prev) => ({ ...prev }));
+                      // }}
+                    />
+                    <div className="h-[12px]"></div>
+                  </div>
+                  <Input
+                    name="email"
+                    value={data["email"]}
+                    title="EMAIL"
+                    id="investor_email"
+                    onChange={handleChange}
+                    placeholder="Enter your email"
+                    // onBlur={handleChange}
+                    // error={Object.keys(errors).includes("email") && errors["email"]}
+                  />
+                  <Input
+                    name="investorType"
+                    value={data.investorType}
+                    title="INVESTOR TYPE"
+                    id="investor_type"
+                    onChange={handleChange}
+                    placeholder="Body"
+                    // onBlur={handleChange}
+                    // error={Object.keys(errors).includes("email") && errors["email"]}
+                  />
+                  <Input
+                    name="country"
+                    value={data.country}
+                    title="COUNTRY"
+                    id="investor_country"
+                    onChange={handleChange}
+                    placeholder="Body"
+                    // onBlur={handleChange}
+                    // error={Object.keys(errors).includes("email") && errors["email"]}
+                  />
 
-            <Input
-              name="company"
-              value={data["company"]}
-              title="COMPANY"
-              id="newContact_company"
-              onChange={handleChange}
-              placeholder="Enter Company..."
-              // onBlur={handleChange}
-              // error={
-              //   Object.keys(errors).includes("company") && errors["company"]
-              // }
-            />
+                  <div className="mb-[6px]">
+                    <div>
+                      <label
+                        htmlFor="investor_identity"
+                        className="text-xl font-medium"
+                      >
+                        CORPORATE IDENTITY
+                        <span className="text-red-600 ml-2">*</span>
+                      </label>
+                    </div>
+                    <select
+                      className="w-full p-[6.5px] focus:outline-0 bg-inherit"
+                      style={{ borderBottom: "2px solid #9CA3AF" }}
+                      value={data["identity"]}
+                      onChange={handleChange}
+                      name="identity"
+                    >
+                      <option value="individual">Individual</option>
+                      <option value="group">Group</option>
+                      <option value="company">Company</option>
+                    </select>
+                    <div className="h-[24px]"></div>
+                  </div>
+                </div>
+                {data.identity === "group" && (
+                  <Input
+                    name="group"
+                    value={data["group"]}
+                    title="GROUP"
+                    id="newContact_group"
+                    onChange={handleChange}
+                    placeholder="Enter Group..."
+                    // onBlur={handleChange}
+                    // error={Object.keys(errors).includes("group") && errors["group"]}
+                  />
+                )}
 
-            {(data.identity === "group" || data.identity === "individual") && (
-              <Input
-                name="designation"
-                value={data["designation"]}
-                title="DESIGNATION"
-                id="newContact_designation"
-                onChange={handleChange}
-                placeholder="Enter Designation..."
-                // onBlur={handleChange}
-                // error={
-                //   Object.keys(errors).includes("designation") &&
-                //   errors["designation"]
-                // }
-              />
-            )}
-            <Input
-              name="message"
-              value={data.message}
-              title="MESSAGE"
-              id="investor_message"
-              onChange={handleChange}
-              placeholder="Body"
-              // onBlur={handleChange}
-              // error={Object.keys(errors).includes("email") && errors["email"]}
-            />
-            <button
-              type="submit"
-              onClick={handleSubmit}
-              className="bg-black text-white rounded-r-md px-4 py-1 text-2xl"
-            >
-              Submit
-            </button>
-          </form>
+                <Input
+                  name="company"
+                  value={data["company"]}
+                  title="COMPANY"
+                  id="newContact_company"
+                  onChange={handleChange}
+                  placeholder="Enter Company..."
+                  // onBlur={handleChange}
+                  // error={
+                  //   Object.keys(errors).includes("company") && errors["company"]
+                  // }
+                />
+
+                {(data.identity === "group" ||
+                  data.identity === "individual") && (
+                  <Input
+                    name="designation"
+                    value={data["designation"]}
+                    title="DESIGNATION"
+                    id="newContact_designation"
+                    onChange={handleChange}
+                    placeholder="Enter Designation..."
+                    // onBlur={handleChange}
+                    // error={
+                    //   Object.keys(errors).includes("designation") &&
+                    //   errors["designation"]
+                    // }
+                  />
+                )}
+                <Input
+                  name="message"
+                  value={data.message}
+                  title="MESSAGE"
+                  id="investor_message"
+                  onChange={handleChange}
+                  placeholder="Body"
+                  // onBlur={handleChange}
+                  // error={Object.keys(errors).includes("email") && errors["email"]}
+                />
+                <button
+                  type="submit"
+                  onClick={handleSubmit}
+                  className="bg-black text-white rounded-r-md px-4 py-1 text-2xl"
+                >
+                  Submit
+                </button>
+              </form>
+            </div>
+          </div>
         </div>
       </div>
     </div>

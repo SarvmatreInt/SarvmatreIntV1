@@ -1,8 +1,8 @@
+import { useContext } from "react";
+import { AppContext } from "../../../../Context/CarrerPage/CareerPageContext";
 import phots from "./sketch-5622725_640.webp";
-// import growth from "./business-163501_1280.webp";
-// import map3 from "./istockphoto-1405728317-612x612.webp";
-// import maps from "./map-of-the-world-2401458_640.jpg";
-// import phots from "./social-media-g596044540_1280.png"
+
+
 const swag = [
   {
     title: "S",
@@ -25,6 +25,7 @@ const swag = [
   },
 ];
 const IntoSec = () => {
+  const myName= useContext(AppContext);
   return (
     //     background: rgb(17,157,164);
     // background: linear-gradient(83deg, rgba(17,157,164,1) 51%, rgba(234,240,206,1) 92%);

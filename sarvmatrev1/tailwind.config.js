@@ -9,7 +9,7 @@ export default {
       colors:{
       newsletter:'#EAF0CE',
       primary1:"#209089",
-      primary2:"#209089",
+      primarybg:"#CAEEEB",
     },
     height: {
         '72': '70vh',

@@ -22,7 +22,7 @@ const SchedMeet = () => {
       );
   };
   return (
-    <div className="pb-20">
+    <div className="pt-24">
       <div className="container px-2">
         <h1 className="text-4xl py-10 font-bold">Schedule and Meet</h1>
         <div>
@@ -48,6 +48,7 @@ const SchedMeet = () => {
                       className="border-b-2 border-black focus:outline-none w-[90%] min-w-[350px] md:min-w-[180px] sm:min-w-[0px] text-center"
                     >
                       <option selected>Investment</option>
+                      <option selected>Investment2</option>
                     </select>
                   </div>
                 </div>

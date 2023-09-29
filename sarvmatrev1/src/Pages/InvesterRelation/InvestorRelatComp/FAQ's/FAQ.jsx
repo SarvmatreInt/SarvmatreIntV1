@@ -15,7 +15,7 @@ const FAQ = () => {
       title: "What sets your company apart from competitors?",
       content: `Our company's unique value proposition lies in our end-to-end solutions in both offline and
         online mode for multiple business needs and scalability. We believe that by harnessing the power of
-        technology and providing intelligent and efficient decision-making, we can offer a superior customer
+        technology and providing intelligent and efficient decision-making, we can offer a   superior customer
         experience and drive growth for our investors.`,
     },
     {
@@ -74,7 +74,7 @@ const FAQ = () => {
   const [active, setActive] = useState(null);
 
   return (
-    <div className="container">
+    <div className="container py-28">
       <div className="max-w-[75%] mx-auto ">
         <h1 className="text-center text-[40px] font-semibold my-16">
           Frequently asked questions

@@ -1,3 +1,4 @@
+import Bnaer from "../HomePage/HomePageComponant/Baner.jsx/Bnaer";
 import BecomeOurPartner from "../HomePage/HomePageComponant/BecomeOurPartner/BecomeOurPartner";
 import Newsletter from "../HomePage/HomePageComponant/Newsletter/Newsletter";
 import CompanyOverview from "./InvestorRelatComp/CompanyOverview/CompanyOverview";
@@ -11,11 +12,12 @@ import SchedMeet from "./InvestorRelatComp/SchedMeet/SchedMeet";
 
 const InvestorRelation = () => {
   return (
-    <div className="overflow-x-hidden">
+    <div className="overflow-hidden">
       <Intro />
       {/* <BecomeOurPartner /> */}
       <SchedMeet />
       <CompanyOverview />
+      <Bnaer/>
       <InvesterContact />
       {/* <CurrentInvester /> */}
       <InvesterSumm />

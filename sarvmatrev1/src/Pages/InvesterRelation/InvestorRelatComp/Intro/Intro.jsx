@@ -13,11 +13,11 @@ const swag = [
 ];
 const Into = () => {
   return (
-    <div className="flex flex-col justify-center items-center h-[600px] w-screen">
+    <div className="flex flex-col justify-center items-center h-[600px] w-screen bg-[#CAEEEB] ">
       <div className="flex flex-col 2xl:flex-row">
         {swag.map((item, index) => (
           <div key={index}>
-            <h1 className="text-[50px] xsm:text-[60px] sm:text-[88px]">
+            <h1 className="text-[50px] xsm:text-[60px] sm:text-[88px] text-primary1">
               <span className="font-bold">{item.title}</span>
               <span className="font-extrabold pr-3">{item.dot}</span>
             </h1>

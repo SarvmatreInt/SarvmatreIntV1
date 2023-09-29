@@ -23,13 +23,13 @@ const CompanyOverview = () => {
   };
   return (
     <div>
-      <div className="container">
+      <div className="containe">
         <div className="pt-32 pb-24">
           <h1 className="text-6xl text-center font-bold">Company Overview</h1>
         </div>
         <div>
-          <hr className="pb-3" />
-          <div className="flex flex-row flex-wrap justify-center gap-5 ">
+          <hr className="" />
+          <div className="py-3 flex flex-row flex-wrap justify-center gap-5 bg-[#CAEEEB]">
             <div>
               <button className="button-17" onClick={() => serOverview(1)}>
                 Our History
@@ -57,7 +57,7 @@ const CompanyOverview = () => {
             </div>
           </div>
         </div>
-        <hr className="mt-3" />
+        <hr className="" />
       </div>
       {ShowOverview(currentOve)}
     </div>

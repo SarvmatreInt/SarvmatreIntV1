@@ -16,6 +16,7 @@ import AboutProdley from "./Pages/AboutProdley/AboutProdley";
 import { useState } from "react";
 import Form from "./Pages/NewContact/Components/ContactTeam/Modal/Form";
 import ScrollToTop from "./Pages/GlobalPages/ScrollToTop/ScrollToTop";
+import JdPage from "./Pages/NewCareersPage/CarrerPages/JdPage/JdPage";
 // import { BrowserRouter, Routes, Route } from "react-router-dom";
 
 function App() {
@@ -57,6 +58,8 @@ function App() {
           <Route path="/about/sarvmatre" element={<AboutSarv />} />
           <Route path="/about/prodley" element={<AboutProdley />} />
           <Route path="/career" element={<NewCareersPage />} />
+          <Route path="/career/apply" element={<JdPage/>} />
+          
         </Routes>
         <Footer />
       </Router>

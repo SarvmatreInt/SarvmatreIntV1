@@ -53,7 +53,7 @@ const NewContactHeader = () => {
   ];
 
   return (
-    <div className="lg:basis-[40%] min-h-full">
+    <div className="lg:basis-[40%] min-h-full bg-[#CAEEEB]">
       <div className="flex flex-col h-full w-[90%] mx-auto gap-4 lg:gap-8 pt-8">
         <h1 className="bg-gradient-to-b from-[#2EA990] to-[#107882] text-transparent bg-clip-text text-5xl font-bold py-2">
           Let's get in touch
@@ -62,7 +62,7 @@ const NewContactHeader = () => {
           Great! We're excited to hear from you and let's start something
           special together
         </p>
-        <div className="flex-1 border-[2px] rounded-xl shadow-[2px_5px_15px] p-4 flex flex-col">
+        <div className="flex-1 border-[2px] rounded-xl  p-4 flex flex-col">
           <h1 className="text-4xl font-bold mb-16">Contact Information</h1>
           <div className="flex flex-col gap-4 flex-1 justify-between">
             {contactInformation.map((item, index) => (

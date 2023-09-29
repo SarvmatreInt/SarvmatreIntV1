@@ -72,7 +72,7 @@ const NewContactForm = () => {
 
   return (
     <>
-      <div className="flex-1 p-4 bg-[#beeae771] lg:basis-[60%]">
+      <div className="flex-1 p-4  lg:basis-[60%]">
         <div className="w-[95%] md:w-[80%] md:ml-[50px]">
           <h1 className="text-[40px] font-bold md:text-[50px]">Contact us</h1>
           <form className="mt-8" ref={form} onSubmit={sendEmail}>
