@@ -1,8 +1,26 @@
 const express = require("express");
-const dotenv = require("dotenv");
 const app = express();
-const port = process.env.PORT;
+const connectDB = require("./db/connect");
+const dotenv = require('dotenv');
+dotenv.config();
+const PORT = process.env.PORT ;
 
-app.listen(port, () => {
-    console.log(`donationService listening http://localhost:${port}`);
-  });
+const jobs_routes = require("./routes/JobDesc");
+app.get("/", (req, res)=>{
+  res.send("hellooo")
+});
+
+// middleware or to set router 
+app.use("/api/jobs", jobs_routes)
+const start = async ()=>{
+  try {
+    await connectDB(process.env.MONGODB_URL);
+    app.listen(PORT, () => {
+        console.log(`listening http://localhost:${PORT}`);
+      });
+  }catch(error){
+    console.log('Error in starting the server g', error);
+  }
+}
+
+start();
