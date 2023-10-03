@@ -1,0 +1,28 @@
+[
+    {
+        "id":"01",
+        "jobName": "Product Manager",
+        "location": "remote",
+        "duration": "six"
+    },{
+        "id":"02",
+        "jobName": "intern tech",
+        "location": "workFromoffice",
+        "duration": "five"
+    },{
+        "id":"03",
+        "jobName": "tech lead",
+        "location": "workFromHome",
+        "duration": "four"
+    },{
+        "id":"04",
+        "jobName": "frontend dev",
+        "location": "workFromHome",
+        "duration": "three"
+    },{
+        "id":"05",
+        "jobName": "backend dev",
+        "location": "workFromHome",
+        "duration": "two"
+    }
+]
