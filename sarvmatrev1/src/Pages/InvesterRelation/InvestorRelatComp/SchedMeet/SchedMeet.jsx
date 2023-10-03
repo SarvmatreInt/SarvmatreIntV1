@@ -1,4 +1,4 @@
-import React, { useRef } from "react";
+import  { useRef } from "react";
 import emailjs from "@emailjs/browser";
 const SchedMeet = () => {
   const form = useRef();
@@ -22,7 +22,7 @@ const SchedMeet = () => {
       );
   };
   return (
-    <div className="pt-24">
+    <div className="py-10 bg-[#CAEEEB]">
       <div className="container px-2">
         <h1 className="text-4xl py-10 font-bold">Schedule and Meet</h1>
         <div>
@@ -35,7 +35,7 @@ const SchedMeet = () => {
                     <input
                       type="text"
                       name="name"
-                      className="border-b-2 border-black focus:outline-none w-[90%] placeholder:text-center min-w-[350px] md:min-w-[218px]"
+                      className="border-b-2 border-black focus:outline-none w-[90%] placeholder:text-center min-w-[350px] md:min-w-[218px] bg-transparent"
                       placeholder="Type Here"
                     />
                   </div>
@@ -45,7 +45,7 @@ const SchedMeet = () => {
                   <div className="flex-1">
                     <select
                       name="meetFor"
-                      className="border-b-2 border-black focus:outline-none w-[90%] min-w-[350px] md:min-w-[180px] sm:min-w-[0px] text-center"
+                      className="border-b-2 border-black focus:outline-none w-[90%] min-w-[350px] md:min-w-[180px] sm:min-w-[0px] text-center bg-transparent"
                     >
                       <option selected>Investment</option>
                       <option selected>Investment2</option>
@@ -59,7 +59,7 @@ const SchedMeet = () => {
                     <input
                       type="email"
                       name="email"
-                      className="placeholder:text-center border-b-2 border-black mx-0 w-[90%] focus:outline-none min-w-[350px] md:min-w-[0px]"
+                      className="placeholder:text-center border-b-2 border-black mx-0 w-[90%] focus:outline-none min-w-[350px] md:min-w-[0px] bg-transparent"
                       placeholder="Your Email ID here "
                     />
                     <h1>!</h1>

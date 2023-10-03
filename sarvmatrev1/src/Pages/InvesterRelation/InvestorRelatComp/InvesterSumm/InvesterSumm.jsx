@@ -44,18 +44,29 @@ const InvesterSumm = () => {
   };
   const DATA = [
     {
+      id:1,
       title: "Featured Events",
+      content:"heloo"
     },
     {
+      id:2,
       title: "Latest News",
+      content:"heloo"
     },
     {
+      id:3,
       title: "Current Investor",
+      content:"heloo"
     },
     {
+      id:4,
       title: "Media Coverage & Press release",
+      content:"heloo"
     },
   ];
+
+  
+  const [activeState, setActiveState]=useState(null)
   return (
     <div className="bg-[#beeae7] py-8">
       <div className="container">
@@ -70,9 +81,16 @@ const InvesterSumm = () => {
               <>
                 <SummComp
                   key={index}
-                  title={item.title}
+                 {...item}
                   onClick={() => {
                     setPreview(index);
+                    setActiveState((prev)=>{
+                      if(JSON.stringify(prev) === JSON.stringify(item)){
+                        return null;
+                      }else{
+                        setActiveState(item)
+                      }
+                    })
                   }}
                   className={index === preview ? "active" : ""}
                 />

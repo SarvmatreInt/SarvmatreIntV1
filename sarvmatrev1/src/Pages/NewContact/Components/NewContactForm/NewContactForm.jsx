@@ -73,13 +73,12 @@ const NewContactForm = () => {
   return (
     <>
       <div className="flex-1 p-4  lg:basis-[60%]">
-        <div className="w-[95%] md:w-[80%] md:ml-[50px]">
-          <h1 className="text-[40px] font-bold md:text-[50px]">Contact us</h1>
-          <form className="mt-8" ref={form} onSubmit={sendEmail}>
+        <div className="w-[95%] md:w-[80%] md:ml-[50px] overflow-hidden">
+          <h1 className="text-[40px] font-bold md:text-[50px] text-[#2EA990]">Contact us</h1>
+          <form className="mt-" ref={form} onSubmit={sendEmail}>
             <Input
               name="fullName"
               value={data["fullName"]}
-              title="FULL NAME"
               id="newContact_fName"
               onChange={handleChange}
               onBlur={handleChange}
@@ -90,11 +89,12 @@ const NewContactForm = () => {
             />
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
               <div>
-                <div className="text-xl font-medium mb-[6px]">
+                {/* <div className="text-xl font-medium mb-[6px]">
                   PHONE<span className="text-red-600 ml-2">*</span>
-                </div>
+                </div> */}
                 <PhoneInput
                   country={"in"}
+                  className="mt-6"
                   value={data["phone"]}
                   onChange={(value, country) => {
                     setErrors(validateInput("phone", data["phone"]));
@@ -106,10 +106,10 @@ const NewContactForm = () => {
                   }}
                   inputStyle={{
                     width: "100%",
-                    border: "0px",
-                    borderBottom: "2px solid rgb(156,163, 175)",
-                    borderRadius: "0",
-                    padding: "0px 0px 0px 40px",
+                    text:"40px",
+                    border: "1px solid rgb(156,163, 175)",
+                    borderRadius:"10px",
+                    padding: "1rem 0 1rem 40px",
                     backgroundColor: "inherit",
                   }}
                   buttonStyle={{
@@ -132,7 +132,6 @@ const NewContactForm = () => {
               <Input
                 name="email"
                 value={data["email"]}
-                title="EMAIL"
                 id="newContact_email"
                 onChange={handleChange}
                 placeholder="Enter your email"
@@ -143,7 +142,6 @@ const NewContactForm = () => {
             <Input
               name="subject"
               value={data["subject"]}
-              title="SUBJECT OF THE CONTENT"
               id="newContact_subject"
               onChange={handleChange}
               placeholder="Subject of the content"
@@ -155,7 +153,6 @@ const NewContactForm = () => {
             <Input
               name="address"
               value={data["address"]}
-              title="ADDRESS"
               id="newContact_address"
               onChange={handleChange}
               placeholder="Address"
@@ -168,7 +165,6 @@ const NewContactForm = () => {
               <Input
                 name="country"
                 value={data["country"]}
-                title="COUNTRY"
                 id="newContact_Country"
                 onChange={handleChange}
                 placeholder="Enter Country"
@@ -180,40 +176,25 @@ const NewContactForm = () => {
               <Input
                 name="city"
                 value={data["city"]}
-                title="CITY"
                 id="newContact_city"
                 onChange={handleChange}
                 placeholder="Enter your city name..."
                 onBlur={handleChange}
                 error={Object.keys(errors).includes("city") && errors["city"]}
               />
-              <Input
-                name="province"
-                value={data["province"]}
-                title="PROVINCE"
-                id="newContact_province"
-                onChange={handleChange}
-                placeholder="Enter Province..."
-                onBlur={handleChange}
-                error={
-                  Object.keys(errors).includes("province") && errors["province"]
-                }
-                required={false}
-              />
+ 
               <Input
                 name="state"
                 value={data["state"]}
-                title="STATE / UT"
                 id="newContact_state"
                 onChange={handleChange}
-                placeholder="Enter state name..."
+                placeholder="Enter state/ut/Provience name"
                 onBlur={handleChange}
                 error={Object.keys(errors).includes("state") && errors["state"]}
               />
               <Input
                 name="pincode"
                 value={data["pincode"]}
-                title="PINCODE"
                 id="newContact_pincode"
                 onChange={handleChange}
                 placeholder="Enter Pincode..."
@@ -245,7 +226,6 @@ const NewContactForm = () => {
                 </select>
               </div>
             </div>
-
             {data.identity === "group" && (
               <Input
                 name="group"
@@ -262,7 +242,6 @@ const NewContactForm = () => {
             <Input
               name="company"
               value={data["company"]}
-              title="COMPANY"
               id="newContact_company"
               onChange={handleChange}
               placeholder="Enter Company..."
@@ -274,9 +253,7 @@ const NewContactForm = () => {
 
             {(data.identity === "group" || data.identity === "individual") && (
               <Input
-                name="designation"
                 value={data["designation"]}
-                title="DESIGNATION"
                 id="newContact_designation"
                 onChange={handleChange}
                 placeholder="Enter Designation..."
@@ -290,7 +267,6 @@ const NewContactForm = () => {
             <Input
               name="message"
               value={data["message"]}
-              title="WRITE YOUR MESSAGE"
               id="newContact_message"
               onChange={handleChange}
               placeholder="Enter your message to us..."

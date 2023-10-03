@@ -16,7 +16,7 @@ const InvestorRelation = () => {
       <Intro />
       {/* <BecomeOurPartner /> */}
       <SchedMeet />
-      <CompanyOverview />
+      {/* <CompanyOverview /> */}
       <Bnaer/>
       <InvesterContact />
       {/* <CurrentInvester /> */}

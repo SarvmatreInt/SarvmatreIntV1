@@ -4,6 +4,7 @@ import Input from "../../../NewContact/Components/Input/Input";
 import PhoneInput from "react-phone-input-2";
 import "react-phone-input-2/lib/style.css";
 import { useState } from "react";
+import phone from "../image/top-view-retro-telephone.jpg";
 
 const InvesterContact = () => {
   const [opened, { open, close }] = useDisclosure(false);
@@ -38,22 +39,19 @@ const InvesterContact = () => {
   return (
     <div className="my-[100px]">
       <div className="container">
-        <div className="flex border-2 rounded-xl py-[100px] px-[50px]">
+        <div className="flex border-2 rounded-xl overflow-hidden max-h-[80vh]">
           <div className="w-[40%]">
-            <div className="text-4xl font-bold mb-24">
-              CONTACT US
-            </div>
+          <img src={phone} alt="" className="h-[100%] w-[100%]"/>
           </div>
-          <div className="w-[60%]">
-            <div>
-              <form action="">
+          <div className="w-[60%]  flex justify-center items-center">
+              <form action="" className="w-[80%]">
+              <p className="font-bold text-3xl pt-[20px]">Contact Us</p>
                 <Input
                   name="fullName"
                   id="investor_fullName"
-                  title="FULL NAME"
                   value={data.fullName}
                   onChange={handleChange}
-                  placeholder="Body"
+                  placeholder="Enter Full Name"
                   required={true}
                 />
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
@@ -96,7 +94,6 @@ const InvesterContact = () => {
                   <Input
                     name="email"
                     value={data["email"]}
-                    title="EMAIL"
                     id="investor_email"
                     onChange={handleChange}
                     placeholder="Enter your email"
@@ -106,20 +103,18 @@ const InvesterContact = () => {
                   <Input
                     name="investorType"
                     value={data.investorType}
-                    title="INVESTOR TYPE"
                     id="investor_type"
                     onChange={handleChange}
-                    placeholder="Body"
+                    placeholder="Invester Type"
                     // onBlur={handleChange}
                     // error={Object.keys(errors).includes("email") && errors["email"]}
                   />
                   <Input
                     name="country"
                     value={data.country}
-                    title="COUNTRY"
                     id="investor_country"
                     onChange={handleChange}
-                    placeholder="Body"
+                    placeholder="Enter Country"
                     // onBlur={handleChange}
                     // error={Object.keys(errors).includes("email") && errors["email"]}
                   />
@@ -152,10 +147,9 @@ const InvesterContact = () => {
                   <Input
                     name="group"
                     value={data["group"]}
-                    title="GROUP"
                     id="newContact_group"
                     onChange={handleChange}
-                    placeholder="Enter Group..."
+                    placeholder="Enter Group"
                     // onBlur={handleChange}
                     // error={Object.keys(errors).includes("group") && errors["group"]}
                   />
@@ -164,10 +158,9 @@ const InvesterContact = () => {
                 <Input
                   name="company"
                   value={data["company"]}
-                  title="COMPANY"
                   id="newContact_company"
                   onChange={handleChange}
-                  placeholder="Enter Company..."
+                  placeholder="Enter Company"
                   // onBlur={handleChange}
                   // error={
                   //   Object.keys(errors).includes("company") && errors["company"]
@@ -179,10 +172,9 @@ const InvesterContact = () => {
                   <Input
                     name="designation"
                     value={data["designation"]}
-                    title="DESIGNATION"
                     id="newContact_designation"
                     onChange={handleChange}
-                    placeholder="Enter Designation..."
+                    placeholder="Enter Designation"
                     // onBlur={handleChange}
                     // error={
                     //   Object.keys(errors).includes("designation") &&
@@ -193,10 +185,9 @@ const InvesterContact = () => {
                 <Input
                   name="message"
                   value={data.message}
-                  title="MESSAGE"
                   id="investor_message"
                   onChange={handleChange}
-                  placeholder="Body"
+                  placeholder="Enter Message"
                   // onBlur={handleChange}
                   // error={Object.keys(errors).includes("email") && errors["email"]}
                 />
@@ -208,7 +199,8 @@ const InvesterContact = () => {
                   Submit
                 </button>
               </form>
-            </div>
+
+
           </div>
         </div>
       </div>

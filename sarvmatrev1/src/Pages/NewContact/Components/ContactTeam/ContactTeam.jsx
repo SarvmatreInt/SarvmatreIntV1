@@ -70,13 +70,13 @@ const ContactTeam = ({ onClick }) => {
     },
   ];
   return (
-    <div className="py-16">
-      <div className=" container">
+    <div className="py-[100px]">
+      <div className="container">
         <h1 className="text-center text-[40px] font-semibold">
           Contact Our Friendly Team
         </h1>
         <p className="text-center text-[20px] mb-8">
-          Want to get in touch? We'd love to hear from you.
+          Want to get in touch? We&apos;d love to hear from you.
         </p>
         <div className="flex flex-wrap justify-center gap-4 max-w-[95%] mx-auto">
           {DATA.map((item, index) => (
