@@ -26,6 +26,7 @@ const NewContactForm = () => {
       )
       .then(
         (result) => {
+          notify();
           console.log(result.text);
         },
         (error) => {
@@ -281,7 +282,7 @@ const NewContactForm = () => {
               }
             />
             <div className="flex items-center gap-2 text-[20px] cursor-pointer w-max my-4 relative">
-              <button type="submit" className="mr-8 button-27" onClick={notify}>
+              <button type="submit" className="mr-8 button-27" >
                 Submit
               </button>
               <img src={arrow} className="h-[16px] absolute right-0" />

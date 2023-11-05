@@ -6,14 +6,18 @@ const SummComp = ({ title, className, onClick,id, content}) => {
         className === "active" ? "outline outline-1 shadow-[2px_5px_5px]" : ""
       }`}
     >
-    {id}
+      <div className="">
+        {/* <div className="">
+         {id}
+        </div> */}
+      </div>
       {title}
       <div
         className={`ml-[45px] mr-8 ${
           className === "active" ? "block" : "hidden"
         }`}
       >
-        {content}
+        {/* {content} */}
       </div>
     </div>
   );

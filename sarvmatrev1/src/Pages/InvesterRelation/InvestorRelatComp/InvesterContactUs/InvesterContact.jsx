@@ -3,8 +3,12 @@ import { Drawer, Button, Group } from "@mantine/core";
 import Input from "../../../NewContact/Components/Input/Input";
 import PhoneInput from "react-phone-input-2";
 import "react-phone-input-2/lib/style.css";
-import { useState } from "react";
+import { useRef, useState } from "react";
+import emailjs from "@emailjs/browser";
+import { validateData } from "../../../NewContact/Components/NewContactForm/Validation.js";
 import phone from "../image/top-view-retro-telephone.jpg";
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const InvesterContact = () => {
   const [opened, { open, close }] = useDisclosure(false);
@@ -23,7 +27,29 @@ const InvesterContact = () => {
   };
 
   const [data, setData] = useState(initialState);
-
+  const [errors, setErrors] = useState({});
+  const notify = () => toast("Thanks for reaching us...");
+  const form = useRef();
+  const sendEmail = (e) => {
+    e.preventDefault();
+    emailjs
+    .sendForm(
+      "service_shyrfkk",
+      "template_tumlcac",
+        form.current,
+        "X9dD1bs7vGKBbNpzO"
+      )
+      .then(
+        (result) => {
+          notify();
+          console.log(result)
+        },
+        (error) => {
+          console.log(error.text);
+        }
+      );
+      handleSubmit();
+  };
   const handleChange = (e) => {
     const { name, value } = e.target;
     setData((prev) => ({
@@ -31,10 +57,17 @@ const InvesterContact = () => {
       [name]: value,
     }));
   };
-
   const handleSubmit = (e) => {
     e.preventDefault();
+    setData(initialState);
+    setErrors(validateData(data));
+    if (Object.keys(errors).length === 0) {
+      setData(initialState);
+    } else {
+      setData((prev) => ({ ...prev }));
+    }
   };
+
 
   return (
     <div className="my-[100px]">
@@ -44,7 +77,7 @@ const InvesterContact = () => {
           <img src={phone} alt="" className="h-[100%] w-[100%]"/>
           </div>
           <div className="w-[60%]  flex justify-center items-center">
-              <form action="" className="w-[80%]">
+              <form action="" ref={form} className="w-[80%]"  onSubmit={sendEmail}>
               <p className="font-bold text-3xl pt-[20px]">Contact Us</p>
                 <Input
                   name="fullName"
@@ -193,11 +226,11 @@ const InvesterContact = () => {
                 />
                 <button
                   type="submit"
-                  onClick={handleSubmit}
                   className="bg-black text-white rounded-r-md px-4 py-1 text-2xl"
                 >
                   Submit
                 </button>
+                <ToastContainer />
               </form>
 
 
