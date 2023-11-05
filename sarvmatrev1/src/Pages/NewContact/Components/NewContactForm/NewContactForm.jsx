@@ -7,17 +7,22 @@ import validateInput from "./Validation.js";
 import { validateData } from "./Validation.js";
 import { useRef } from "react";
 import emailjs from "@emailjs/browser";
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const NewContactForm = () => {
   const form = useRef();
   const sendEmail = (e) => {
     e.preventDefault();
     emailjs
-      .sendForm(
-        "service_239zzij",
-        "template_ob6cemk",
+    // template id
+    // public id
+    
+    .sendForm(
+      "service_shyrfkk",
+      "template_tumlcac",
         form.current,
-        "1UU7sjBqQJA7fjCrM"
+        "X9dD1bs7vGKBbNpzO"
       )
       .then(
         (result) => {
@@ -69,7 +74,7 @@ const NewContactForm = () => {
       setData((prev) => ({ ...prev }));
     }
   };
-
+  const notify = () => toast("Thanks for reaching us...");
   return (
     <>
       <div className="flex-1 p-4  lg:basis-[60%]">
@@ -276,15 +281,24 @@ const NewContactForm = () => {
               }
             />
             <div className="flex items-center gap-2 text-[20px] cursor-pointer w-max my-4 relative">
-              <button type="submit" className="mr-8 button-27">
+              <button type="submit" className="mr-8 button-27" onClick={notify}>
                 Submit
               </button>
               <img src={arrow} className="h-[16px] absolute right-0" />
             </div>
           </form>
         </div>
+        <ToastContainer />
       </div>
     </>
   );
 };
 export default NewContactForm;
+
+
+// // service id
+// service_shyrfkk
+// // template id
+// template_tumlcac
+// // public id
+// X9dD1bs7vGKBbNpzO
