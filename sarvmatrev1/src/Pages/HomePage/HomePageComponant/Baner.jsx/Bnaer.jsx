@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom"
+// import { Link } from "react-router-dom"
 import banner from "./Frame 427319436.png"
 const Bnaer = () => {
   return (
